@@ -4,6 +4,13 @@
 
 *Date from 06/20/2018*
 
-| # | Title | Key Words | Tag |
-| :------: | :------: | :------:| :------: |
-| 1 | Two sum | vector、array | / |
+* Review list
+
+| # | Title | Key Word | Solution | Tag | Date |
+| :------: | :------: | :------:| :------: | :------: | :------: |
+| 1 | [Two sum](https://leetcode.com/problems/two-sum/description/) | vector、array | [C++](https://github.com/melodybabee/Leetcode/blob/master/cpp/1.TwoSum.cpp) | / | 06/20 |
+
+* New list
+
+| # | Title | Key Word | Tag | Date |
+| :------: | :------: | :------:| :------: | :------: |
