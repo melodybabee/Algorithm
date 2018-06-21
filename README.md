@@ -8,7 +8,7 @@
 
 | # | Title | Key Word | Solution | Tag | Date |
 | :------: | :------: | :------:| :------: | :------: | :------: |
-| 1 | [Two sum](https://leetcode.com/problems/two-sum/description/) | vector、array | [C++](https://github.com/melodybabee/Leetcode/blob/master/1.TwoSum.cpp) | / | 06/20 |
+| 1 | [Two sum](https://leetcode.com/problems/two-sum/description/) | vector、两层for循环 | [C++](https://github.com/melodybabee/Leetcode/blob/master/1.TwoSum.cpp) | / | 06/20 |
 
 * New list
 
