@@ -1,3 +1,6 @@
+#include <iostream>
+using std::vector;
+
 class solution{
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
