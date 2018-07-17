@@ -16,3 +16,5 @@
 | # | Title | Key Word | Solution | Tag | Date |
 | :------: | :------: | :------:| :------: | :------: | :------: |
 | 125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/) | 满足所有条件的时候返回true, isalnum(),tolower() | [C++](https://github.com/melodybabee/Leetcode/blob/master/125.Valid%20Palindrome.cpp) | string | 07/16 |
+| 344 | [Reverse String](https://leetcode.com/problems/reverse-string/description/) | 一次AC，日后注意看follow up | [C++](https://github.com/melodybabee/Leetcode/blob/master/344.%20Reverse%20String.cpp) | string | 07/17 |
+| 530 | [Detect Capital](https://leetcode.com/problems/detect-capital/description/) | 未解决 | [C++] | string | 07/17 |
