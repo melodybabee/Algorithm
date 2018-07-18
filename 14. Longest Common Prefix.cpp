@@ -38,4 +38,13 @@ prefix 前缀
 3.最后判断，如果flag为true, 返回已有的返回值。如果flag是！true, break;
 优点就在于直接写好不满足条件的情况即可。
 代码可以看原题部分。
+
+代码报错排查：
+1.Runtime Error Message:reference binding to null pointer of type 'value_type'
+  Last executed input:[]
+  可能原因： 
+  对于数组长度为0的情况没有进行判断，加入判断条件就可以解决。
+2.execution reached the end of a value-returning function without returning a val
+  没有返回值。
+
 */
