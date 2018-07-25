@@ -7,6 +7,7 @@
 | # | Title | Key Word | Solution | Tag | Date |
 | :------: | :------: | :------:| :------: | :------: | :------: |
 | 1 | [Two sum](https://leetcode.com/problems/two-sum/description/) | vector、两层for循环 | [C++](https://github.com/melodybabee/Leetcode/blob/master/1.TwoSum.cpp) | / | 06/20 |
+| 7 | [Reverse Integer](https://leetcode.com/problems/reverse-integer/description/) | 整数反转 | [C++](https://github.com/melodybabee/Leetcode/blob/master/007.Reverse%20Integer.cpp) | string | 07/25 |
 | 13 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer/description/) | 罗马数字计数法 | [C++](https://github.com/melodybabee/Leetcode/blob/master/13.Roman%20to%20Integer.cpp) | string | 07/16 |
 | 14 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/description/) | 双层循环，vector | [C++](https://github.com/melodybabee/Leetcode/blob/master/14.Longest%20Common%20Prefix.cpp) | string | 07/18 |
 | 26 | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/) | vector中定义双指针循环 | [C++](https://github.com/melodybabee/Leetcode/blob/master/026.%20Remove%20Duplicates%20from%20Sorted%20Array.cpp) | vector | 07/23 |
@@ -20,6 +21,7 @@
 | # | Title | Key Word | Solution | Tag | Date |
 | :------: | :------: | :------:| :------: | :------: | :------: |
 | 125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/) | 满足所有条件的时候返回true, isalnum(),tolower() | [C++](https://github.com/melodybabee/Leetcode/blob/master/125.Valid%20Palindrome.cpp) | string | 07/16 |
+| 167 | [Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/) | 001的fellow up优化| [C++](https://github.com/melodybabee/Leetcode/blob/master/167.%20Two%20Sum%20II%20-%20Input%20array%20is%20sorted.cpp) | vector首尾双指针 | 07/25 |
 | 169 | [Majority Element](https://leetcode.com/problems/majority-element/description/) | 数量过大的时候o(n)过大，需要优化 | [C++] | 双层循环 | 07/23 |
 | 344 | [Reverse String](https://leetcode.com/problems/reverse-string/description/) | 一次AC，日后注意看follow up | [C++](https://github.com/melodybabee/Leetcode/blob/master/344.%20Reverse%20String.cpp) | string | 07/17 |
 | 520 | [Detect Capital](https://leetcode.com/problems/detect-capital/description/) | 多层循环，continue；（也许涉及标志位？日后看）isupper(),islower() | [C++](https://github.com/melodybabee/Leetcode/blob/master/520.%20Detect%20Capital.cpp)| string | 07/17 |
