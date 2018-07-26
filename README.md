@@ -13,6 +13,7 @@
 | 26 | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/) | vector中定义双指针循环 | [C++](https://github.com/melodybabee/Leetcode/blob/master/026.%20Remove%20Duplicates%20from%20Sorted%20Array.cpp) | vector | 07/23 |
 | 27 | [Remove Element](https://leetcode.com/problems/remove-element/description/) | 用新vector覆盖原有的vector | [C++](https://github.com/melodybabee/Leetcode/blob/master/027.%20Remove%20Element.cpp) | vector | 07/22 |
 | 58 | [Length of Last Word](https://leetcode.com/problems/length-of-last-word/description/) | for循环，break条件 | [C++](https://github.com/melodybabee/Leetcode/blob/master/058.%20Length%20of%20Last%20Word.cpp) | string | 07/23 |
+| 66 | [Plus One](https://leetcode.com/problems/plus-one/description/) | 边界条件的考虑 | [C++](https://github.com/melodybabee/Leetcode/blob/master/066.%20Plus%20One.cpp) | vector | 07/23 |
 | 107 | [Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/description/) | tree | [C++] | / | 06/21 |
 
 
