@@ -23,8 +23,8 @@
 | :------: | :------: | :------:| :------: | :------: | :------: |
 | 125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/) | 满足所有条件的时候返回true, isalnum(),tolower() | [C++](https://github.com/melodybabee/Leetcode/blob/master/125.Valid%20Palindrome.cpp) | string | 07/16 |
 | 167 | [Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/) | 001的fellow up优化| [C++](https://github.com/melodybabee/Leetcode/blob/master/167.%20Two%20Sum%20II%20-%20Input%20array%20is%20sorted.cpp) | vector首尾双指针 | 07/25 |
-| 169 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/) | 数量过大的时候o(n)过大，需要优化 | [C++] | 双层循环 | 07/23 |
-| 217 | [Majority Element](https://leetcode.com/problems/majority-element/description/) | 需要优化 | [C++](https://github.com/melodybabee/Leetcode/blob/master/217.%20Contains%20Duplicate.cpp) | 双层循环 | 07/26 |
+| 169 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/) | 数量过大的时候o(n)过大，需要优化 | [C++] | 双层for循环 | 07/23 |
+| 217 | [Majority Element](https://leetcode.com/problems/majority-element/description/) | 需要优化 | [C++](https://github.com/melodybabee/Leetcode/blob/master/217.%20Contains%20Duplicate.cpp) | 双层for循环 | 07/26 |
 | 344 | [Reverse String](https://leetcode.com/problems/reverse-string/description/) | 一次AC，日后注意看follow up | [C++](https://github.com/melodybabee/Leetcode/blob/master/344.%20Reverse%20String.cpp) | string | 07/17 |
 | 520 | [Detect Capital](https://leetcode.com/problems/detect-capital/description/) | 多层循环，continue；（也许涉及标志位？日后看）isupper(),islower() | [C++](https://github.com/melodybabee/Leetcode/blob/master/520.%20Detect%20Capital.cpp)| string | 07/17 |
 | 521 | [Longest Uncommon Subsequence I](https://leetcode.com/problems/longest-uncommon-subsequence-i/description/) | 复杂算法待改进 | [C++](https://github.com/melodybabee/Leetcode/blob/master/521.%20Longest%20Uncommon%20Subsequence%20I.cpp)| string | 07/18 |
