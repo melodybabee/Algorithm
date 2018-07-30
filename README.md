@@ -14,6 +14,7 @@
 | 27 | [Remove Element](https://leetcode.com/problems/remove-element/description/) | 用新vector覆盖原有的vector | [C++](https://github.com/melodybabee/Leetcode/blob/master/027.%20Remove%20Element.cpp) | vector | 07/22 |
 | 58 | [Length of Last Word](https://leetcode.com/problems/length-of-last-word/description/) | for循环，break条件 | [C++](https://github.com/melodybabee/Leetcode/blob/master/058.%20Length%20of%20Last%20Word.cpp) | string | 07/23 |
 | 66 | [Plus One](https://leetcode.com/problems/plus-one/description/) | 考虑边界条件 | [C++](https://github.com/melodybabee/Leetcode/blob/master/066.%20Plus%20One.cpp) | vector | 07/26 |
+| 83 | [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/) | 链表的移动 | [C++](https://github.com/melodybabee/Leetcode/blob/master/083.%20Remove%20Duplicates%20from%20Sorted%20List.cpp) | Linked List | 07/30 |
 | 107 | [Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/description/) | tree | [C++] | / | 06/21 |
 
 
