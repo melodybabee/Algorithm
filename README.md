@@ -7,9 +7,12 @@
 | # | Title | Key Word | Solution | Tag | Date |
 | :------: | :------: | :------:| :------: | :------: | :------: |
 | 1 | [Two sum](https://leetcode.com/problems/two-sum/description/) | vector、两层for循环 | [C++](https://github.com/melodybabee/Leetcode/blob/master/001.TwoSum.cpp) | / | 06/20 |
+| 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/) | 新建链表，链表增加长度 | [C++](https://github.com/melodybabee/Leetcode/blob/master/002.Add%20Two%20Numbers.cpp) | Linked List | 08/01 |
 | 7 | [Reverse Integer](https://leetcode.com/problems/reverse-integer/description/) | 整数反转 | [C++](https://github.com/melodybabee/Leetcode/blob/master/007.Reverse%20Integer.cpp) | string | 07/25 |
+| 9 | [Palindrome Number](https://leetcode.com/problems/palindrome-number/description/) | 取余除10进行数字反转 | [C++](https://github.com/melodybabee/Leetcode/blob/master/009.Palindrome%20Number.cpp) | int | 07/31 |
 | 13 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer/description/) | 罗马数字计数法 | [C++](https://github.com/melodybabee/Leetcode/blob/master/013.Roman%20to%20Integer.cpp) | string | 07/16 |
 | 14 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/description/) | 双层循环，vector | [C++](https://github.com/melodybabee/Leetcode/blob/master/014.Longest%20Common%20Prefix.cpp) | string | 07/18 |
+| 20 | [Valid Parenthese](https://leetcode.com/problems/valid-parentheses/description/) | 栈的操作，符号匹配问题 | [C++](https://github.com/melodybabee/Leetcode/blob/master/020.Valid%20Parentheses.cpp)| stack| 07/31 |
 | 26 | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/) | vector中定义双指针循环 | [C++](https://github.com/melodybabee/Leetcode/blob/master/026.%20Remove%20Duplicates%20from%20Sorted%20Array.cpp) | vector | 07/23 |
 | 27 | [Remove Element](https://leetcode.com/problems/remove-element/description/) | 用新vector覆盖原有的vector | [C++](https://github.com/melodybabee/Leetcode/blob/master/027.%20Remove%20Element.cpp) | vector | 07/22 |
 | 58 | [Length of Last Word](https://leetcode.com/problems/length-of-last-word/description/) | for循环，break条件 | [C++](https://github.com/melodybabee/Leetcode/blob/master/058.%20Length%20of%20Last%20Word.cpp) | string | 07/23 |
