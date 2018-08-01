@@ -12,6 +12,7 @@
 | 13 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer/description/) | 罗马数字计数法 | [C++](https://github.com/melodybabee/Leetcode/blob/master/013.Roman%20to%20Integer.cpp) | string | 07/16 |
 | 14 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/description/) | 双层循环，vector | [C++](https://github.com/melodybabee/Leetcode/blob/master/014.Longest%20Common%20Prefix.cpp) | string | 07/18 |
 | 20 | [Valid Parenthese](https://leetcode.com/problems/valid-parentheses/description/) | 栈的操作，符号匹配问题 | [C++](https://github.com/melodybabee/Leetcode/blob/master/020.Valid%20Parentheses.cpp)| stack| 07/31 |
+| 21 | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/description/) | 新建链表，处理链表尾部结点 | [C++](https://github.com/melodybabee/Leetcode/blob/master/021.Merge%20Two%20Sorted%20Lists.cpp)| Linked List| 08/01 |
 | 26 | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/) | vector中定义双指针循环 | [C++](https://github.com/melodybabee/Leetcode/blob/master/026.%20Remove%20Duplicates%20from%20Sorted%20Array.cpp) | vector | 07/23 |
 | 27 | [Remove Element](https://leetcode.com/problems/remove-element/description/) | 用新vector覆盖原有的vector | [C++](https://github.com/melodybabee/Leetcode/blob/master/027.%20Remove%20Element.cpp) | vector | 07/22 |
 | 58 | [Length of Last Word](https://leetcode.com/problems/length-of-last-word/description/) | for循环，break条件 | [C++](https://github.com/melodybabee/Leetcode/blob/master/058.%20Length%20of%20Last%20Word.cpp) | string | 07/23 |
@@ -29,6 +30,7 @@
 | 167 | [Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/) | 001的fellow up优化| [C++](https://github.com/melodybabee/Leetcode/blob/master/167.%20Two%20Sum%20II%20-%20Input%20array%20is%20sorted.cpp) | vector首尾双指针 | 07/25 |
 | 169 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/) | 数量过大的时候o(n)过大，需要优化 | [C++] | 双层for循环 | 07/23 |
 | 217 | [Majority Element](https://leetcode.com/problems/majority-element/description/) | 需要优化 | [C++](https://github.com/melodybabee/Leetcode/blob/master/217.%20Contains%20Duplicate.cpp) | 双层for循环 | 07/26 |
+| 283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/) | 区分while和if! | [C++](https://github.com/melodybabee/Leetcode/blob/master/283.Move%20Zeroes.cpp) | array | 08/01 |
 | 344 | [Reverse String](https://leetcode.com/problems/reverse-string/description/) | 一次AC，日后注意看follow up | [C++](https://github.com/melodybabee/Leetcode/blob/master/344.%20Reverse%20String.cpp) | string | 07/17 |
 | 520 | [Detect Capital](https://leetcode.com/problems/detect-capital/description/) | 多层循环，continue；（也许涉及标志位？日后看）isupper(),islower() | [C++](https://github.com/melodybabee/Leetcode/blob/master/520.%20Detect%20Capital.cpp)| string | 07/17 |
 | 521 | [Longest Uncommon Subsequence I](https://leetcode.com/problems/longest-uncommon-subsequence-i/description/) | 复杂算法待改进 | [C++](https://github.com/melodybabee/Leetcode/blob/master/521.%20Longest%20Uncommon%20Subsequence%20I.cpp)| string | 07/18 |
