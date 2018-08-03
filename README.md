@@ -15,7 +15,7 @@
 | 21 | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/description/) | 新建链表，处理链表尾部结点 | [C++](https://github.com/melodybabee/Leetcode/blob/master/021.Merge%20Two%20Sorted%20Lists.cpp)| Linked List| 08/01 |
 | 26 | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/) | vector中定义双指针循环 | [C++](https://github.com/melodybabee/Leetcode/blob/master/026.%20Remove%20Duplicates%20from%20Sorted%20Array.cpp) | vector | 07/23 |
 | 27 | [Remove Element](https://leetcode.com/problems/remove-element/description/) | 用新vector覆盖原有的vector | [C++](https://github.com/melodybabee/Leetcode/blob/master/027.%20Remove%20Element.cpp) | vector | 07/22 |
-| 28 | [Implement strStr()](https://leetcode.com/problems/implement-strstr/description/) | 在一个字符串里找子串 | [C++]08/03需要首先复习写一遍 | string | 08/02 |
+| 28 | [Implement strStr()](https://leetcode.com/problems/implement-strstr/description/) | 在一个字符串里找子串【重点复习】 | [C++](https://github.com/melodybabee/Leetcode/blob/master/028.Implement%20strStr().cpp) | string | 08/02 |
 | 58 | [Length of Last Word](https://leetcode.com/problems/length-of-last-word/description/) | for循环，break条件 | [C++](https://github.com/melodybabee/Leetcode/blob/master/058.%20Length%20of%20Last%20Word.cpp) | string | 07/23 |
 | 66 | [Plus One](https://leetcode.com/problems/plus-one/description/) | 考虑边界条件 | [C++](https://github.com/melodybabee/Leetcode/blob/master/066.%20Plus%20One.cpp) | vector | 07/26 |
 | 83 | [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/) | 链表的移动 | [C++](https://github.com/melodybabee/Leetcode/blob/master/083.%20Remove%20Duplicates%20from%20Sorted%20List.cpp) | Linked List | 07/30 |
