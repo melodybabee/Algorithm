@@ -33,6 +33,7 @@
 | 217 | [Majority Element](https://leetcode.com/problems/majority-element/description/) | 需要优化 | [C++](https://github.com/melodybabee/Leetcode/blob/master/217.%20Contains%20Duplicate.cpp) | 双层for循环 | 07/26 |
 | 283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/) | 区分while和if! | [C++](https://github.com/melodybabee/Leetcode/blob/master/283.Move%20Zeroes.cpp) | array | 08/01 |
 | 344 | [Reverse String](https://leetcode.com/problems/reverse-string/description/) | 一次AC，日后注意看follow up | [C++](https://github.com/melodybabee/Leetcode/blob/master/344.%20Reverse%20String.cpp) | string | 07/17 |
+| 387 | [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/description/) | TLE，需要优化 | [C++]| 双层循环 | 08/04 |
 | 520 | [Detect Capital](https://leetcode.com/problems/detect-capital/description/) | 多层循环，continue；（也许涉及标志位？日后看）isupper(),islower() | [C++](https://github.com/melodybabee/Leetcode/blob/master/520.%20Detect%20Capital.cpp)| string | 07/17 |
 | 521 | [Longest Uncommon Subsequence I](https://leetcode.com/problems/longest-uncommon-subsequence-i/description/) | 复杂算法待改进 | [C++](https://github.com/melodybabee/Leetcode/blob/master/521.%20Longest%20Uncommon%20Subsequence%20I.cpp)| string | 07/18 |
 | 747 | [Largest Number At Least Twice of Others](https://leetcode.com/problems/largest-number-at-least-twice-of-others/description/) | 找到vector中最大元素并比较，循环 | [C++](https://github.com/melodybabee/Leetcode/blob/master/747.Largest%20Number%20At%20Least%20Twice%20of%20Others.cpp)| vector | 08/02 |
