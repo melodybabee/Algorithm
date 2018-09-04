@@ -1,6 +1,7 @@
 # Leetcode
 
 *Date from 06/20/2018*
+*Now is the 3nd of Sep.Please update the process to at least 200 till the end of this month. Come on!*
 
 * Review list
 
