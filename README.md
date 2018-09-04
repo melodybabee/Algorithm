@@ -2,7 +2,7 @@
 
 *Date from 06/20/2018*
 
-*Now is the 3nd of Sep.Please update the process to at least 200 till the end of this month. Come on!*
+*9月底之前至少200题,从09/03开始*
 
 * Review list
 
