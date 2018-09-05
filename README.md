@@ -2,8 +2,6 @@
 
 *Date from 06/20/2018*
 
-*9月底之前至少200题,从09/03开始*
-
 * Review list
 
 | # | Title | Key Word | Solution | Tag | Date |
