@@ -1,3 +1,99 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+ //递归实现
+class Solution {
+public:
+    bool isSymmetric(TreeNode* root) {
+        if(root == NULL) return true;
+        if(!root) return true;
+        return TwoNodes(root-> left, root ->right);
+    }
+        
+    bool TwoNodes(TreeNode* p, TreeNode* q){
+        if(!p && !q) return true;//p, q都不存在的意思，符号！的逻辑顺序在&&之上
+        if(!p || !q) return false;
+        if(p-> val != q -> val) return false;
+            
+        return TwoNodes (p -> left, q->right) && TwoNodes(p->right, q -> left);
+    }
+}；
+/*
+思路：
+1.先判断root部分，是否存在，是否为空，从而判断是否对称
+2.接着定义一个新方法，用left和right两个变量，递归实现，当p,q都不存在的时候返回true,一方空或者值不等的时候返回false
+都不满足条件时进行不断递归
+
+注意：
+1.！的逻辑顺序要在&&之前
+2.递归的过程需要判断跳出条件
+
+*/
+//非递归实现
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isSymmetric(TreeNode* root) {
+        //if(root == NULL) return true;作用与下一行相同
+        if(!root) return true;
+        queue<TreeNode*> que;
+        que.push(root -> left);
+        que.push(root -> right);
+        while(!que.empty()){
+            TreeNode* p = que.front();
+            que.pop();
+            TreeNode* q = que.front();
+            que.pop();
+            if(!p && q) return false;
+            if(p && !q) return false;
+            if(p && q){
+                if(p -> val != q -> val) return false;
+                que.push(p -> left);
+                que.push(q -> right);
+                que.push(p -> right);
+                que.push(q -> left);
+                }
+            }
+        return true;
+    }
+};
+/*
+思路：
+1.首先同样先判断根结点的情况，是否存在，不存在直接返回true
+2.把跟结点的左右子结点放入queue中
+3.用两个不同的指针分别取queue前两个位置的地址，取出一个后pop掉当前的
+4.比较两个指针的地址，如果一个存在一个不存在或者都存在的情况下值不等，返回false
+5.继续把子结点的子结点push到queue里，依次比较
+6.当queue为空且没有遇到不满足条件的情况时，返回true
+
+注意：
+1.思路的卡顿点在于如何把新的子结点push到queue后面，应该按照左1左，右1右，左1右，右1左的顺序（可参考binary tree的数组）
+2.只要用到p,q的值的情况，应该考虑p,q是否存在
+3.当while循环结束之后，要最后返回true（考虑程序break的情况）
+4.queue的思想时先进先出，因此可以从头部取到每一个结点的值，后面注意灵活应用这一特性，同时注意queue中存放的是tree的地址，指针指向的也是地址
+
+优化：
+1.需要将两个数据合并为一个，或者当一个函数需要返回两个数据的时候，可以选择pair
+2.pair是一个结构体，包括first和second,
+3.创建 pair<变量1的类型，变量2的类型>pair名称(变量1，变量2)；可在初始的时候赋值，也可以用make_pair()初始化，如果是数字的话，make_pair会把second值自动转为int
+*/
+
+
+//补充二叉树创建，DFS前中后序遍历递归和非递归，BFS遍历的知识。
 #include <iostream>
 #include <stack>
 using std::cin;
@@ -149,11 +245,11 @@ int main(){
 	while (cin >> n){
 		n--;
 		int value;
-		cin >> value;
+		cin >> value;//root结点上的值
 		Node root(value);
 		while(n--){
 			int newValue;
-			cin >> newValue;
+			cin >> newValue;//需要插入的值
 			CreateTree(&root, newValue);
 		}
 		cout << "preOrder is" << endl;
