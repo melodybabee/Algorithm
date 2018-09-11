@@ -27,8 +27,9 @@
 | 83 | [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/) | 链表的移动 | [C++](https://github.com/melodybabee/Leetcode/blob/master/083.%20Remove%20Duplicates%20from%20Sorted%20List.cpp) | Linked List | 07/30 |
 | 88 | [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/description/) | array合并 | [C++](https://github.com/melodybabee/Leetcode/blob/master/088.%20Merge%20Sorted%20Array.cpp) | vector | 09/10 |
 | 100 | [Same Tree](https://leetcode.com/problems/same-tree/description/) | recursion | [C++](https://github.com/melodybabee/Leetcode/blob/master/100.Same%20Tree.cpp) | tree | 09/10 |
+| 101 | [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/description/) | 二叉树BFS(queue)，DFS的前中后序遍历（递归&非递归） | [C++](https://github.com/melodybabee/Leetcode/blob/master/101.Symmetric%20Tree.cpp) | tree，stack，queue | 09/11 |
+| 104 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/) | 递归找最大深度 | [C++](https://github.com/melodybabee/Leetcode/blob/master/104.Maximum%20Depth%20of%20Binary%20Tree.cpp)| tree | 09/11 |
 | 107 | [Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/description/) | tree | [C++] | / | 06/21 |
-
 
 
 * New list
