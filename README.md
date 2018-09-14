@@ -43,6 +43,7 @@
 | 112 | [Path Sum](https://leetcode.com/problems/path-sum/description/) | tree中的路径求和 | [C++](https://github.com/melodybabee/Leetcode/blob/master/112.Path%20Sum.cpp) | tree | 09/13 |
 | 118 | [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/description/) | 【重点复习】杨辉三角 | [C++](https://github.com/melodybabee/Leetcode/blob/master/118.Pascal's%20Triangle.cpp) | 递归，vector | 09/13 |
 | 119 | [Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/description/) | 【重点复习】【需要学习组合数公式】杨辉三角| [C++](https://github.com/melodybabee/Leetcode/blob/master/119.Pascal's%20Triangle%20II.cpp) | vector | 09/13 |
+| 121 | [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/) | 动态规划 | [C++](https://github.com/melodybabee/Leetcode/blob/master/121.Best%20Time%20to%20Buy%20and%20Sell%20Stock.cpp) | DP | 09/14 |
 | 125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/) | 满足所有条件的时候返回true, isalnum(),tolower() | [C++](https://github.com/melodybabee/Leetcode/blob/master/125.Valid%20Palindrome.cpp) | string | 07/16 |
 | 167 | [Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/) | 001的fellow up优化| [C++](https://github.com/melodybabee/Leetcode/blob/master/167.%20Two%20Sum%20II%20-%20Input%20array%20is%20sorted.cpp) | vector首尾双指针 | 07/25 |
 | 169 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/) | 数量过大的时候o(n)过大，需要优化 | [C++] | 双层for循环 | 07/23 |
