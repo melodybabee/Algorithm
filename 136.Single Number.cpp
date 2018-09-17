@@ -3,7 +3,7 @@
 1.在vector里找只出现一次的元素，可以用i，j两个指针进行循环，如果没有第二个相同的元素出现，返回
 2.但是此思路时间复杂度较高，为n的平方，因此需要优化
 */
-
+************************************
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
@@ -32,6 +32,7 @@ e.g.vector<int> vec = {3, 2, 4, 1, 7, 6, 5, 8 };
 //3. 实现所有元素的升序排序 sort(vec.begin(), vec.end(), comp2);
 //4. 降序排序sort(vec.rbegin(), vec.rend()); <==> sort(vec.begin(), vec.end()); reverse(vec.begin(), vec.end());
 */
+************************************
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
@@ -42,8 +43,7 @@ public:
         return ret;
     }
 };
-************************************
-/*优化2:Bit Manipulation位运算
+/*优化2:Bit Manipulation位运算，T()) = n, S(O) = 1
 1.概念：位运算其实就是直接对在内存中的二进制数据进行操作，因此处理数据的速度非常快.
 只可用于整形，不能用于float and double
 2.常见的位操作有：
