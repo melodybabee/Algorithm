@@ -7,21 +7,17 @@ public:
             if(!isalnum(s[i])){
                 i++;
                 continue;
-            }
-               
+            }  
             if(!isalnum(s[last])){
                 last--;
                 continue;
             }
-               
             if(tolower(s[i]) != tolower(s[last])){
                 return false;
             }
             i++;
             last--;
-            
         }
-    
         return true;
     }
 };
@@ -30,7 +26,7 @@ public:
 palindrome 回文的,alphanumeric characters 字母、数字字符
 思路的盲点在于列出判断情况之后不能确认什么时候返回true, 什么时候返回false
 完整的逻辑思路：
-1.对string在头部	i 和尾部 last 定义两个指针
+1.对string在头部 i 和尾部 last 定义两个指针
 2.当i < last 的时候依次判断，如果满足所有条件或者到了i == last的情况，返回true
 3.判断的情况，如果是空格（非英文或者数字），continue;直接重新循环
 4.若不等，返回false
