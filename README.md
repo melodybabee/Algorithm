@@ -50,6 +50,7 @@
 | 155 | [Min Stack](https://leetcode.com/problems/min-stack/description/) | 【存疑】 | [C++](https://github.com/melodybabee/Leetcode/blob/master/155.Min%20Stack.cpp) | stack | 09/17 |
 | 160 | [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/description/) | 找链表汇合点 | [C++](https://github.com/melodybabee/Leetcode/blob/master/160.Intersection%20of%20Two%20Linked%20Lists.cpp) | Linkedlist | 09/18 |
 | 167 | [Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/) | 001的fellow up优化| [C++](https://github.com/melodybabee/Leetcode/blob/master/167.%20Two%20Sum%20II%20-%20Input%20array%20is%20sorted.cpp) | vector首尾双指针 | 07/25 |
+| 168 | [Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title/description/) | 十进制转制为26进制 | [C++](https://github.com/melodybabee/Leetcode/blob/master/168.Excel%20Sheet%20Column%20Title.cpp) | string | 09/18 |
 | 169 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/) | 数量过大的时候o(n)过大，需要优化 | [C++] | 双层for循环 | 07/23 |
 | 217 | [Majority Element](https://leetcode.com/problems/majority-element/description/) | 需要优化 | [C++](https://github.com/melodybabee/Leetcode/blob/master/217.%20Contains%20Duplicate.cpp) | 双层for循环 | 07/26 |
 | 283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/) | 区分while和if! | [C++](https://github.com/melodybabee/Leetcode/blob/master/283.Move%20Zeroes.cpp) | array | 08/01 |
