@@ -53,8 +53,8 @@
 | 168 | [Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title/description/) | 十进制转制为26进制 | [C++](https://github.com/melodybabee/Leetcode/blob/master/168.Excel%20Sheet%20Column%20Title.cpp) | string | 09/18 |
 | 169 | [Majority Element](https://leetcode.com/problems/majority-element/description/)  | m voting算法／sorting／hashtable 找到数组中出现次数最多的元素| [C++](https://github.com/melodybabee/Leetcode/blob/master/169.%20Majority%20Element.cpp) | vector | 09/18 |
 | 171 | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number/description/) | 26进制转制为十进制 | [C++](https://github.com/melodybabee/Leetcode/blob/master/171.Excel%20Sheet%20Column%20Number.cpp) | string | 09/18 |
-| 171 | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number/description/) | 26进制转制为十进制 | [C++](https://github.com/melodybabee/Leetcode/blob/master/171.Excel%20Sheet%20Column%20Number.cpp) | string | 09/18 |
 | 173 | [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/description/)| 小学奥数 | [C++](https://github.com/melodybabee/Leetcode/blob/master/172.Factorial%20Trailing%20Zeroes.cpp) | Math | 09/18 |
+| 217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/)| 需要优化 | [C++](https://github.com/melodybabee/Leetcode/blob/master/217.%20Contains%20Duplicate.cpp) | 双层for循环 | 07/26 |
 | 283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/) | 区分while和if! | [C++](https://github.com/melodybabee/Leetcode/blob/master/283.Move%20Zeroes.cpp) | array | 08/01 |
 | 344 | [Reverse String](https://leetcode.com/problems/reverse-string/description/) | 一次AC，日后注意看follow up | [C++](https://github.com/melodybabee/Leetcode/blob/master/344.%20Reverse%20String.cpp) | string | 07/17 |
 | 387 | [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/description/) | TLE，需要优化 | [C++]| 双层循环 | 08/04 |
