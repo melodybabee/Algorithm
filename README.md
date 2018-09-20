@@ -63,6 +63,7 @@
 | 190 | [Reverse Bits](https://leetcode.com/problems/reverse-bits/description/)| &位与运算，求奇偶数，二进制数字反转 | [C++](https://github.com/melodybabee/Leetcode/blob/master/190.Reverse%20Bits.cpp) | Bit Manipulation | 09/19 |
 | 191 | [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/description/)| &位与运算，求二进制数字中有几个1 | [C++](https://github.com/melodybabee/Leetcode/blob/master/191.Number%20of%201%20Bits.cpp) | Bit Manipulation | 09/19 |
 | 193 | [Valid Phone Numbers](https://leetcode.com/problems/valid-phone-numbers/description/)| awk,sed,prep写法，匹配电话号码 | [C++](https://github.com/melodybabee/Leetcode/blob/master/193.Valid%20Phone%20Numbers.cpp) | bash | 09/20 |
+| 195 | [Tenth Line](https://leetcode.com/problems/tenth-line/description/)| 打印文件的第10行 | [C++](https://github.com/melodybabee/Leetcode/blob/master/195.Tenth%20Line.cpp) | bash | 09/20 |
 | 217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/)| 需要优化 | [C++](https://github.com/melodybabee/Leetcode/blob/master/217.%20Contains%20Duplicate.cpp) | 双层for循环 | 07/26 |
 | 283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/) | 区分while和if! | [C++](https://github.com/melodybabee/Leetcode/blob/master/283.Move%20Zeroes.cpp) | array | 08/01 |
 | 344 | [Reverse String](https://leetcode.com/problems/reverse-string/description/) | 一次AC，日后注意看follow up | [C++](https://github.com/melodybabee/Leetcode/blob/master/344.%20Reverse%20String.cpp) | string | 07/17 |
