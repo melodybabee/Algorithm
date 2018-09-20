@@ -61,7 +61,7 @@
 | 183 | [Customers Who Never Order](https://leetcode.com/problems/customers-who-never-order/description/)| NOT IN | [SQL](https://github.com/melodybabee/Leetcode/blob/master/183.Customers%20Who%20Never%20Order.cpp) | MySQL | 09/18 |
 | 189 | [Rotate Array](https://leetcode.com/problems/rotate-array/description/)| 元素反转 | [C++](https://github.com/melodybabee/Leetcode/blob/master/189.Rotate%20Array.cpp) | vector | 09/19 |
 | 190 | [Reverse Bits](https://leetcode.com/problems/reverse-bits/description/)| &位与运算，求奇偶数，二进制数字反转 | [C++](https://github.com/melodybabee/Leetcode/blob/master/190.Reverse%20Bits.cpp) | Bit Manipulation | 09/19 |
-| 191 | [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/description/)| &位与运算，求奇偶数，二进制数字反转 | [C++](https://github.com/melodybabee/Leetcode/blob/master/190.Reverse%20Bits.cpp) | Bit Manipulation | 09/19 |
+| 191 | [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/description/)| &位与运算，求二进制数字中有几个1 | [C++](https://github.com/melodybabee/Leetcode/blob/master/191.Number%20of%201%20Bits.cpp) | Bit Manipulation | 09/19 |
 | 217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/)| 需要优化 | [C++](https://github.com/melodybabee/Leetcode/blob/master/217.%20Contains%20Duplicate.cpp) | 双层for循环 | 07/26 |
 | 283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/) | 区分while和if! | [C++](https://github.com/melodybabee/Leetcode/blob/master/283.Move%20Zeroes.cpp) | array | 08/01 |
 | 344 | [Reverse String](https://leetcode.com/problems/reverse-string/description/) | 一次AC，日后注意看follow up | [C++](https://github.com/melodybabee/Leetcode/blob/master/344.%20Reverse%20String.cpp) | string | 07/17 |
