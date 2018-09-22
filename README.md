@@ -69,6 +69,7 @@
 | 197 | [Rising Temperature](https://leetcode.com/problems/rising-temperature/description/)| 内连接，二次筛选，找比昨天温度高的列表 | [MySQL](https://github.com/melodybabee/Leetcode/blob/master/197.Rising%20Temperature.cpp) | MySQL | 09/20 |
 | 198 | [House Robber](https://leetcode.com/problems/house-robber/description/)| 找出一个或多个不相邻的数值的和的最大值 | [C++](https://github.com/melodybabee/Leetcode/blob/master/198.House%20Robber.cpp) | DP | 09/20 |
 | 202 | [Happy Number](https://leetcode.com/problems/happy-number/description/)| 是否是快乐数 | [C++](https://github.com/melodybabee/Leetcode/blob/master/202.Happy%20Number.cpp) | unordered_map,Hashtable | 09/20 |
+| 204 | [Count Primes](https://leetcode.com/problems/count-primes/description/)| Sieve of Eratosthenes方法筛选质数，巧妙运用开方和平方 | [C++](https://github.com/melodybabee/Leetcode/blob/master/204.Count%20Primes.cpp) | Hashtable,Math | 09/21 |
 | 217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/)| 需要优化 | [C++](https://github.com/melodybabee/Leetcode/blob/master/217.%20Contains%20Duplicate.cpp) | 双层for循环 | 07/26 |
 | 283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/) | 区分while和if! | [C++](https://github.com/melodybabee/Leetcode/blob/master/283.Move%20Zeroes.cpp) | array | 08/01 |
 | 344 | [Reverse String](https://leetcode.com/problems/reverse-string/description/) | 一次AC，日后注意看follow up | [C++](https://github.com/melodybabee/Leetcode/blob/master/344.%20Reverse%20String.cpp) | string | 07/17 |
