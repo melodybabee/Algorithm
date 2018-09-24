@@ -34,7 +34,7 @@
 | 141 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/description/) | set,龟兔赛跑算法判断链表是否有环 | [C++](https://github.com/melodybabee/Leetcode/blob/master/141.Linked%20List%20Cycle.cpp)| Linked List | 09/17 |
 | 203 | [Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/description/)| 删除指定元素，尾递归 | [C++](https://github.com/melodybabee/Leetcode/blob/master/203.Remove%20Linked%20List%20Elements.cpp)| Linked List | 09/21 |
 | 206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/description/)| 递归和遍历方法反转链表 | [C++](https://github.com/melodybabee/Leetcode/blob/master/206.Reverse%20Linked%20List.cpp)| Linked List | 09/23 |
-| 217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/)| 找vector中的重复元素 | [C++](https://github.com/melodybabee/Leetcode/blob/master/217.%20Contains%20Duplicate.cpp) | Hashtable | 09/23 |
+| 217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/)| 找vector中的重复元素 | [C++](https://github.com/melodybabee/Leetcode/blob/master/217.Contains%20Duplicate.cpp) | Hashtable | 09/23 |
 
 * New list
 
