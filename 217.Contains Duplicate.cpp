@@ -17,6 +17,15 @@ public:
 };
 
 也可以用两个for循环遍历T: O(n*2), S: O(1)或者sort()的方法T: O(1), S: O(nlogn)
+还有一种更巧妙的解法：
+bool containsDuplicate(vector& nums) {
+    unordered_sets(nums.begin(),nums.end());
+    int len1 = s.size(),len2 = nums.size();
+    if(len1<len2)
+        return true;
+        return false;
+}
+运用set，这样相同的数字就会放在一个结点上，没有值重复的数字，因此最后比较sets的大小和原vector的大小是否相同就可以。
 
 之前的答案：
 class Solution {
