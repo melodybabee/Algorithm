@@ -1,3 +1,24 @@
+思路：
+1.建立hashtable, key表示原数组的值，value表示true／false
+2.开始value为空，每到一个key判断是否是true,若是，则返回true;不是，将该位置写上true
+3.如果遍历vector之后仍然没有返回true,返回false
+
+T: O(n), S: O(n)
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_map<int,bool> map;
+        for(int i = 0; i < nums.size(); ++i){
+            if(map[nums[i]] == true) return true;
+            map[nums[i]] = true;
+        }
+        return false;
+    }
+};
+
+也可以用两个for循环遍历T: O(n*2), S: O(1)或者sort()的方法T: O(1), S: O(nlogn)
+
+之前的答案：
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
