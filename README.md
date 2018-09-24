@@ -34,6 +34,7 @@
 | 141 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/description/) | set,龟兔赛跑算法判断链表是否有环 | [C++](https://github.com/melodybabee/Leetcode/blob/master/141.Linked%20List%20Cycle.cpp)| Linked List | 09/17 |
 | 203 | [Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/description/)| 删除指定元素，尾递归 | [C++](https://github.com/melodybabee/Leetcode/blob/master/203.Remove%20Linked%20List%20Elements.cpp)| Linked List | 09/21 |
 | 206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/description/)| 递归和遍历方法反转链表 | [C++](https://github.com/melodybabee/Leetcode/blob/master/206.Reverse%20Linked%20List.cpp)| Linked List | 09/23 |
+| 217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/)| 找vector中的重复元素 | [C++](https://github.com/melodybabee/Leetcode/blob/master/217.%20Contains%20Duplicate.cpp) | Hashtable | 09/23 |
 
 * New list
 
@@ -72,7 +73,6 @@
 | 202 | [Happy Number](https://leetcode.com/problems/happy-number/description/)| 是否是快乐数 | [C++](https://github.com/melodybabee/Leetcode/blob/master/202.Happy%20Number.cpp) | unordered_map,Hashtable | 09/20 |
 | 204 | [Count Primes](https://leetcode.com/problems/count-primes/description/)| Sieve of Eratosthenes方法筛选质数，巧妙运用开方和平方 | [C++](https://github.com/melodybabee/Leetcode/blob/master/204.Count%20Primes.cpp) | Hashtable,Math | 09/21 |
 | 205 | [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/description/)| 建立哈希表找字母的同构关系 | [C++](https://github.com/melodybabee/Leetcode/blob/master/205.Isomorphic%20Strings.cpp) | Hashtable,Math | 09/21 |
-| 217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/)| 需要优化 | [C++](https://github.com/melodybabee/Leetcode/blob/master/217.%20Contains%20Duplicate.cpp) | 双层for循环 | 07/26 |
 | 283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/) | 区分while和if! | [C++](https://github.com/melodybabee/Leetcode/blob/master/283.Move%20Zeroes.cpp) | array | 08/01 |
 | 344 | [Reverse String](https://leetcode.com/problems/reverse-string/description/) | 一次AC，日后注意看follow up | [C++](https://github.com/melodybabee/Leetcode/blob/master/344.%20Reverse%20String.cpp) | string | 07/17 |
 | 387 | [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/description/) | TLE，需要优化 | [C++]| 双层循环 | 08/04 |
