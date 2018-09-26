@@ -78,6 +78,7 @@
 | 226 | [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/description/)| 反转树 | [C++](https://github.com/melodybabee/Leetcode/blob/master/226.Invert%20Binary%20Tree.cpp) | tree | 09/25 |
 | 231 | [Power of Two](https://leetcode.com/problems/power-of-two/description/)| 判断是否是2的平方 | [C++](https://github.com/melodybabee/Leetcode/blob/master/231.Power%20of%20Two.cpp) | bit manipulation | 09/25 |
 | 232 | [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/description/)| 用stack模拟queue的操作(225镜像） | [C++](https://github.com/melodybabee/Leetcode/blob/master/232.Implement%20Queue%20using%20Stacks.cpp) | stack,queue | 09/25 |
+| 234 | [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/description/)| 判断链表是否是回文的，反转链表 | [C++](https://github.com/melodybabee/Leetcode/blob/master/234.Palindrome%20Linked%20List.cpp) | Linked List | 09/26 |
 | 283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/) | 区分while和if! | [C++](https://github.com/melodybabee/Leetcode/blob/master/283.Move%20Zeroes.cpp) | array | 08/01 |
 | 344 | [Reverse String](https://leetcode.com/problems/reverse-string/description/) | 一次AC，日后注意看follow up | [C++](https://github.com/melodybabee/Leetcode/blob/master/344.%20Reverse%20String.cpp) | string | 07/17 |
 | 387 | [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/description/) | TLE，需要优化 | [C++]| 双层循环 | 08/04 |
