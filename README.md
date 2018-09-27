@@ -35,6 +35,7 @@
 | 203 | [Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/description/)| 删除指定元素，尾递归 | [C++](https://github.com/melodybabee/Leetcode/blob/master/203.Remove%20Linked%20List%20Elements.cpp)| Linked List | 09/21 |
 | 206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/description/)| 递归和遍历方法反转链表 | [C++](https://github.com/melodybabee/Leetcode/blob/master/206.Reverse%20Linked%20List.cpp)| Linked List | 09/23 |
 | 217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/)| 找vector中的重复元素 | [C++](https://github.com/melodybabee/Leetcode/blob/master/217.Contains%20Duplicate.cpp) | Hashtable | 09/23 |
+| 237 | [Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/description/)| 删除链表中重复的结点(无链表只有结点),*p = *(p->next)； | [C++](https://github.com/melodybabee/Leetcode/blob/master/237.Delete%20Node%20in%20a%20Linked%20List.cpp)| Linked List | 09/26 |
 
 * New list
 
