@@ -82,6 +82,8 @@
 | 234 | [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/description/)| 判断链表是否是回文的，反转链表 | [C++](https://github.com/melodybabee/Leetcode/blob/master/234.Palindrome%20Linked%20List.cpp) | Linked List | 09/26 |
 | 235 | [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/)| 【重点复习】找两个结点最近的公共祖先（LCA），BFS的性质 | [C++](https://github.com/melodybabee/Leetcode/blob/master/235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree.cpp) | tree | 09/26 |
 | 242 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/description/)| 判断string中字母出现次数是否相等，应用十进制转换为26进制（168题应用） | [C++](https://github.com/melodybabee/Leetcode/blob/master/242.Valid%20Anagram.cpp) | sort,hashtable | 09/27 |
+| 257 | [Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/description/)| 【重点复习】输出树中的所有路径 | [C++](https://github.com/melodybabee/Leetcode/blob/master/257.Binary%20Tree%20Paths.cpp) | tree | 09/28 |
+| 258 | [Add Digits](https://leetcode.com/problems/add-digits/description/)| 求数字各个位数上的和 | [C++](https://github.com/melodybabee/Leetcode/blob/master/258.Add%20Digits.cpp) | Math | 09/28 |
 | 283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/) | 区分while和if! | [C++](https://github.com/melodybabee/Leetcode/blob/master/283.Move%20Zeroes.cpp) | array | 08/01 |
 | 344 | [Reverse String](https://leetcode.com/problems/reverse-string/description/) | 一次AC，日后注意看follow up | [C++](https://github.com/melodybabee/Leetcode/blob/master/344.%20Reverse%20String.cpp) | string | 07/17 |
 | 387 | [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/description/) | TLE，需要优化 | [C++]| 双层循环 | 08/04 |
