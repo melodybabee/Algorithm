@@ -84,6 +84,7 @@
 | 242 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/description/)| 判断string中字母出现次数是否相等，应用十进制转换为26进制（168题应用） | [C++](https://github.com/melodybabee/Leetcode/blob/master/242.Valid%20Anagram.cpp) | sort,hashtable | 09/27 |
 | 257 | [Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/description/)| 【重点复习】输出树中的所有路径 | [C++](https://github.com/melodybabee/Leetcode/blob/master/257.Binary%20Tree%20Paths.cpp) | tree | 09/28 |
 | 258 | [Add Digits](https://leetcode.com/problems/add-digits/description/)| 求数字各个位数上的和 | [C++](https://github.com/melodybabee/Leetcode/blob/master/258.Add%20Digits.cpp) | Math | 09/28 |
+| 263 | [Ugly Number](https://leetcode.com/problems/ugly-number/description/)| 判断因子中是否只包括2，3，5，ugly number | [C++](https://github.com/melodybabee/Leetcode/blob/master/263.Ugly%20Number.cpp) | Math | 09/28 |
 | 283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/) | 区分while和if! | [C++](https://github.com/melodybabee/Leetcode/blob/master/283.Move%20Zeroes.cpp) | array | 08/01 |
 | 344 | [Reverse String](https://leetcode.com/problems/reverse-string/description/) | 一次AC，日后注意看follow up | [C++](https://github.com/melodybabee/Leetcode/blob/master/344.%20Reverse%20String.cpp) | string | 07/17 |
 | 387 | [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/description/) | TLE，需要优化 | [C++]| 双层循环 | 08/04 |
