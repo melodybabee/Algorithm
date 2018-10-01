@@ -36,6 +36,7 @@
 | 206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/description/)| 递归和遍历方法反转链表 | [C++](https://github.com/melodybabee/Leetcode/blob/master/206.Reverse%20Linked%20List.cpp)| Linked List | 09/23 |
 | 217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/)| 找vector中的重复元素 | [C++](https://github.com/melodybabee/Leetcode/blob/master/217.Contains%20Duplicate.cpp) | Hashtable | 09/23 |
 | 237 | [Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/description/)| 删除链表中重复的结点(无链表只有结点),*p = *(p->next)； | [C++](https://github.com/melodybabee/Leetcode/blob/master/237.Delete%20Node%20in%20a%20Linked%20List.cpp)| Linked List | 09/26 |
+| 283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/) | 把0元素都移动到vector的末尾，非0元素提前 | [C++](https://github.com/melodybabee/Leetcode/blob/master/283.Move%20Zeroes.cpp) | array | 09/30 |
 
 * New list
 
@@ -86,7 +87,6 @@
 | 258 | [Add Digits](https://leetcode.com/problems/add-digits/description/)| 求数字各个位数上的和 | [C++](https://github.com/melodybabee/Leetcode/blob/master/258.Add%20Digits.cpp) | Math | 09/28 |
 | 263 | [Ugly Number](https://leetcode.com/problems/ugly-number/description/)| 判断因子中是否只包括2，3，5，ugly number | [C++](https://github.com/melodybabee/Leetcode/blob/master/263.Ugly%20Number.cpp) | Math | 09/28 |
 | 268 | [Missing Number](https://leetcode.com/problems/missing-number/description/)| 找数组中缺失的值，重点关注二叉搜索的思路 | [C++](https://github.com/melodybabee/Leetcode/blob/master/268.Missing%20Number.cpp) | Math,Bit Manipulation, sort() | 09/29 |
-| 283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/) | 区分while和if! | [C++](https://github.com/melodybabee/Leetcode/blob/master/283.Move%20Zeroes.cpp) | array | 08/01 |
 | 344 | [Reverse String](https://leetcode.com/problems/reverse-string/description/) | 一次AC，日后注意看follow up | [C++](https://github.com/melodybabee/Leetcode/blob/master/344.%20Reverse%20String.cpp) | string | 07/17 |
 | 387 | [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/description/) | TLE，需要优化 | [C++]| 双层循环 | 08/04 |
 | 520 | [Detect Capital](https://leetcode.com/problems/detect-capital/description/) | 多层循环，continue；（也许涉及标志位？日后看）isupper(),islower() | [C++](https://github.com/melodybabee/Leetcode/blob/master/520.%20Detect%20Capital.cpp)| string | 07/17 |
