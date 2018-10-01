@@ -87,6 +87,7 @@
 | 258 | [Add Digits](https://leetcode.com/problems/add-digits/description/)| 求数字各个位数上的和 | [C++](https://github.com/melodybabee/Leetcode/blob/master/258.Add%20Digits.cpp) | Math | 09/28 |
 | 263 | [Ugly Number](https://leetcode.com/problems/ugly-number/description/)| 判断因子中是否只包括2，3，5，ugly number | [C++](https://github.com/melodybabee/Leetcode/blob/master/263.Ugly%20Number.cpp) | Math | 09/28 |
 | 268 | [Missing Number](https://leetcode.com/problems/missing-number/description/)| 找数组中缺失的值，重点关注二叉搜索的思路 | [C++](https://github.com/melodybabee/Leetcode/blob/master/268.Missing%20Number.cpp) | Math,Bit Manipulation, sort() | 09/29 |
+| 278 | [First Bad Version](https://leetcode.com/problems/first-bad-version/description/)| 找第一个TRUE值，注意二叉搜索中low+(high-low)/2取中值防止溢出 | [C++](https://github.com/melodybabee/Leetcode/blob/master/278.First%20Bad%20Version.cpp) | 二叉搜索 | 09/29 |
 | 344 | [Reverse String](https://leetcode.com/problems/reverse-string/description/) | 一次AC，日后注意看follow up | [C++](https://github.com/melodybabee/Leetcode/blob/master/344.%20Reverse%20String.cpp) | string | 07/17 |
 | 387 | [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/description/) | TLE，需要优化 | [C++]| 双层循环 | 08/04 |
 | 520 | [Detect Capital](https://leetcode.com/problems/detect-capital/description/) | 多层循环，continue；（也许涉及标志位？日后看）isupper(),islower() | [C++](https://github.com/melodybabee/Leetcode/blob/master/520.%20Detect%20Capital.cpp)| string | 07/17 |
