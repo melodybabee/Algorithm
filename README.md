@@ -36,7 +36,7 @@
 | 206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/description/)| 递归和遍历方法反转链表 | [C++](https://github.com/melodybabee/Leetcode/blob/master/206.Reverse%20Linked%20List.cpp)| Linked List | 09/23 |
 | 217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/)| 找vector中的重复元素 | [C++](https://github.com/melodybabee/Leetcode/blob/master/217.Contains%20Duplicate.cpp) | Hashtable | 09/23 |
 | 237 | [Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/description/)| 删除链表中重复的结点(无链表只有结点),*p = *(p->next)； | [C++](https://github.com/melodybabee/Leetcode/blob/master/237.Delete%20Node%20in%20a%20Linked%20List.cpp)| Linked List | 09/26 |
-| 283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/) | 把0元素都移动到vector的末尾，非0元素提前 | [C++](https://github.com/melodybabee/Leetcode/blob/master/283.Move%20Zeroes.cpp) | array | 09/30 |
+| 283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/) | 把0元素都移动到vector的末尾，非0元素提前 | [C++](https://github.com/melodybabee/Leetcode/blob/master/Array/283.Move%20Zeroes.cpp) | array | 09/30 |
 
 * New list
 
