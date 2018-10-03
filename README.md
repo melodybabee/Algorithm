@@ -43,6 +43,7 @@
 
 | # | Title | Key Word | Solution | Tag | Date |
 | :------: | :------: | :------:| :------: | :------: | :------: |
+| 3 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/) | two pointers/ sliding window,找string中的最长substring| [C++](https://github.com/melodybabee/Leetcode/blob/master/003.Longest%20Substring%20Without%20Repeating%20Characters.cpp) | string | 10/02 |
 | 108 | [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/) | 【重点复习】vector->平衡二叉树 | [C++](https://github.com/melodybabee/Leetcode/blob/master/108.Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree.cpp) | tree | 09/11 |
 | 110 | [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/description/) | 【重点复习】判断是否是平衡二叉树，nlogn的时间复杂度求解 | [C++](https://github.com/melodybabee/Leetcode/blob/master/110.Balanced%20Binary%20Tree.cpp) | tree | 09/12 |
 | 112 | [Path Sum](https://leetcode.com/problems/path-sum/description/) | tree中的路径求和 | [C++](https://github.com/melodybabee/Leetcode/blob/master/112.Path%20Sum.cpp) | tree | 09/13 |
