@@ -7,6 +7,7 @@
 | # | Title | Key Word | Solution | Tag | Date |
 | :------: | :------: | :------:| :------: | :------: | :------: |
 | 1 | [Two sum](https://leetcode.com/problems/two-sum/description/) | vector、两层for循环 | [C++](https://github.com/melodybabee/Leetcode/blob/master/001.TwoSum.cpp) | / | 06/20 |
+| 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/) | 大数加法进位问题，链表长度不同需单独考虑 | [C++](https://github.com/melodybabee/Leetcode/blob/master/002.Add%20Two%20Numbers.cpp) | Linked List | 10/02 |
 | 7 | [Reverse Integer](https://leetcode.com/problems/reverse-integer/description/) | 整数反转 | [C++](https://github.com/melodybabee/Leetcode/blob/master/007.Reverse%20Integer.cpp) | string | 07/25 |
 | 9 | [Palindrome Number](https://leetcode.com/problems/palindrome-number/description/) | 取余除10进行数字反转 | [C++](https://github.com/melodybabee/Leetcode/blob/master/009.Palindrome%20Number.cpp) | int | 07/31 |
 | 13 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer/description/) | 罗马数字计数法 | [C++](https://github.com/melodybabee/Leetcode/blob/master/013.Roman%20to%20Integer.cpp) | string | 07/16 |
@@ -42,7 +43,6 @@
 
 | # | Title | Key Word | Solution | Tag | Date |
 | :------: | :------: | :------:| :------: | :------: | :------: |
-| 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/) | 新建链表，链表增加长度 | [C++](https://github.com/melodybabee/Leetcode/blob/master/002.Add%20Two%20Numbers.cpp) | Linked List | 08/01 |
 | 108 | [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/) | 【重点复习】vector->平衡二叉树 | [C++](https://github.com/melodybabee/Leetcode/blob/master/108.Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree.cpp) | tree | 09/11 |
 | 110 | [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/description/) | 【重点复习】判断是否是平衡二叉树，nlogn的时间复杂度求解 | [C++](https://github.com/melodybabee/Leetcode/blob/master/110.Balanced%20Binary%20Tree.cpp) | tree | 09/12 |
 | 112 | [Path Sum](https://leetcode.com/problems/path-sum/description/) | tree中的路径求和 | [C++](https://github.com/melodybabee/Leetcode/blob/master/112.Path%20Sum.cpp) | tree | 09/13 |
