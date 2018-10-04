@@ -4,7 +4,7 @@
 
 * Review list
 
-| # | Title | Key Word | Solution | Tag | Date |
+| # | Title | Key Words | Solution | Tag | Date |
 | :------: | :------: | :------:| :------: | :------: | :------: |
 | 1 | [Two sum](https://leetcode.com/problems/two-sum/description/) | vector、两层for循环 | [C++](https://github.com/melodybabee/Leetcode/blob/master/001.TwoSum.cpp) | / | 06/20 |
 | 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/) | 大数加法进位问题，链表长度不同需单独考虑 | [C++](https://github.com/melodybabee/Leetcode/blob/master/002.Add%20Two%20Numbers.cpp) | Linked List | 10/02 |
@@ -41,7 +41,7 @@
 
 * New list
 
-| # | Title | Key Word | Solution | Tag | Date |
+| # | Title | Key Words | Solution | Tag | Date |
 | :------: | :------: | :------:| :------: | :------: | :------: |
 | 3 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/) | 【重点复习】two pointers/ sliding window,找string中的最长substring| [C++](https://github.com/melodybabee/Leetcode/blob/master/003.Longest%20Substring%20Without%20Repeating%20Characters.cpp) | string | 10/02 |
 | 4 | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/description/) | 【重点复习】找到两个数组的中位数，递归截断,分治法归并排序，【遍历算法待学习】 | [C++](https://github.com/melodybabee/Leetcode/blob/master/004.Median%20of%20Two%20Sorted%20Arrays.cpp) | array,recursion,binary search | 10/04 |
