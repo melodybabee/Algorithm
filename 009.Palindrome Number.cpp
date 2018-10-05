@@ -1,28 +1,3 @@
-class Solution {
-public:
-    bool isPalindrome(int x) {
-        int ret = x;
-        int ans;
-        int comp = 0;
-        if(x==0) return true;
-        if(x < 0) return false;
-        
-        while(ret!=0){
-        ans = ret %10;
-        ret = ret/10;
-        comp = 10*comp + ans;
-        }
-        
-        if(comp == x) 
-            return true;
-        else 
-            return false;
-
-        
-    }
-};
-
-/*
 设计思路：（满足不对原数字进行string转换的follow up）
 1.如果原数等于0，return true;
 2.如果原数是负数，return false;
@@ -33,4 +8,22 @@ public:
 1.区分while循环和if循环
 2.也可以新建一个vector，每次计算后进行push_back操作，再用for循环依次读出
 3.还有的方法是转换为string, 用到reverse方法对string进行反转
-*/
+
+T(O) = O(log10(n)), S(O) = 1;
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        int newx = x;
+        if(newx < 0) return false;
+        int ret = 0;
+        while(newx!= 0){
+            ret = 10*ret + newx%10;
+            newx /= 10;
+        }
+        if(ret == x) 
+            return true;
+        return false;
+    }
+};
+
+
