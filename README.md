@@ -10,6 +10,7 @@
 | 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/) | 大数加法进位问题，链表长度不同需单独考虑 | [C++](https://github.com/melodybabee/Leetcode/blob/master/002.Add%20Two%20Numbers.cpp) | Linked List | 10/02 |
 | 7 | [Reverse Integer](https://leetcode.com/problems/reverse-integer/description/) | 整数反转 | [C++](https://github.com/melodybabee/Leetcode/blob/master/007.Reverse%20Integer.cpp) | string | 07/25 |
 | 9 | [Palindrome Number](https://leetcode.com/problems/palindrome-number/description/) | 取余除10进行数字反转找回文数 | [C++](https://github.com/melodybabee/Leetcode/blob/master/String/Palindrome/009.Palindrome%20Number.cpp) | string | 10/04 |
+| 10 | [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/) | 【重点复习】两个字符串正则匹配，需要反复复习DP的思路和不同情况 | [C++](https://github.com/melodybabee/Leetcode/blob/master/DP/010.Regular%20Expression%20Matching.cpp) | string,DP | 10/08 |
 | 13 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer/description/) | 罗马数字计数法 | [C++](https://github.com/melodybabee/Leetcode/blob/master/013.Roman%20to%20Integer.cpp) | string | 07/16 |
 | 14 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/description/) | 双层循环，vector | [C++](https://github.com/melodybabee/Leetcode/blob/master/014.Longest%20Common%20Prefix.cpp) | string | 07/18 |
 | 20 | [Valid Parenthese](https://leetcode.com/problems/valid-parentheses/description/) | 栈的操作，符号匹配问题 | [C++](https://github.com/melodybabee/Leetcode/blob/master/020.Valid%20Parentheses.cpp)| stack| 07/31 |
