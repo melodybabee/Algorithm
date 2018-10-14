@@ -16,6 +16,11 @@
 比如【2，2，2，2】那么会有3*2= 6 种情况
 4.因为涉及计算(p-j)*(p-j+1)，那么当数组中有过多的数字的时候，会超出int范围
 那么ret需要设置为long long, 因为最后返回的是int类型，那么还需要一步转换 return (int)ret;
+注意：
+1.题目中As the answer can be very large, return it modulo 10^9 + 7.的意思是对最后的结果取余处理
+10^9 == 1e9;
+int mod = (int)1e9 + 7;
+返回之前%mod即可。
 class Solution {
 public:
     int threeSumMulti(vector<int>& A, int target) {
