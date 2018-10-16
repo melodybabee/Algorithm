@@ -17,7 +17,7 @@ public:
             vector<bool>flag (9,false);
             for(int j = 0; j < 9; ++j){
                 if(!isdigit(board[i][j])) continue;
-                int ret = board[i][j] - '0';
+                int ret = board[i][j] - '1';
                 if(flag[ret] == true) return false;
                 flag[ret] = true;
             }
@@ -26,7 +26,7 @@ public:
             vector<bool>flag (9,false);
             for(int i = 0; i < 9; ++i){
                 if(!isdigit(board[i][j])) continue;
-                int ret = board[i][j] - '0';
+                int ret = board[i][j] - '1';
                 if(flag[ret] == true) return false;
                 flag[ret] = true;
             }
@@ -39,7 +39,7 @@ public:
                 for(int p = row; p < row+3; ++p){
                     for(int q = line; q < line +3; ++q){
                         if(!isdigit(board[p][q])) continue;
-                        int ret = board[p][q] - '0';
+                        int ret = board[p][q] - '1';
                         if(flag[ret] == true) return false;
                         flag[ret] = true;
                     }
