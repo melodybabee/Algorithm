@@ -7,6 +7,9 @@ T(n) = O(logn);
 3.再用一次二分查找找右边界，得到的结果放到返回数组的右边界结点
 注意：
 1.在找右边界结点的时候注意r的新取值范围,和找到target值时左边界的位置，以及返回到vector中的左边界的位置。
+因为需要这一步if(nums[mid] <= target) l = mid+1;来找到左边界，所以如果l不加1那么永远会落到这个循环中，因此加1。
+那么这点的坐标就是mid的下一位，因此在返回到ret的时候需要-1；
+即然-1了，那么如果一开始找到的左边界就是唯一的目标值且在数组的最后一位的话，那么返回的index就会少一位，因此需要把r的新的范围定在r = nums.size();这样一定会进入while循环
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
