@@ -12,7 +12,7 @@ public:
     vector<vector<int>> permute(vector<int>& nums) {
         vector<int> temp;
         vector<vector<int>> ret;
-        vector<bool>flag(nums.size()-1,false);
+        vector<bool>flag(nums.size(),false);
         dfs(nums,0,temp,ret,flag);
         return ret;
     }
