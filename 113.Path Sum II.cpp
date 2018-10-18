@@ -32,6 +32,7 @@ public:
 如果不等，记录下当前位置，cur结点返回到上一层，找是否有右子树
 3.始终用pre记录下cur的当前位置，便于cur返回上一层
 pre用于区分cur是第一次进入右子树，还是从右子树一步一步返回上去的
+注意：vector获得尾部元素可以用vector.back();
 class Solution {
 public:
     vector<vector<int>> pathSum(TreeNode* root, int sum) {
