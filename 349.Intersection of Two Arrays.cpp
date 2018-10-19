@@ -23,3 +23,24 @@ public:
         return ret;
     }
 };
+复习2.0
+注意本题的核心是找到两个数组中相同的元素，不是找重复的数组，所以找到了直接push到新数组中即可。
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> ret;
+        if(nums1.empty() || nums2.empty()) return ret;
+        sort(nums1.begin(),nums1.end());
+        sort(nums2.begin(),nums2.end());
+        for(int i = 0; i < nums1.size(); ++i){
+            if(i>0 &&nums1[i] == nums1[i-1]) continue;
+            for(int j = 0; j < nums2.size();++j){
+                if(nums2[j] == nums1[i]) {
+                    ret.push_back(nums2[j]);
+                    break;
+                }
+            }
+        }
+        return ret;
+    }
+};
