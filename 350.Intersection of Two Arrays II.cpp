@@ -43,3 +43,11 @@ public:
         return ret;
     }
 };
+题目里面的follow up:
+1.What if the given array is already sorted? How would you optimize your algorithm?
+如果数组是排序好的，直接用while循环进行逐个比较即可。
+2.What if nums1's size is small compared to nums2's size? Which algorithm is better?
+如果nums1相对于nums2非常小，那么把nums1做成hashtable,因为这样hashtable所占空间更小。
+3.What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
+如果只有nums2不能放在内存中，则将nums1做成哈希表，nums2分批加载到内存中处理。
+如果nums1和nums2都很大，都不适合储存在内存，那么就用外部排序分别来sort它们。将每2G(举例)读入内存，使用2指针技术，然后从内存中读取更多的2G。重复此操作，直到没有更多数据从磁盘读取。
