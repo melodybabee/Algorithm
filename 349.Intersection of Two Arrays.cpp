@@ -44,3 +44,40 @@ public:
         return ret;
     }
 };
+优化1:
+因为上面写的代码中已经对数组进行排序，所以就不需要用for循环进行双重循环，用两个指针来比较数组即可。
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> ret;
+        sort(nums1.begin(),nums1.end());
+        sort(nums2.begin(),nums2.end());
+        int i = 0, j = 0;
+        while(i < nums1.size() && j < nums2.size()){
+            if(nums1[i] < nums2[j]) ++i;
+            else if(nums1[i] > nums2[j]) ++j;
+            else{
+                if(ret.empty() || ret.back() != nums1[i]) ret.push_back(nums[1]);
+                ++i;
+                ++j;
+            }
+        }
+        return ret;
+    }
+};
+优化2:利用unordered_set
+思路：
+1.用一个set来存储第一个数组中存在的数字，遍历第一个数组，如果在set中存在，那么insert到新的set中
+2.最后把set类型转换为vector即可
+vector<int>(ret.begin(),ret,end())；
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        set<int> set(num1.begin(),num1.end());
+        set<int> ret;
+        for(auto &a : nums2){
+            if(set.count(a)) ret.insert(a);
+        }
+        return vector<int>(ret.begin(),ret,end());
+    }
+};
