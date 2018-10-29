@@ -83,11 +83,14 @@
 | 48 |[Rotate Image](https://leetcode.com/problems/rotate-image/description/)| 顺时针90度旋转矩阵，转置矩阵求法，对角线交换求法 | [C++](https://github.com/melodybabee/Leetcode/blob/master/048.Rotate%20Image.cpp) | vector | 10/25 |
 | 49 |[Group Anagrams](https://leetcode.com/problems/group-anagrams/description/)| 把所有错位的单词放到一个组中，hashtable的value是vector | [C++](https://github.com/melodybabee/Leetcode/blob/master/049.Group%20Anagrams.cpp) | HashTable | 10/25 |
 | 50 |[Pow(x, n)](https://leetcode.com/problems/powx-n/description/)| 位运算，遍历，递归方法求快速幂 | [C++](https://github.com/melodybabee/Leetcode/blob/master/050.Pow(x%2C%20n).cpp) | Binary Search, Math, Bit Manipulation| 10/25 |
+| 51 |[N-Queens](https://leetcode.com/problems/n-queens/description/)| N皇后问题【重点复习】 | [C++](https://github.com/melodybabee/Leetcode/blob/master/051.N-Queens.cpp) | DFS,递归回溯 | 10/28 |
+| 52 |[N-Queens II](https://leetcode.com/problems/n-queens-ii/description/)| N皇后问题计数，051简化，注意如何判断是否可以放入新的某值 | [C++](https://github.com/melodybabee/Leetcode/blob/master/052.N-Queens%20II.cpp) | DFS,递归回溯 | 10/28 |
 | 54 |[Spiral Matrix](https://leetcode.com/problems/spiral-matrix/description/)| 螺旋输出数组 | [C++](https://github.com/melodybabee/Leetcode/blob/master/054.Spiral%20Matrix.cpp) | array | 10/26 |
 | 55 |[Jump Game](https://leetcode.com/problems/jump-game/description/)| 判断跳跃后是否能到达数组的尾部【贪心算法需要复习】 | [C++](https://github.com/melodybabee/Leetcode/blob/master/055.Jump%20Game.cpp) | DP,greedy | 10/24 |
 | 56 |[Merge Intervals](https://leetcode.com/problems/merge-intervals/description/)| 合并数组间重复的部分，各种排序方法知识补充，自定义sort()排序规则 | [C++](https://github.com/melodybabee/Leetcode/blob/master/056.Merge%20Intervals.cpp) | sort | 10/18 |
 | 57 |[Insert Interval](https://leetcode.com/problems/insert-interval/description/)| 合并新数组和原数组间重复的部分 | [C++](https://github.com/melodybabee/Leetcode/blob/master/057.Insert%20Interval.cpp) | sort | 10/18 |
 | 59 |[Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/description/)| 螺旋输入数字,054follow up | [C++](https://github.com/melodybabee/Leetcode/blob/master/059.Spiral%20Matrix%20II.cpp) | array | 10/26 |
+| 60 |[Permutation Sequence](https://leetcode.com/problems/permutation-sequence/description/)| 找到全排列数字的指定位置的字符串,注意下标值 | [C++](https://github.com/melodybabee/Leetcode/blob/master/060.Permutation%20Sequence.cpp) | string,Math | 10/28 |
 | 62 |[Unique Paths](https://leetcode.com/problems/unique-paths/description/)| 找矩阵左上到右下有几种走法。【组合公式写法待学习】 | [C++](https://github.com/melodybabee/Leetcode/blob/master/062.Unique%20Paths.cpp) | DP | 10/24 |
 | 63 |[Unique Paths II](https://leetcode.com/problems/unique-paths-ii/description/)| 062follow up,增加障碍物找共有几种走法 | [C++](https://github.com/melodybabee/Leetcode/blob/master/063.Unique%20Paths%20II.cpp) | DP | 10/24 |
 | 64 |[Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/description/)| 找从左上到右下的路径最小值 | [C++](https://github.com/melodybabee/Leetcode/blob/master/064.Minimum%20Path%20Sum.cpp) | DP | 10/24 |
