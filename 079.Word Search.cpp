@@ -44,3 +44,28 @@ public:
 };
 优化：
 也可以不用声明一个新数组来进行标记，在原数组中把已经遍历到的位置标记为'#'即可，回溯后返回原字符。
+class Solution {
+public:
+    bool exist(vector<vector<char>>& board, string word) {
+        int m = board.size();
+        int n = board[0].size();
+        for(int i = 0; i< m; ++i){
+            for (int j = 0; j<n; ++j){
+                if(dfs(board,i,j,word,0)) return true;
+            }
+        }
+        return false;
+    }
+    
+    bool dfs(vector<vector<char>>& board,int i, int j,string word,int index){
+        int m = board.size();
+        int n = board[0].size();
+        if(index == word.size()) return true;
+        if(i < 0 || j < 0 || i >= m || j >= n || board[i][j] != word[index]) return false;
+        char c = board[i][j];
+        board[i][j] = '#';
+        bool flag = dfs(board,i+1,j,word,index+1) || dfs(board,i-1,j,word,index+1) || dfs(board,i,j+1,word,index+1) ||dfs(board,i,j-1,word,index+1);
+        board[i][j] = c;
+        return flag;
+    }
+};
