@@ -8,11 +8,11 @@
    在大规模的循环中，++i更快，因为i++中系统需要保存一个临时变量保存i
    */
 //PS.本题采用暴力解题法，有更好的方法，待学习
-#include <iostream>
-using std::vector;
-
+#include <iostream>//something should be inputted
+#include <string>
+using namespace std;
 class solution{
-public:
+public: //the method is public, so that we should declare the method to public with a ":"
     vector<int> twoSum(vector<int>& nums, int target) {
         vector <int> ans;
         for (int i = 0；i < nums.size();i++){
@@ -25,7 +25,24 @@ public:
             }
         }
     }
-};
+}；
+
+int main()//define a main method
+{
+    Solution s;//create a new class to execute the method which could solve the problem
+    vector<int> v1;
+    vector<int> v2;
+    v1.push_back(0);
+    v1.push_back(1);
+    v1.push_back(2);
+    v1.push_back(3);
+    int target = 4;
+    v2 = s.TwoSum(v1,target);//call the mathod in the solution class
+    for(int i = 0 ; i < v2.size();++i){
+        cout << v2[i] << endl;
+    }
+    return 0;
+}
 
 二刷复习：
 方法：hashtable
