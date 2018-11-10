@@ -1,4 +1,4 @@
-##Leetcode
+#Leetcode
 
 * Review list
 
@@ -22,7 +22,7 @@
 | 66 | [Plus One](https://leetcode.com/problems/plus-one/description/) | 考虑边界条件 | [C++](https://github.com/melodybabee/Leetcode/blob/master/066.%20Plus%20One.cpp) | vector | 07/26 |
 | 67 | [Add Binary](https://leetcode.com/problems/add-binary/description/) | string和int之间的转换，二进制加法，string.insert() | [C++](https://github.com/melodybabee/Leetcode/blob/master/067.Add%20Binary.cpp)| string | 09/07 |
 | 69 | [Sqrt(x)](https://leetcode.com/problems/sqrtx/description/) | 牛顿迭代,取开方 | [C++](https://github.com/melodybabee/Leetcode/blob/master/069.%20Sqrt(x).cpp)| int | 09/07 |
-| 70 | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/description/) | 递归与DP区分 | [C++](https://github.com/melodybabee/Leetcode/blob/master/070.%20Climbing%20Stairs.cpp)| DP | 09/07 |
+| 70 | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/description/) | 递归与DP区分,注意DP初始化和返回位置 | [C++](https://github.com/melodybabee/Leetcode/blob/master/DP/070.%20Climbing%20Stairs.cpp)| DP | 11/09 |
 | 83 | [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/) | 链表的移动 | [C++](https://github.com/melodybabee/Leetcode/blob/master/083.%20Remove%20Duplicates%20from%20Sorted%20List.cpp) | Linked List | 07/30 |
 | 88 | [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/description/) | array合并 | [C++](https://github.com/melodybabee/Leetcode/blob/master/088.%20Merge%20Sorted%20Array.cpp) | vector | 09/10 |
 | 100 | [Same Tree](https://leetcode.com/problems/same-tree/description/) | recursion | [C++](https://github.com/melodybabee/Leetcode/blob/master/100.Same%20Tree.cpp) | tree | 09/10 |
