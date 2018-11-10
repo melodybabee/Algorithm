@@ -1,12 +1,19 @@
-# Leetcode
+#Leetcode
 
-*Date from 06/20/2018*
+
+##HashTable
+* [Two sum](https://github.com/melodybabee/Leetcode/blob/master/HashTable/001.TwoSum.cpp)
+
+		* 每次建立hashtable都需要理清楚key代表什么，value代表什么
+
+
+##Order
 
 * Review list
 
 | # | Title | Key Words | Solution | Tag | Date |
 | :------: | :------: | :------:| :------: | :------: | :------: |
-| 1 | [Two sum](https://leetcode.com/problems/two-sum/description/) | vector、两层for循环 | [C++](https://github.com/melodybabee/Leetcode/blob/master/001.TwoSum.cpp) | / | 06/20 |
+| 1 | [Two sum](https://leetcode.com/problems/two-sum/description/) | 用Hashtable高效求两数和 | [C++](https://github.com/melodybabee/Leetcode/blob/master/HashTable/001.TwoSum.cpp) | HashTable | 11/09 |
 | 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/) | 大数加法进位问题，链表长度不同需单独考虑 | [C++](https://github.com/melodybabee/Leetcode/blob/master/002.Add%20Two%20Numbers.cpp) | Linked List | 10/02 |
 | 7 | [Reverse Integer](https://leetcode.com/problems/reverse-integer/description/) | 整数反转 | [C++](https://github.com/melodybabee/Leetcode/blob/master/007.Reverse%20Integer.cpp) | string | 07/25 |
 | 9 | [Palindrome Number](https://leetcode.com/problems/palindrome-number/description/) | 取余除10进行数字反转找回文数 | [C++](https://github.com/melodybabee/Leetcode/blob/master/String/Palindrome/009.Palindrome%20Number.cpp) | string | 10/04 |
