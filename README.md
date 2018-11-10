@@ -7,8 +7,6 @@
 		* 每次建立hashtable都需要理清楚key代表什么，value代表什么
 
 
-##Order
-
 * Review list
 
 | # | Title | Key Words | Solution | Tag | Date |
