@@ -1,8 +1,6 @@
-#Leetcode
-
+##Leetcode
 
 * Review list
-
 
 | # | Title | Key Words | Solution | Tag | Date |
 | :------: | :------: | :------:| :------: | :------: | :------: |
