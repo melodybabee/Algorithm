@@ -4,7 +4,7 @@
 
 | # | Title | Key Words | Solution | Tag | Date |
 | :------: | :------: | :------:| :------: | :------: | :------: |
-| 1 | [Two sum](https://leetcode.com/problems/two-sum/description/) | 用Hashtable高效求两数和 | [C++](https://github.com/melodybabee/Leetcode/blob/master/HashTable/001.TwoSum.cpp) | HashTable | 11/09 |
+| 1 | [Two sum](https://leetcode.com/problems/two-sum/description/) | 用Hashtable高效求两数和,main()函数写test case示例 | [C++](https://github.com/melodybabee/Leetcode/blob/master/HashTable/001.TwoSum.cpp) | HashTable | 11/09 |
 | 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/) | 大数加法进位问题，链表长度不同需单独考虑 | [C++](https://github.com/melodybabee/Leetcode/blob/master/002.Add%20Two%20Numbers.cpp) | Linked List | 10/02 |
 | 7 | [Reverse Integer](https://leetcode.com/problems/reverse-integer/description/) | 整数反转 | [C++](https://github.com/melodybabee/Leetcode/blob/master/007.Reverse%20Integer.cpp) | string | 07/25 |
 | 9 | [Palindrome Number](https://leetcode.com/problems/palindrome-number/description/) | 取余除10进行数字反转找回文数 | [C++](https://github.com/melodybabee/Leetcode/blob/master/String/Palindrome/009.Palindrome%20Number.cpp) | string | 10/04 |
@@ -19,6 +19,7 @@
 | 38 | [Count and Say](https://leetcode.com/problems/count-and-say/description/) | 递归 | [C++](https://github.com/melodybabee/Leetcode/blob/master/038.Count%20and%20Say.cpp) |  recursion | 08/06 |
 | 53 | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/description/) | 【重点复习】 | [C++](https://github.com/melodybabee/Leetcode/blob/master/053.Maximum%20Subarray.cpp) |  dynamic programming & divide and conquer | 08/07 |
 | 58 | [Length of Last Word](https://leetcode.com/problems/length-of-last-word/description/) | for循环，break条件 | [C++](https://github.com/melodybabee/Leetcode/blob/master/058.%20Length%20of%20Last%20Word.cpp) | string | 07/23 |
+| 64 |[Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/description/)| 找从左上到右下的路径最小值 | [C++](https://github.com/melodybabee/Leetcode/blob/master/DP/064.Minimum%20Path%20Sum.cpp) | DP | 11/10 |
 | 66 | [Plus One](https://leetcode.com/problems/plus-one/description/) | 考虑边界条件 | [C++](https://github.com/melodybabee/Leetcode/blob/master/066.%20Plus%20One.cpp) | vector | 07/26 |
 | 67 | [Add Binary](https://leetcode.com/problems/add-binary/description/) | string和int之间的转换，二进制加法，string.insert() | [C++](https://github.com/melodybabee/Leetcode/blob/master/067.Add%20Binary.cpp)| string | 09/07 |
 | 69 | [Sqrt(x)](https://leetcode.com/problems/sqrtx/description/) | 牛顿迭代,取开方 | [C++](https://github.com/melodybabee/Leetcode/blob/master/069.%20Sqrt(x).cpp)| int | 09/07 |
@@ -92,7 +93,6 @@
 | 61 |[Rotate List](https://leetcode.com/problems/rotate-list/description/)| 旋转链表 | [C++](https://github.com/melodybabee/Leetcode/blob/master/061.Rotate%20List.cpp) | LinkedList | 10/29 |
 | 62 |[Unique Paths](https://leetcode.com/problems/unique-paths/description/)| 找矩阵左上到右下有几种走法。【组合公式写法待学习】 | [C++](https://github.com/melodybabee/Leetcode/blob/master/062.Unique%20Paths.cpp) | DP | 10/24 |
 | 63 |[Unique Paths II](https://leetcode.com/problems/unique-paths-ii/description/)| 062follow up,增加障碍物找共有几种走法 | [C++](https://github.com/melodybabee/Leetcode/blob/master/063.Unique%20Paths%20II.cpp) | DP | 10/24 |
-| 64 |[Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/description/)| 找从左上到右下的路径最小值 | [C++](https://github.com/melodybabee/Leetcode/blob/master/064.Minimum%20Path%20Sum.cpp) | DP | 10/24 |
 | 65 |[Valid Number](https://leetcode.com/problems/valid-number/description/)| 判断是否是有效数 | [C++](https://github.com/melodybabee/Leetcode/blob/master/065.Valid%20Number.cpp) | Math | 10/29 |
 | 68 |[Valid Number](https://leetcode.com/problems/text-justification/description/)| 文本实现左右对齐,注意如何判断中间插入的空格数 | [C++](https://github.com/melodybabee/Leetcode/blob/master/068.Text%20Justification.cpp) | String | 10/29 |
 | 71 |[Simplify Path](https://leetcode.com/problems/simplify-path/description/)| 用vector简化文件路径 | [C++](https://github.com/melodybabee/Leetcode/blob/master/071.Simplify%20Path.cpp) | string | 10/29 |
@@ -227,3 +227,6 @@
 | 931 | [Minimum Falling Path Sum](https://leetcode.com/problems/minimum-falling-path-sum/description/) | Weekly Contest 108（3）找到正方形中从上到下的最短路径和（类似题120） | [C++](https://github.com/melodybabee/Leetcode/blob/master/931.Minimum%20Falling%20Path%20Sum.cpp)| DP | 10/27 |
 | 933 | [Number of Recent Calls](https://leetcode.com/problems/number-of-recent-calls/description/) | Weekly Contest 109（1）找到ping范围内的数组个数 | [C++](https://github.com/melodybabee/Leetcode/blob/master/933.Number%20of%20Recent%20Calls.cpp)| Design,queue | 11/03 |
 | 935 | [Knight Dialer](https://leetcode.com/problems/knight-dialer/description/) | Weekly Contest 109（2）日子格可以走的步数。DP更新数组。| [C++](https://github.com/melodybabee/Leetcode/blob/master/935.Knight%20Dialer.cpp)| DP | 11/03 |
+| 937 | [Reorder Log Files](https://leetcode.com/problems/reorder-log-files/description/) | Weekly Contest 110（1）对string进行先字母后数字的排序，截取部分字符串【sstream方法和更改stable_sort的cmp待学习】 | [C++](https://github.com/melodybabee/Leetcode/blob/master/937.Reorder%20Log%20Files.cpp)| string | 11/11 |
+| 938 | [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/description/) | Weekly Contest 110（2）找出二叉搜索树中在给定范围的内的结点值的和 | [C++](https://github.com/melodybabee/Leetcode/blob/master/938.Range%20Sum%20of%20BST.cpp)| Tree | 11/10 |
+| 939 | [Minimum Area Rectangle](https://leetcode.com/problems/minimum-area-rectangle/description/) | Weekly Contest 110（3）用对角线判断是否能形成矩形，找到矩形的最小面积 | [C++](https://github.com/melodybabee/Leetcode/blob/master/939.Minimum%20Area%20Rectangle.cpp)| array | 11/11 |
