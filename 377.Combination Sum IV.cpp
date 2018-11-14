@@ -41,3 +41,20 @@ public:
         return dp.back();
     }
 };
+follow up:
+如果题目中的数组中允许负数，应该如何处理，会有什么变化？
+If negative numbers are allowed in the given array, then there could be infinite solutions to the problem。
+Because whenever the sum approaches target, I can add a negative number to make the sum less. 
+To allow negative numbers, the length of the combinations needs to be limited.
+因为只要有负数存在和就会越来越小，那么解会有无穷多个，因此需哟啊限制数组的长度。
+
+有关combination的题目总结：
+039 the Combination Sum 1 
+040 the Combination Sum 2
+216 the Combination Sum 3
+377 the Combination Sum 4
+Firstly, the Combination Sum 1 & 4 are similar, and Combination Sum 2 & 3 are similar.
+Combination Sum 3 is the special case of Combination Sum 2, and the Combination Sum 4 return the count while Combination Sum 1 return all the combination !
+k sum problem is a good extension for the combination sum problem, k-sum 1 is to return the count while k-sum 2 return all the possible results
+*DP: when solve the problem return the count
+*DFS : for return all the possible result
