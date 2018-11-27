@@ -1,4 +1,4 @@
-#Leetcode
+# Leetcode
 
 * Review list
 
@@ -266,3 +266,5 @@
 | 941 | [Valid Mountain Array](https://leetcode.com/problems/valid-mountain-array/description/) | Weekly Contest 111（1）判断一个数组是否是山状数组 | [C++](https://github.com/melodybabee/Leetcode/blob/master/941.Valid%20Mountain%20Array.cpp)| array | 11/17 |
 | 942 | [DI String Match](https://leetcode.com/problems/di-string-match/description/) | Weekly Contest 111（3）根据原数组中的要求输出有特定值的新数组 | [C++](https://github.com/melodybabee/Leetcode/blob/master/942.DI%20String%20Match.cpp)| Math | 11/17 |
 | 944 | [Delete Columns to Make Sorted](https://leetcode.com/problems/delete-columns-to-make-sorted/description/) | Weekly Contest 111（2）按列删除二维数组 | [C++](https://github.com/melodybabee/Leetcode/blob/master/944.Delete%20Columns%20to%20Make%20Sorted.cpp)| greedy | 11/17 |
+| 945 | [Minimum Increment to Make Array Unique](https://leetcode.com/problems/minimum-increment-to-make-array-unique/description/) | Weekly Contest 112（1）根据题目中的数量级大致判断需要用的数据结构和方法 | [C++](https://github.com/melodybabee/Leetcode/blob/master/945.Minimum%20Increment%20to%20Make%20Array%20Unique.cpp)| Array，Sort | 11/25 |
+| 946 | [Validate Stack Sequences](https://leetcode.com/problems/validate-stack-sequences/description/) | Weekly Contest 112（2）模拟stack过程 | [C++](https://github.com/melodybabee/Leetcode/blob/master/946.Validate%20Stack%20Sequences.cpp)| Stack | 11/26 |
