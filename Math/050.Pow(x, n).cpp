@@ -80,3 +80,35 @@ public:
         return n < 0 ? 1 / res : res;
     }
 };
+
+二刷：
+快速幂求解不熟，仍然想到暴力拆解的方法：
+注意：
+1.快速幂的核心就是奇数次乘上原数字一次，偶数次使两个原数字相乘，
+如果是奇数先赋给结果1次的值，不断两两相乘。如果是偶数，直接两两相乘，最后到1的时候赋给结果值。
+用p&1来判断是奇数还是偶数。
+2.每进入一次循环，对次数减半，使原数字翻为2倍。
+用p>>1来除以2.向右移动一位表示除以2,向右移动两位表示除以2的平方。
+3.注意n的范围是[−231, 231 − 1]，因此有可能负数在范围内而取反之后超出int范围，所以需要更改为long long 
+class Solution {
+public:
+    double myPow(double x, int n) {
+        if(n == 0) return 1;
+        double ret = 1;
+        long long p = n;
+        bool flag = false;
+        if(p < 0){
+            p = -p;
+            flag = true;
+        }
+        
+        while(p){
+            if(p&1) ret *= x;
+            p >>= 1;
+            x = x*x;
+        }
+        
+       if(flag) ret = 1/ret;
+           return ret;
+    }
+};
