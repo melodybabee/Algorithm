@@ -176,7 +176,7 @@ void quickSort(int *arr,int l,int r)
 	{
 		while(i<j&&arr[j] >= temp)//找到第一个小于temp的数字
 			j--;
-		while(i<j&&arr[j]<=temp)//找到第一个大于temp的数字
+		while(i<j&&arr[i]<=temp)//找到第一个大于temp的数字
 			i++;
 		if(i<j)
 		{
@@ -186,7 +186,7 @@ void quickSort(int *arr,int l,int r)
 			//交换 
 		}
 	}
-		arr[left] = arr[i];
+		arr[left] = arr[i];//i,j相遇之后交换相遇点的值和基准数的值。
 		arr[i]= temp;
 		quickSort(arr,l,i-1); //对左半部分进行快排 
 		quickSort(arr,j+1,r); //对右半部分进行快排 
@@ -301,3 +301,75 @@ void ShellSort()
 	}
 	cout << endl;
 }
+--------------------------------------------
+堆排序heap sort：
+思路：
+1.首先建立堆，如果从小到大排序，那么建立最小堆；如果从大到小排序，那么建立最大堆。
+2.比如从小到大排序，那么每次删除堆顶元素或者把顶部元素输出放到一个新的数组中去，重新调整堆中剩余的元素，直到栈空为止。输出的就是由小到大排列的元素。
+建堆：
+1.可以从空堆开始，依次往堆里插入元素，直至都被插入到堆中为止。插入／删除一个元素的复杂度是logn,那么插入所有元素的复杂度是nlogn
+2.更快的建堆方法是首先将结点从左到右从上到下开始1-n编码，从而转换为完全二叉树。
+从最后一个非叶子结点开始向下调整，结点编号为n/2，直至符合堆的特性。
+注意：
+将堆的内容填入一个一位数组，这样通过下标就能计算出每个结点的父子节点，编号顺序从0开始，从左往右，从上至下层次遍历。a[10] = {2,8,5,10,9,12,7,14,15,13}
+若一个结点的下标为k，那么它的父结点为(k-1)/2，其子节点为2k+1和2k+2
+
+堆排序(Heap Sort)的时间复杂度是O(nlogn), 最坏情况下也是如此.
+而快速排序(Quick Sort), 若初始记录序列有序, 快速排序将退化为起泡排序(Bubble Sort), 时间复杂度是O(n^2).这是堆排序比快速排序的优点.
+代码：
+#include <iostream>
+#include <stack>
+#include <queue>
+ 
+using namespace std;
+ 
+void HeapAdjust (int data[], int length, int k)
+{
+    int tmp = data[k];
+    int i=2*k+1;
+    while (i<length) {
+        if (i+1<length && data[i]>data[i+1]) //选取最小的结点位置
+            ++i;
+        if (tmp < data[i]) //不用交换
+            break;
+        data[k] = data[i]; //交换值
+        k = i; //继续查找
+        i = 2*k+1;
+    }
+    data[k] = tmp;
+}
+ 
+void HeapSort (int data[], int length)
+{
+    if (data == NULL || length <= 0)
+        return;
+    for (int i=length/2-1; i>=0; --i) {
+        HeapAdjust(data, length, i); //从第二层开始建堆
+    }
+ 
+    for (int i=length-1; i>=0; --i) {
+        std::swap(data[0], data[i]);
+        HeapAdjust(data, i, 0); //从顶点开始建堆, 忽略最后一个
+    }
+ 
+    return;
+}
+ 
+int main (void)
+{
+    int data[] = {49, 38, 65, 97, 76, 13, 27, 49};
+    int length = 8;
+    HeapSort(data, length);
+    for (int i=0; i<length; ++i) {
+        std::cout << data[i] << " ";
+    }
+ 
+    std::cout << std::endl;
+    return 0;
+}
+输出：
+97 76 65 49 49 38 27 13 
+堆排序的应用：
+比如找数列中过的第K大数字，只要建立一个大小为K的最小堆，堆顶就是第K大数字。
+例如在10个数字中找第3大数字，那么首先选取3个数字，比如前3个，将这三个数字建成最小堆，从第4个数字开始，与堆顶开始比较，如果小则不要，如果比堆顶大，那么舍弃当前堆顶元素插入新的值，再重新维护最小堆。
+复杂度：T（n） = O（NlogK）；
