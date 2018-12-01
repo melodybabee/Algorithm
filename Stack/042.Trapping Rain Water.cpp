@@ -55,6 +55,7 @@ public:
 思路：
 1.可以从图中直观的看到，如果设置两个指针从头尾中较小值开始扫描，哪边小移动哪边，如果更小的值，将差值加到ret中，如果遇到更大的值，那么重新确定左右窗口
 2.直到左右指针相遇后返回结果
+3.相当于从小的值的一侧开始找大的一侧的值，大的一侧相当于“墙”的作用，主要找到比自己更小的，那么说明会有积水。
 class Solution {
 public:
     int trap(vector<int>& height) {
@@ -76,6 +77,30 @@ public:
                     --r;
                 }
             }
+        }
+        return ret;
+    }
+};
+
+二刷：
+应用单调栈。
+注意：
+1.本题应用的是单减栈，遇到大的数字输出栈顶元素。
+2.因为是积水，所以高度是当前元素与新的栈顶元素中的较小值，再减去之前栈顶元素的值。
+如果pop之后不存在栈顶元素，那么直接跳过，不能积水。
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        stack<int>st;
+        int ret = 0;
+        for(int i = 0; i< height.size();++i){
+            while(!st.empty() && height[i] > height[st.top()]){
+                int temp = st.top();
+                st.pop();
+                if(st.empty())continue;
+                ret += (min(height[i],height[st.top()])-height[temp]) * (i - st.top()-1);
+            }
+            st.push(i);
         }
         return ret;
     }
