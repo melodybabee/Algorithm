@@ -44,3 +44,22 @@ public:
 状态转移方程，p[i]=max(p[i-1],prices[i]-L[i]); vector p用于存储每一天的最大利润，单调非递减
 3.所求的最大利润是p[prices.size()-1],即单调递减vector中的最后一位
 */
+
+二刷：
+DP：
+注意：
+1.DP的思路不仅仅是在一个DP数组中就能得到结果，不要单纯追求通过一个数组得到最优解，重点在于思想
+2.本题想得到最大利润，最大利润=最高单价-最低单价，同时满足卖在买之后
+3.那么用一个值来记录最小的花费，用一个值来记录当前值与最小值之间的差，即利润，不断更新
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int minprice = INT_MAX;
+        int maxpro = 0;
+        for(int i = 0; i < prices.size();++i){
+            minprice = min(minprice,prices[i]);
+            maxpro = max(maxpro,prices[i]-minprice);
+        }
+        return maxpro;
+    }
+};
