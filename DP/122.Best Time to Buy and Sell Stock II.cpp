@@ -22,3 +22,18 @@ public:
 注意：
 1.在同一位上可以先卖出再买入
 */
+
+二刷：
+用一个DP数组来记录到当前位置的最大利润，当前位置的最大利润等于之前的利润，和之前的利润+现在的值-上一位的值的新利润的和。
+注意用DP数组的话返回dp的最后一位需要在DP存在的基础之上。因此需要提前判断DP不存在的情况，直接返回0。
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        if(prices.empty()) return 0;
+        vector<int>dp(prices.size(),0);
+        for(int i = 1; i < prices.size(); ++i){
+            dp[i] = max(dp[i-1],dp[i-1]+prices[i]-prices[i-1]);
+        }
+        return dp.back();
+    }
+};
