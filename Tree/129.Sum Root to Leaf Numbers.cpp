@@ -55,3 +55,31 @@ public:
         return helper(root -> left, total) + helper(root -> right, total);
     }
 };
+
+
+12.2复习：
+递归：
+注意：根结点不存在的情况就是返回0，当左右为空的时候才返回当前的ret值。用没有根结底和只有一个根结点来考虑。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int sumNumbers(TreeNode* root) {
+        return helper(root,0);
+    }
+    
+    int helper(TreeNode* root, int ret){
+        if(!root) return 0;
+        ret  = 10*ret + root -> val;
+        if(!root -> left && !root -> right) return ret;
+        return helper(root -> left, ret) + helper(root -> right, ret); 
+    }
+};
+另一种思路就是更新树上每个结点的值。最后把没有左右子树的结点的值加和到最后的结果里。
