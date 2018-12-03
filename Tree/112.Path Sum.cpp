@@ -57,6 +57,7 @@ public:
         return hasPathSum(root -> left, new_sum) || hasPathSum(root -> right, new_sum);
     }
 };
+
 2.0复习
 思路：
 1.二叉树都能用递归的方法解决问题，把从根结点的问题分解为根左和根右依次解决
@@ -71,5 +72,62 @@ public:
         if(!p-> left && !p -> right) return p->val == sum;
         int newsum = sum - p-> val;
         return hasPathSum (p -> left, newsum) || hasPathSum (p -> right, newsum);
+    }
+};
+
+12.2复习：
+这么简单的题目竟然不能一次AC，还做了好几遍。
+不要依靠记忆，每道题当作新的去思考，遇到没有想通的就看问题在哪里，和刷几遍、什么难度都没关系。
+注意：
+递归一定先想清楚边界条件，不存在根结点返回false,判断叶子结点是否和sum相等。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int sum) {
+        if(!root) return false;
+        if(!root -> left && ! root -> right) return root ->val == sum;
+        return hasPathSum(root-> left, sum - root->val) || hasPathSum(root -> right, sum - root->val);
+    }
+};
+迭代写法，逐层加和，判断最后的和是否相等，和递归的思路是反着的。
+运用queue更好是因为满足先到先操作的性质，stack本题也可以做，但是没有需要后进先出的性质。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int sum) {
+        if(!root) return false;
+        if(!root -> left && !root -> right) return root -> val ==sum;
+        queue<TreeNode*>q;
+        q.push(root);
+        while(!q.empty()){
+            TreeNode *temp = q.front();
+            q.pop();
+            if(!temp -> left  && ! temp -> right && temp -> val == sum) return true;
+            if(temp -> left){
+                temp -> left->val += temp -> val;
+                q.push(temp ->left);
+            }
+            if(temp -> right){
+                temp -> right->val += temp -> val;
+                q.push(temp ->right);
+            }
+        }
+        return false;
     }
 };
