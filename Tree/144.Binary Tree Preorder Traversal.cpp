@@ -153,7 +153,7 @@ public:
 
 线索二叉树：
 同样需要pre来记录遍历到右结点或者没有右结点之后需要连接的下一位。
-注意只要不存在右结点那么首先把cue输出到结果值里面。
+注意只要不存在右结点那么首先把cur输出到结果值里面。
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
