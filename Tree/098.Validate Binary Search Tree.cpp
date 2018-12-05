@@ -140,3 +140,129 @@ public:
         return flag;
     }
 };
+
+
+12.4复习：
+方法1:非递归+栈+新数组
+注意：用一个栈记录二叉树中序遍历的值存在一个数组中，再判断数组中是否是从小到大的顺序。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        stack<TreeNode*> st;
+        TreeNode *cur = root;
+        vector<int> ret;
+        while(!st.empty() || cur){
+            while(cur){
+                st.push(cur);
+                cur = cur -> left;
+            }
+            cur = st.top();
+            st.pop();
+            ret.push_back(cur -> val);
+            cur = cur -> right;
+        }
+        for(int i = 1; i < ret.size(); ++i){
+            if(ret[i] <= ret[i-1]) return false;
+        }
+        return true;
+    }
+};
+
+方法2:递归+新数组
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        vector<int>vec;
+        helper(root,vec);
+        for(int i = 1; i < vec.size();++i){
+            if(vec[i] <= vec[i-1]) return false;
+        }
+        return true;
+    }
+    
+    void helper(TreeNode* root, vector<int>&vec){
+        if(!root) return;
+        helper(root -> left, vec);
+        vec.push_back(root -> val);
+        helper(root -> right,vec);
+    }
+};
+方法3:递归不用新数组
+在方法2的基础上进行改进，用一个flag来记录是否后面的值大于前面的值。
+注意flag需要是一用引用变量，一次改变后就一直为改变后的值。
+ /**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+private:
+    TreeNode*pre = NULL;
+public:
+    bool isValidBST(TreeNode* root) {
+        bool flag = false;
+        helper(root,flag);
+        if(flag) return false;
+        else return true;
+    }
+    
+    void helper(TreeNode* root, bool &flag){
+        if(!root) return;
+        helper(root -> left, flag);
+        if(!pre){
+            pre = root;
+        }else{
+            if(root -> val <= pre -> val) {
+                flag = true;
+                return;
+            }
+            pre = root;
+        }
+        helper(root -> right,flag);
+    }
+};
+方法4:完全递归
+注意用long long来写，因为如果是[2147483647]一个结点的话用int会超出范围。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        return isvalid(root,LONG_MIN,LONG_MAX);
+    }
+    
+    bool isvalid(TreeNode*root, long long min, long long max){
+        if(!root) return true;
+        if(root -> val <= min || root -> val >= max) return false;
+        return isvalid(root -> left,min,root->val) && isvalid(root -> right, root -> val, max);
+    }
+};
