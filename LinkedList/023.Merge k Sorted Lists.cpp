@@ -113,3 +113,96 @@ public:
         return dummy -> next;
     }
 };
+
+
+12.4复习
+方法一：heap
+T(n) = O(nlogk),k is the num of linkedlist.
+注意：
+1.最小栈中自带的排序方法是针对int形的，因此如果不是int形式的，都需要重写比较方法cmp
+struct cmp{
+    bool operator()(ListNode *left,ListNode *right){
+        return left -> val > right -> val;
+    }
+};
+注意结构体要以分号结尾。中间的比较函数返回方法是bool类型，如果想从小到大排序需要前>后，和int形式的最小栈需要greated<int>一个道理。
+2.最小栈中首先放入的是各个链表的第一位，注意本题是一个一维数组。
+后在输出的时候，如果链表头结点后面还有链表结点，那么再依次放入heap中。
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+struct cmp{
+    bool operator()(ListNode *left,ListNode *right){
+        return left -> val > right -> val;
+    }
+};
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        priority_queue<ListNode*,vector<ListNode*>, cmp> q;
+        for(int i = 0; i < lists.size();++i){
+            if(lists[i]) q.push(lists[i]);
+        }
+        ListNode *dummy = new ListNode(0);
+        ListNode *ret = dummy;
+        while(!q.empty()){
+            ret -> next = q.top();
+            q.pop();
+            ret = ret -> next;
+            if(ret -> next) q.push(ret -> next);
+        }
+        return dummy -> next;
+    }
+};
+
+方法2:divide and conquer, 依次汇合再总汇合
+注意：
+1.在原数组中汇合的顺序是头尾先汇合，再依次向内移动，直到首尾指针相遇。
+2.只要尾部没有到达0的位置，就进入循环，更新头指针的位置为0，重新汇合。
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        if(lists.empty()) return NULL;
+        int end = lists.size()-1;
+        while(end > 0){
+            int start = 0;
+            while(start < end) {
+                lists[start] = merge(lists[start],lists[end]);
+                ++start;
+                --end;
+            }
+        }
+        return lists[0];
+    }
+    
+    ListNode* merge(ListNode *l1, ListNode *l2){
+        ListNode *dummy = new ListNode(-1);
+        ListNode *cur = dummy;
+        while(l1 && l2){
+            if(l1 -> val <= l2 -> val){
+                cur -> next = l1;
+                l1 = l1 ->next;
+            }else{
+                cur -> next = l2;
+                l2 = l2 -> next;
+            }
+            cur = cur -> next;
+        }
+        if(l1) cur -> next = l1;
+        if(l2) cur -> next = l2;
+        return dummy -> next;
+    }
+};
