@@ -90,3 +90,49 @@ public:
         return ret;
     }
 };
+
+12.6复习：
+注意：
+1.链表中有两个结点，那么需要建立一个hashtable用来存储已经建立好的结点，用原链表中的结点对应新链表中的结点
+2.如果在原链表中指向的下一个结点已经能在map中找到，说明已经建立过，也有新的结点与其对应，那么直接连接即可
+没有的话重新建立。
+3.需要注意newlist会跟着链表的建立一起移动，和cur一样。
+所以要不直接返回map中head对应的结点作为新的返回结点。要不新建一个结点记录下新建链表的头结点的位置，作为结果返回。
+/**
+ * Definition for singly-linked list with a random pointer.
+ * struct RandomListNode {
+ *     int label;
+ *     RandomListNode *next, *random;
+ *     RandomListNode(int x) : label(x), next(NULL), random(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    RandomListNode *copyRandomList(RandomListNode *head) {
+        if(!head) return NULL;
+        RandomListNode*cur = head;
+        RandomListNode*newlist = new RandomListNode(cur ->label);
+        RandomListNode*pre = newlist;
+        unordered_map<RandomListNode*,RandomListNode*>map;
+        map[cur] = pre;
+        while(cur){
+            if(cur->next){
+                if(map.count(cur->next)) newlist->next = map[cur->next];
+                else{
+                    newlist -> next = new RandomListNode(cur ->next -> label);
+                    map[cur->next] = newlist->next;
+                }
+            }
+            if(cur->random){
+                if(map.count(cur->random)) newlist->random = map[cur->random];
+                else{
+                    newlist -> random = new RandomListNode(cur ->random -> label);
+                    map[cur->random] = newlist->random;
+                }
+            }
+            cur = cur-> next;
+            newlist = newlist -> next;
+        }
+        return pre;
+    }
+};
