@@ -106,3 +106,37 @@ public:
         return countNodes(root -> left) + countNodes(root -> right) +1;
     }
 };
+
+12.5复习：
+1.正常DFS递归会TLE，需要利用完全二叉树的性质。
+2.注意如果是满二叉树，那么结点数量等于2的层数次幂+1；如果不是满二叉树，调用左子树和右子树找到其左子树和右子树的个数和+1
+3.在求高度的时候，每次返回1+递归右／左结点
+注意在递归中对于+1的使用
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int countNodes(TreeNode* root) {
+        int count = 1;
+        int left = heightl(root);
+        int right = heightr(root);
+        if(left == right) return pow(2,left)-1;
+        return countNodes(root -> left) + countNodes(root -> right) +1;
+    }
+    
+    int heightl(TreeNode *root){
+        if(!root) return 0;
+        return 1+heightl(root -> left);
+    }
+    int heightr(TreeNode *root){
+        if(!root) return 0;
+        return 1+heightr(root -> right);
+    }
+};
