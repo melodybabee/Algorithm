@@ -28,3 +28,35 @@ public:
         return false;
     }
 };
+
+12.5复习
+注意：
+1.同样是在旋转的数组中找增序的子数组
+2.但是如果有重复元素有可能数组的头部和尾部是相等的，那么无法判断。
+因此当用中点和右边界进行比较的时候如果能比较出大小，那么和033的做法是相同的。
+但是如果相等，把右边界向左移动一位，重新进入循环。
+class Solution {
+public:
+    bool search(vector<int>& nums, int target) {
+        int left = 0;
+        int right = nums.size()-1;
+        while(left <= right){
+            int mid = left + (right - left)/2;
+            if(nums[mid] == target) return true;
+            if(nums[mid] < nums[right]){
+                if(target > nums[mid] && target <= nums[right]){
+                    left = mid+1;
+                }else{
+                    right = mid -1;
+                }
+            }else if(nums[mid] > nums[right]){
+                if(target < nums[mid] && target >= nums[left]){
+                    right = mid -1;
+                }else{
+                    left = mid+1;
+                }
+            }else --right;
+        }
+        return false;
+    }
+};
