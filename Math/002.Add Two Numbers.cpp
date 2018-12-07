@@ -141,3 +141,45 @@ public:
         return ret->next;
     }
 };
+
+12.6复习：
+注意：
+1.每当设置一个新的头结点的时候，要设置一个指向它的指针用来移动，最后便于返回头结点。移动过的指针不方便返回。
+2.所有加法问题注意考虑最后的进位1.
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode *dummy = new ListNode(-1);
+        ListNode *ret = dummy;
+        int temp = 0;
+        while(l1 && l2){
+            ret -> next = new ListNode((l1->val + l2->val + temp)%10);
+            temp  = (l1->val + l2 -> val + temp)/10;
+            l1 = l1 -> next;
+            l2 = l2 -> next;
+            ret = ret -> next;
+        }
+        while(l1){
+            ret -> next = new ListNode((l1->val + temp)%10);
+            temp = (l1->val + temp)/10;
+            l1 = l1 -> next;
+            ret = ret ->next;
+        }
+        while(l2){
+            ret -> next = new ListNode((l2->val + temp)%10);
+            temp = (l2->val + temp)/10;
+            l2 = l2 -> next;
+            ret = ret ->next;
+        }
+        if(temp == 1) ret -> next = new ListNode(1);
+        return dummy -> next;
+    }
+};
