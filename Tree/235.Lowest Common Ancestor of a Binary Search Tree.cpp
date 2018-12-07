@@ -33,3 +33,28 @@ public:
             return root;
     }
 };
+
+12.7复习
+注意：
+1.p,q是没有顺序的，所以不能用根结点在p,q中间时返回root,不在再递归左子树或者右子树的方法
+思路就是当两个结点都在根左的时候，递归左;都在根右的时候递归右；在中间返回根结点。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(root -> val > p -> val && root -> val > q ->val) 
+            return lowestCommonAncestor(root->left,p,q);
+        if(root -> val < q -> val && root -> val < p ->val) 
+            return lowestCommonAncestor(root->right,p,q);
+        else 
+            return root;
+    }
+};
