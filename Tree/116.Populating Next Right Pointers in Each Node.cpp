@@ -114,7 +114,7 @@ public:
 12.6复习：
 用queue进行遍历+for循环注意：
 1.需要在一进入循环的时候就计算好当前栈的长度，作为判断的界限。因为后面还会push进来新的元素，会增加长度。如果不判断好会TLE。
-2.本题中每一行的最后一个结点的next值已经是NULL，这是初始化完成好的，不需要再判断当到一行结尾之后再置为NULL
+2.本题中每一行的最后一个结点的next值已经为NULL，这是初始化完成好的，不需要再判断当到一行结尾之后再置为NULL
 /**
  * Definition for binary tree with next pointer.
  * struct TreeLinkNode {
