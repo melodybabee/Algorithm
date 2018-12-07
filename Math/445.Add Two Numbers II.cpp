@@ -155,3 +155,115 @@ public:
         return n;
     }
 };
+
+12.6复习：
+用stack:
+注意：
+1.本题的特点是进位是往前加的，因此更新链表的顺序是由后向前，即先有最后一个结点，再依次向前补充。
+注意第一位有可能是进位有可能是0，是0的情况需要输出其下一位。
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        stack<int>s1;
+        stack<int>s2;
+        int total = 0;
+        int temp = 0;
+        ListNode *dummy = new ListNode(-1);
+        ListNode *cur = dummy;
+        while(l1){
+            s1.push(l1->val);
+            l1 = l1 -> next;
+        }
+        while(l2){
+            s2.push(l2->val);
+            l2 = l2 -> next;
+        }
+        while(!s1.empty() || !s2.empty()){
+            if(!s1.empty()){
+                total += s1.top();
+                s1.pop();
+            }
+            if(!s2.empty()){
+                total += s2.top();
+                s2.pop();
+            }
+           cur -> val = total%10;
+           ListNode *temp = new ListNode(total/10);
+            temp -> next = cur;
+            cur = temp;
+            total /=10;
+        }
+        return cur -> val == 0 ? cur -> next : cur;
+    }
+};
+不用stack:
+注意：
+1.需要先比较出l1,l2的长度，计算出差值，和解题无关的方法最好单独写。
+之后交换把l1交换成较长的链表。
+2.建立新的链表对原链表一一取值，设置一个right指针用来存放不为9的最后一位的前一位，便于后面进位使用。
+3.当循环到l1,l2一边长之后开始汇合，如果和大于9表示有进位，需要对right指针进行操作。
+如果不大于9那么添加新的结点，同时也要移动各个指针。
+4.最后判断头结点是否有进位，返回。
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        int len1 = findlen(l1);
+        int len2 = findlen(l2);
+        int diff = abs(len1-len2);
+        if(len1 < len2) swap(l1,l2);
+        ListNode *dummy = new ListNode(0);
+        ListNode *cur = dummy;
+        ListNode *right = cur;
+        while(diff > 0){
+            cur -> next = new ListNode(l1->val);
+            if(l1 -> val !=9)right = cur -> next;
+            cur = cur -> next;
+            l1 = l1->next;
+            --diff;
+        }
+        while(l1){
+            int total = l1 -> val + l2 -> val;
+            if(total > 9){
+                total %=10;
+                ++right -> val;
+                while(right -> next){
+                    right -> next ->val = 0;
+                    right = right -> next;
+                }
+                right = cur;
+            }
+            cur -> next = new ListNode(total);
+            if(total != 9) right = cur->next;
+            cur = cur -> next;
+            l1 = l1 ->next;
+            l2 = l2 -> next;
+        }
+        return (dummy -> val == 1) ? dummy : dummy -> next;
+        
+    }
+    
+    int findlen(ListNode*l1){
+        int count = 0;
+        while(l1){
+            ++count;
+            l1 = l1 -> next;
+        }
+        return count;
+    }
+};
