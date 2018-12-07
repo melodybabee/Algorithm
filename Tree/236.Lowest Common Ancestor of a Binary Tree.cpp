@@ -41,3 +41,50 @@ public:
         return left? left : right;
     }
 };
+
+12.7复习：
+注意：
+核心思路就是先左右递归，如果分别在左右两侧，那么返回根结点。如果只在一侧出现，那么返回出现一侧的结点。
+注意在递归中重新设置一个新变量作为临时储存的值的方法。
+因为是DFS递归，因此如果在左边能找到结果就不需要递归右子树了，那么直接返回结果即可。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(!root || root -> val == p->val || root -> val == q -> val) return root;
+        TreeNode *left = lowestCommonAncestor(root -> left,p,q);
+        TreeNode *right = lowestCommonAncestor(root -> right,p,q);
+        if(left && right) return root;
+        else  return left ? left : right;
+    }
+};
+优化：
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(!root || root -> val == p->val || root -> val == q -> val) return root;
+        TreeNode *left = lowestCommonAncestor(root -> left,p,q);
+        if(left && left  != q  && left  != p ) return left;
+        TreeNode *right = lowestCommonAncestor(root -> right,p,q);
+        if(right && right != q && right != p) return right;
+        if(left && right) return root;
+        else  return left ? left : right;
+    }
+};
