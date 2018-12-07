@@ -48,3 +48,27 @@ int --> string, int +'0';
 当一方为0时，设定该数为0，string中的这一位为'0',使下方取到该位时的整数值为0.
 
 */
+
+12.6复习：
+注意：
+1.数字转字符串-'0',字符串转数字+'0'
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        int ret = 0;
+        string s = "";
+        int m = a.size()-1;
+        int n = b.size()-1;
+        while(m >= 0 || n >= 0){
+            int l = (m >= 0) ? a[m] - '0' : 0;
+            int r = (n >= 0) ? b[n] - '0' : 0;
+            int temp = (l + r + ret)%2;
+            ret = (l+r+ret)/2;
+            s.insert(s.begin(),temp +'0');
+            --m;
+            --n;
+        }
+        if(ret == 1) s.insert(s.begin(),'1');
+        return s;
+    }
+};
