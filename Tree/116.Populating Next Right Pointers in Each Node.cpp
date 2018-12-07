@@ -110,3 +110,87 @@ public:
         }
     }
 };
+
+12.6复习：
+用queue进行遍历+for循环注意：
+1.需要在一进入循环的时候就计算好当前栈的长度，作为判断的界限。因为后面还会push进来新的元素，会增加长度。如果不判断好会TLE。
+2.本题中每一行的最后一个结点的next值已经是NULL，这是初始化完成好的，不需要再判断当到一行结尾之后再置为NULL
+/**
+ * Definition for binary tree with next pointer.
+ * struct TreeLinkNode {
+ *  int val;
+ *  TreeLinkNode *left, *right, *next;
+ *  TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    void connect(TreeLinkNode *root) {
+        if(!root) return;
+        queue<TreeLinkNode*> q;
+        q.push(root);
+        while(!q.empty()){
+            int size = q.size();
+            for(int i = 0; i< size;++i){
+                TreeLinkNode *temp = q.front();
+                q.pop();
+                if(i<size-1)temp -> next = q.front();
+                if(temp -> left)q.push(temp -> left);
+                if(temp -> right)q.push(temp -> right);
+            }
+        }
+    }
+};
+优化空间复杂度：
+1.层序遍历，pre用来判断是否还有下一层，cur用来判断当前层是否到结尾。
+因为cur实际上已经在操作它所在的下一行，因此不需要遍历到倒数第二行即可。
+/**
+ * Definition for binary tree with next pointer.
+ * struct TreeLinkNode {
+ *  int val;
+ *  TreeLinkNode *left, *right, *next;
+ *  TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    void connect(TreeLinkNode *root) {
+        if(!root) return;
+        TreeLinkNode *cur = NULL;
+        TreeLinkNode *pre = root;
+        while(pre->left){
+            cur = pre;
+            while(cur){
+                if(cur -> left) cur ->left ->next = cur -> right;
+                if(cur -> next) cur ->right ->next = cur->next ->left;
+                cur = cur ->next;
+            }
+            pre = pre ->left;
+        }
+    }
+};
+
+递归：
+1.注意运用完全二叉树的性质，当根左存在的时候根右也一定存在。
+/**
+ * Definition for binary tree with next pointer.
+ * struct TreeLinkNode {
+ *  int val;
+ *  TreeLinkNode *left, *right, *next;
+ *  TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    void connect(TreeLinkNode *root) {
+        if(!root) return;
+        if(root -> left) root->left ->next = root -> right;
+        if(root -> right) {
+            if(!root -> next) root -> right -> next = NULL;
+            else root -> right -> next = root -> next ->left;
+        }
+        
+        connect(root ->left);
+        connect(root ->right);
+    }
+};
