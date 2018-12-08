@@ -60,5 +60,36 @@ public:
         return ret;
     }
 };
-方法三：最小堆，Priority Queues 【待学习】
+方法三：最小堆，Priority Queues
 T(n)=O(NlogN),S(n)=O(n);
+思路：
+1.最小堆的方法非常好理解，借助C++内置函数实现从小到大的排序。
+2.首先给数组按照起始时间排序，输入结束时间，如果后面的开始时间大于等于最小堆的头部元素，说明可以使用同一件会议室，那么弹出栈顶元素，输入新的结束时间
+3.最后计算栈中的元素个数
+/**
+ * Definition for an interval.
+ * struct Interval {
+ *     int start;
+ *     int end;
+ *     Interval() : start(0), end(0) {}
+ *     Interval(int s, int e) : start(s), end(e) {}
+ * };
+ */
+class Solution {
+public:
+    struct cmp{
+        bool operator()(Interval a, Interval b){
+            return a.start < b.start;
+        }
+    };
+    int minMeetingRooms(vector<Interval>& intervals) {
+        if(intervals.empty()) return 0;
+        sort(intervals.begin(),intervals.end(),cmp());
+        priority_queue<int,vector<int>,greater<int>>q;
+        for(int i = 0; i < intervals.size();++i){
+           if(!q.empty() && intervals[i].start >= q.top()) q.pop();
+            q.push(intervals[i].end);
+        }
+        return q.size();
+    }
+};
