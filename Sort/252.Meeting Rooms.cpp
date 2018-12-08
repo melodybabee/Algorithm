@@ -53,3 +53,37 @@ public:
         return true;
     }
 };
+
+
+12.7复习
+注意：
+1.自定义排序方法的时候注意sort()方法中要写清楚cmp(),但是overload结构体的时候只写cmp
+2.结构体里面定义operator()方法。方法的变量是需要比较的对象，const有无均可，但是如果是外部变量必须是&
+返回的结果如果想从小到大就是小于号，如果从大到小就是大于号。
+如果不用排序需要判断的是如果前一个数组的头部小于等于后一个数组的头部且前一个数组的尾部大于后一个数组的头部返回false.还需要交换判断一次。
+/**
+ * Definition for an interval.
+ * struct Interval {
+ *     int start;
+ *     int end;
+ *     Interval() : start(0), end(0) {}
+ *     Interval(int s, int e) : start(s), end(e) {}
+ * };
+ */
+class Solution {
+public:
+    struct cmp{
+        bool operator()(Interval a ,Interval b){
+            return a.start < b.start;
+        }
+    };
+    bool canAttendMeetings(vector<Interval>& intervals) {
+        sort(intervals.begin(),intervals.end(),cmp());
+        for(int i = 1; i< intervals.size();++i){
+            if(intervals[i].start < intervals[i-1].end){
+                return false;
+            }
+        }
+        return true;
+    }
+};
