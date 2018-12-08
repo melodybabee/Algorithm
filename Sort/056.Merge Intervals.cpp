@@ -46,7 +46,8 @@ public:
 方法二：建立两个数组分别存头部元素和尾部元素，再分别push进去
 思路：
 1.分别用两个数组储存原数组的头部元素和尾部元素，排序
-2.用两个指针i和j，初始化时分别指向starts和ends数组的首位置，然后如果i指向starts数组中的最后一个位置，或者当starts数组上i+1位置上的数字大于ends数组的i位置上的数时，此时说明区间已经不连续了
+2.用两个指针i和j，初始化时分别指向starts和ends数组的首位置。
+然后如果i指向starts数组中的最后一个位置，或者当starts数组上i+1位置上的数字大于ends数组的i位置上的数时，此时说明区间已经不连续了
 starts:   1    2    8    15
 ends:     3    6    10    18
 如果此时starts[i+1]为8，ends[i]为6，8大于6，所以此时不连续了，将区间[starts[j], ends[i]]，即 [1, 6] 加入结果res中，然后j赋值为i+1继续循环
@@ -373,3 +374,39 @@ int main (void)
 比如找数列中过的第K大数字，只要建立一个大小为K的最小堆，堆顶就是第K大数字。
 例如在10个数字中找第3大数字，那么首先选取3个数字，比如前3个，将这三个数字建成最小堆，从第4个数字开始，与堆顶开始比较，如果小则不要，如果比堆顶大，那么舍弃当前堆顶元素插入新的值，再重新维护最小堆。
 复杂度：T（n） = O（NlogK）；
+
+12.7复习：
+注意：
+1.问题在于思考的时候没有想清楚如果创建新的vector储存，是在原有基础上改还是新建，因为第一次要和头结点比较，新建的话会涉及后面的元素和新建的数组比较的情况。
+解决办法就是新建一个返回数组，首先把头结点push进去，每次比较的时候取尾部元素back()进行操作即可。
+/**
+ * Definition for an interval.
+ * struct Interval {
+ *     int start;
+ *     int end;
+ *     Interval() : start(0), end(0) {}
+ *     Interval(int s, int e) : start(s), end(e) {}
+ * };
+ */
+class Solution {
+public:
+    struct cmp{
+        bool operator()(Interval a, Interval b){
+            return a.start < b.start;
+        }
+    };
+    vector<Interval> merge(vector<Interval>& intervals) {
+        if(intervals.empty()) return{};
+        sort(intervals.begin(),intervals.end(),cmp());
+        vector<Interval>ret;
+        ret.push_back(intervals[0]);
+        for(int i = 1; i < intervals.size();++i){
+            if(ret.back().end >= intervals[i].start){
+                ret.back().end = max(intervals[i].end,ret.back().end);
+            }else{
+                ret.push_back(intervals[i]);
+            }
+        }
+        return ret;
+    }
+};
