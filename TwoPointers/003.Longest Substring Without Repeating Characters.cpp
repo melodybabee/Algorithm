@@ -61,3 +61,24 @@ public:
         return res;
     }
 };
+
+12.10复习：
+注意：
+1.用一个left指针指向左边界，循环到的i指向右边界，每次的最长长度是i-left+1
+2.用一个hashmap来记录下遍历到的字符在字符串中的位置，如果遇到重复的就及时更新。
+注意每个字符的位置是它i遍历到的位置+1.
+最开始的时候left会在0的位置，后面依次更新到遍历到的字符所在的位置坐标上。
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_map<char,int>map;
+        int left = 0;
+        int ret = 0;
+        for(int i = 0; i< s.size();++i){
+            left = max(left,map[s[i]]);
+            map[s[i]] = i+1;
+            ret = max(ret,i-left+1);
+        }
+        return ret;
+    }
+};
