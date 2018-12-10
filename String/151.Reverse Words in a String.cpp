@@ -70,7 +70,8 @@ public:
 方法4:两次反转
 思路：
 1.先反转字符串，再依次反转每个单词
-2.用一个cue坐标记录下当前所在的位置，以及是否需要加入空格隔断
+2.用一个cur
+坐标记录下当前所在的位置，以及是否需要加入空格隔断
 3.遍历反转以后的字符串，如果为0跳过，不为0的时候用一个指针向后查找到空格的位置，反转，注意反转的起始位置和结束位置
 用cur来表示新的坐标从而替换掉旧的字符串。
 4.最后用resize()方法把字符串截取到cur指针的位置。
@@ -129,3 +130,72 @@ am
 a
 boy
 
+12.10复习
+方法一：stack
+注意：
+1.利用栈需要考虑' '的情况，如果不满足的话需要单独判断
+class Solution {
+public:
+    void reverseWords(string &s) {
+        stack<string> st;
+        for(int i = 0; i < s.size(); ++i){
+            if(s[i] == ' ') continue;
+            int j = i;
+            for(j = i; j <= s.size();++j){
+                if(s[j] == ' ' || j == s.size()){
+                    st.push(s.substr(i,j-i));
+                    if(j == s.size()) break;
+                    while(s[j] == ' ')++j;
+                    break;
+                }else{
+                    continue;
+                }
+            }
+            i= j-1;
+        }
+        s = "";
+        if(st.empty()) return;
+        while(!st.empty()){
+            s +=st.top();
+            st.pop();
+            if(!st.empty()) s += " ";
+        }
+    }
+};
+方法2:先整体反转，再局部反转
+注意：建立一个cur指针后面作为遍历的index,为了便于添加中间的空格元素，j作为每个单词的循环s 
+class Solution {
+public:
+    void reverseWords(string &s) {
+        int cur = 0;
+        reverse(s.begin(),s.end());
+        for(int i = 0; i < s.size(); ++i){
+            if(s[i] != ' '){
+                if(cur != 0){
+                    s[cur] = ' ';
+                    ++cur;
+                }
+                int j = i; 
+                while(j < s.size() && s[j] != ' '){
+                    s[cur] = s[j];
+                    ++j;
+                    ++cur;
+                }
+                reverse(s.begin()+i+cur-j,s.begin()+cur);
+                i = j;
+            }
+        }
+        s.resize(cur);
+    }
+};
+方法3:用istringstream方法
+class Solution {
+public:
+    void reverseWords(string &s) {
+        istringstream is(s);
+        string temp;
+        is >> s;
+        while(is >> temp) s = temp + ' ' + s;
+        if(s != "" && s[0] == ' ') s = "";
+    }
+};
