@@ -5,7 +5,6 @@
 1.首先建立一个一维的dp数组，大小等于原数组的个数。从头开始遍历，更新dp数组。
 2.在内部循环过程中遍历从头到当前位置的所有数字，如果有比当前位置小的数字，那么对在dp的数组前面的位置上的值+1更新
 3.最后返回dp数组中的最大值。
-直接返回dp数组的最后一个数字是可以的，但是这样就需要判断一下nums为空的情况。
 class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
@@ -74,7 +73,7 @@ public:
 1.lower_bound返回数组中第一个不小于指定值的元素
 lower_bound(查找数组.begin(),查找数组.end(),查找元素)；
 2.如果没有找到这个元素，表示这个元素目前为最大值，那么直接放在新数组的后面
-3/如果找到了替换即可，注意因为查找的过程是应用指针类型，因此替换的时候需要用*取值
+3.如果找到了替换即可，注意因为查找的过程是应用指针类型，因此替换的时候需要用*取值
 class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
@@ -101,6 +100,47 @@ public:
             auto it = upper_bound(ret.begin(),ret.end(),a);
             if(it == ret.end()) ret.push_back(a);
             else *it = a;
+        }
+        return ret.size();
+    }
+};
+
+12.10复习：
+方法一：DP
+每到一个新的数字就开始从0循环，在当前位置更新循环到的位置上的值+1和该位上的较大值，ret结果记录的是每一位上的较大值。
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        int ret = 0;
+        vector<int> dp(nums.size(),1);
+        for(int i = 0; i < nums.size();++i){
+            for(int j = 0; j < i; ++j){
+                if(nums[j] < nums[i]){
+                    dp[i] = max(dp[i],dp[j] +1);
+                }
+            }
+            ret = max(ret,dp[i]);
+        }
+        return ret;
+    }
+};
+方法2:二叉搜索
+注意：题目中要求的是找到递增的最长序列，不是子序列，所以新建的数组维护的就是单增的趋势。
+如果找到更大的元素，那么添加在后面，否则在它合适的位置上替换上该值，最后返回数组的长度。
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        vector<int> ret;
+        for(int i = 0; i < nums.size(); ++i){
+            int left = 0;
+            int right = ret.size();
+            while(left < right){
+                int mid = left + (right - left)/2;
+                if(ret[mid] < nums[i]) left = mid +1;
+                else right = mid;
+            }
+            if(right == ret.size()) ret.push_back(nums[i]);
+            else ret[right] = nums[i];
         }
         return ret.size();
     }
