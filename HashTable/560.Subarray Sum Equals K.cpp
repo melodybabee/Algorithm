@@ -43,3 +43,59 @@ public:
         
     }
 };
+
+12.11复习：
+1.暴力拆解：
+注意：
+1.需要加上元素本身计数
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        int count = 0;
+        for(int i = 0; i < nums.size(); ++i){
+            int temp = nums[i];
+            if(temp == k) ++ count;
+            for(int j = i+1; j < nums.size(); ++j){
+                temp += nums[j];
+                if(temp == k) ++count;
+            }
+        }
+        return count;
+    }
+};
+2.hashmap
+注意：
+1.sum保证了数组是连续的，因为是逐个累加的
+2.要在map中首先声明初始量{0,1};
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        unordered_map<int,int>map {{0,1}};
+        int ret = 0; 
+        int sum = 0;
+        for(int i= 0; i < nums.size();++i){
+            sum += nums[i];
+            ret += map[sum-k];
+            ++map[sum];
+        }
+        return ret;
+    }
+};
+如果数组中都是正数还可以用two pointers,有负数存在就不行:
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        int ret = 0; 
+        int sum = 0;
+        int j = 0;
+        for(int i= 0; i < nums.size();++i){
+            sum += nums[i];
+            while(sum > k){
+                sum -= nums[j];
+                ++j;
+            }
+            if(sum == k) ++ ret;
+        }
+        return ret;
+    }
+};
