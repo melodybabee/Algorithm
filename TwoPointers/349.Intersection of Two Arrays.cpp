@@ -81,3 +81,40 @@ public:
         return vector<int>(ret.begin(),ret,end());
     }
 };
+
+12.11复习：
+1.unordered_map
+先把一个输入到map中另一个在里面查找，找到了删除避免有重复的元素
+class Solution{
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        unordered_map<int,int>map;
+        vector<int>vec;
+        for(auto a:nums1) ++map[a];
+        for(int i = 0;i < nums2.size();++i){
+            if(map.count(nums2[i])){
+                vec.push_back(nums2[i]);
+                map.erase(nums2[i]);
+            }
+        }
+        return vec;
+    }
+};
+2.unorded_set
+思路：
+1.利用set去重的特质 因此返回的数组也应该是set类型
+2.最后转换为vector
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        unordered_set<int>set(nums1.begin(),nums1.end());
+        unordered_set<int>ret;
+        for(auto a : nums2){
+            if(set.count(a)) ret.insert(a);
+        }
+        return vector<int>(ret.begin(),ret.end());
+    }
+};
+follow up：
+1.双指针方法是分别先对数组进行排序，再开始从头部依次遍历，相等，放到结果中，不想等那么小的一方前进。
+2.如果是[1,2,3,...10000]和[1,3,4...10000]双指针遍历是o(n),更快的方法是先双指针查找，如果一定程度上找不到之后那么直接二叉搜索。
