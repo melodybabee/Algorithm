@@ -37,3 +37,24 @@ public:
         return true;
     }
 };
+
+12.10复习：
+注意：
+用两指针来判断，不满足相等条件建立子指针。
+class Solution {
+public:
+    bool validPalindrome(string s) {
+        for(int i = 0, j = s.size()-1; i <= j; ++i, --j){
+            if(s[i] != s[j]){
+                int l1 = i;
+                int l2 = i+1;
+                int r1 = j-1;
+                int r2 = j;
+                while(s[l1] == s[r1]) ++l1, --r1;
+                while(s[l2] == s[r2]) ++l2, --r2;
+                return (l1 >= r1 || l2 >= r2);
+            }
+        }
+        return true;
+    }
+};

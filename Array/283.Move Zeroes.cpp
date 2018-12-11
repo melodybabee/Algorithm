@@ -26,3 +26,18 @@ public:
         return;
     }
 };
+
+12.10复习
+注意：不是0就与前面的0进行交换，j记录的是0的位置。
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int j = 0;
+        for(int i = 0; i < nums.size();++i){
+            if(nums[i] != 0){
+                swap(nums[i],nums[j]);
+                ++j;
+            }
+        }
+    }
+};

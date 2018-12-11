@@ -55,3 +55,26 @@ public:
 注意区分if...if...if...与if...else if...else....
 前者是只要满足if条件就会执行，后者是第一句不满足执行第二句，一二句都不满足执行第三局，以此类推
 不要再犯类似的低级错误！！大大拉低了AC率！
+
+12.10复习
+注意：
+1.isalnum()判断是否是数字
+tolower()转换为小写字母
+2.注意只要不满足条件就重新进入while循环
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        int left = 0;
+        int right = s.size()-1;
+        while(left <= right){
+            if(!isalnum(s[left])) ++left;
+            else if(!isalnum(s[right])) --right;
+            else {
+                if(tolower(s[left]) != tolower(s[right])) return false;
+                ++left;
+                --right;
+            }
+        }
+        return true;
+    }
+};
