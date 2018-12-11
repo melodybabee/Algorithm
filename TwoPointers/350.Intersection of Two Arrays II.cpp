@@ -48,6 +48,70 @@ public:
 如果数组是排序好的，直接用while循环进行逐个比较即可。
 2.What if nums1's size is small compared to nums2's size? Which algorithm is better?
 如果nums1相对于nums2非常小，那么把nums1做成hashtable,因为这样hashtable所占空间更小。
+如果悬殊很大，可以在长的字符串中对短的字符串进行二叉搜索。
 3.What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
 如果只有nums2不能放在内存中，则将nums1做成哈希表，nums2分批加载到内存中处理。
 如果nums1和nums2都很大，都不适合储存在内存，那么就用外部排序分别来sort它们。将每2G(举例)读入内存，使用2指针技术，然后从内存中读取更多的2G。重复此操作，直到没有更多数据从磁盘读取。
+
+12.11复习：
+1.hashmap
+Time: O(m + n) Space: O(m + n)
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        unordered_map<int,int>map;
+        vector<int>vec;
+        for(auto a : nums1) ++map[a];
+        for(int i = 0; i< nums2.size();++i){
+            if(map[nums2[i]] > 0) {
+                vec.push_back(nums2[i]);
+                --map[nums2[i]];
+            }
+        }
+        return vec;
+    }
+};
+2.hashmap优化
+判断在map中是否存在那么可以不用每次都输入一个新的键值对
+Time: O(m + n) Space: O(m)
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        unordered_map<int,int>map;
+        vector<int>vec;
+        for(auto a : nums1) ++map[a];
+        for(int i = 0; i< nums2.size();++i){
+            if(map.find(nums2[i]) != map.end() && map[nums2[i]] > 0) {
+                vec.push_back(nums2[i]);
+                --map[nums2[i]];
+            }
+        }
+        return vec;
+    }
+};
+3.sort+two pointers
+Time: O(max(m, n) log(max(m, n))) Space: O(m + n)
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        sort(nums1.begin(),nums1.end());
+        sort(nums2.begin(),nums2.end());
+        int m = nums1.size();
+        int n = nums2.size();
+        int i = 0;
+        int j = 0;
+        vector<int>vec;
+        while(i < m && j < n){
+            if(nums1[i] == nums2[j]){
+                vec.push_back(nums1[i]);
+                ++i;
+                ++j;
+            }else if(nums1[i] > nums2[j]){
+                ++j;
+            }else{
+                ++i;
+            }
+        }
+        return vec;
+    }
+};
