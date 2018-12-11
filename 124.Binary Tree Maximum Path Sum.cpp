@@ -39,3 +39,34 @@ public:
         return max(left,right)+root->val;
     }
 };
+
+12.11复习：
+注意：
+1.核心的递归思想是分别计算左右子树中的较大值，最后返回的结果应该是左右子树+根结点中的较大值和原结果中的较大值。
+2.但是每次递归返回的是左右子树的较大值+根结点。如果返回值为负数那么直接取0.
+3.即返回值和得到的结果不是同一个值。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int maxPathSum(TreeNode* root) {
+        int ret = INT_MIN;
+        helper(root,ret);
+        return ret;
+    }
+    
+    int helper(TreeNode *root, int &ret){
+        if(!root) return 0;
+        int left = max(helper(root -> left,ret),0);
+        int right = max(helper(root -> right,ret),0);
+        ret = max(ret,left + right + root ->val);
+        return max(left,right)+ root -> val;
+    }
+};
