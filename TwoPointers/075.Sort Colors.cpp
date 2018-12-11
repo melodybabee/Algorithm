@@ -67,3 +67,27 @@ public:
         }
     }
 };
+
+12.10复习：
+注意：
+1.首先循环的范围要小于右边界，不然会反复交换
+2.注意交换2以后要--i,重新判断这一位。
+3.要先交换0再交换2，因为2之后要--i，如果先交换了2，那么没有--i存在。
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int left = 0;
+        int right = nums.size()-1;
+        for(int i = 0; i <= right; ++i){
+            if(nums[i] == 0){
+                swap(nums[i],nums[left]);
+                ++left;
+            }
+            if(nums[i] == 2){
+                swap(nums[i],nums[right]);
+                --right;
+                --i;
+            }
+        }
+    }
+};
