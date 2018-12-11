@@ -43,3 +43,30 @@ public:
         return sign == 1? res: -res;
     }
 };
+
+12.10复习：
+注意：
+1.long long是因为-2147483648在int范围内但是变成正数之后就不再int范围内
+2.有<<乘2操作，因此有可能会超出int范围
+class Solution {
+public:
+    int divide(int dividend, int divisor) {
+        if(dividend == INT_MIN && divisor == -1) return INT_MAX;
+        long long m = abs((long long)dividend);
+        long long n = abs((long long)divisor);
+        int res = 0;
+        int sign = ((dividend < 0) ^ (divisor <0)) ? -1 :1;
+        if (n == 1) return sign == 1? m : -m;
+        while(m >= n){
+            long long temp = n; 
+            long long p = 1;
+            while(m >= (temp << 1)){
+                temp <<= 1;
+                p <<= 1;
+            }
+            res += p;
+            m -= temp;
+        }
+        return sign == 1? res: -res;
+    }
+};
