@@ -1,4 +1,4 @@
-题意：
+i题意：
 找到数组中三个数组相加等于0的非重复子数组
 思路：
 1.首先对大数组进行排序，使其从小到大排列
@@ -50,5 +50,37 @@ public:
             }
         }
         return ret;
+    }
+};
+
+12.10复习：
+注意：
+1.n sum的题目都需要先排序，为了方便去重。
+2.头结点要注意去重，后面的左右指针同样也需要去重。还需要注意在判断不等于target的值时，可以根据比target大或者小来判断时左指针移动还是右指针移动。
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> ans;
+        sort(nums.begin(),nums.end());
+        for(int i = 0; i < nums.size(); ++i){
+            if(i > 0 && nums[i] == nums[i-1])continue;
+            int target = -nums[i];
+            int left = i+1;
+            int right = nums.size()-1;
+            while(left < right){
+                if(nums[left] + nums[right] == target){
+                    ans.push_back({nums[i],nums[left],nums[right]});
+                    while(left < right && nums[left] == nums[left+1]) ++ left;
+                    while(right > left && nums[right] == nums[right-1]) --right;
+                    ++left;
+                    --right;
+                }else if(nums[left] + nums[right] < target){
+                    ++left;
+                }else{
+                    --right;
+                }
+            }
+        }
+        return ans;
     }
 };
