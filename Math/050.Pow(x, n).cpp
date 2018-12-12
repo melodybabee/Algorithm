@@ -112,3 +112,42 @@ public:
            return ret;
     }
 };
+
+12.11复习：
+注意：
+1.n要改成long long因为INT_MIN改为正数就会超出int范围
+2.只要n存在，那么进入循环，首先判断奇偶，如果是奇数自乘一次，缩小2倍，底数相乘。再次循环。
+class Solution {
+public:
+    double myPow(double x, int n) {
+        if(n == 0) return 1;
+        bool flag = false;
+        long long p = n;
+        double ret = 1;
+        if(p < 0){
+            flag = true;
+            p = -p;
+        }
+        while(p){
+            if(p & 1) ret *= x;
+            p >>= 1;
+            x = x*x;
+        }
+        if(flag){
+            ret = 1/ret;
+        }
+        return ret;
+    }
+};
+迭代方法：
+class Solution {
+public:
+    double myPow(double x, int n) {
+        double ret = 1;
+        for(int i = n; i != 0; i /=2){
+            if(i %2 !=0)  ret *= x;
+            x *= x;
+        }
+        return n < 0 ? 1/ret : ret;
+    }
+};
