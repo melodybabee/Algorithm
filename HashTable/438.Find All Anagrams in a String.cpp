@@ -106,3 +106,28 @@ public:
     }
 };
 
+12.12复习：
+注意：
+1.字符-'a'表示的是ASCII的减法，如果为a,那么就是0；如果原来的字符为数字，那么-'0'是以0为基准的，如果为0，那么为0.
+2.两者相等的前提条件就是长度等，因此首先需要把p中的元素放在数组中进行判断，如果相等，那么从0开始就是第一位相等的。
+3.接着循环长的字符串，新加进来一个，那么从头部删除一个，为了保证长度相等，每次加入后都需要判断是否相等，如果相等输出其坐标
+4.最后返回结果数组
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        vector<int>s1(26);
+        vector<int>p1(26);
+        vector<int>ret;
+        for(int i = 0; i < p.size();++i){
+            ++s1[s[i]-'a'];
+            ++p1[p[i]-'a'];
+        }
+        if(s1 == p1) ret.push_back(0);
+        for(int i = p.size(); i < s.size();++i){
+            ++s1[s[i]-'a'];
+            --s1[s[i-p.size()]-'a'];
+            if(s1 == p1) ret.push_back(i-p.size()+1);
+        }
+        return ret;
+    }
+};
