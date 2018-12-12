@@ -46,3 +46,24 @@ public:
         return ret;
     }
 };
+
+12.12复习：
+注意：先用两个数组分别更新左半边和右半边，在分别乘积更新在数组中。
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        vector<int>left(nums.size(),1);
+        vector<int>right(nums.size(),1);
+        for(int i = 1 ; i < nums.size(); ++i){
+            left[i] = left[i-1] * nums[i-1];
+        }
+        for(int i = nums.size()-2; i >= 0; --i){
+            right[i] = right[i+1] * nums[i+1];
+        }
+        for(int i = 0 ; i < nums.size();++i){
+            nums[i] = left[i] *right[i];
+        }
+        return nums;
+    }
+};
+优化是首先更新左侧，用一个temp变量1一个一个从右侧开始乘积，每次更新到结果数组中。
