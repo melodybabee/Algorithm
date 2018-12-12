@@ -67,3 +67,32 @@ public:
         
     }
 };
+
+12.11复习：
+注意：长度为4个结点的返回值是3，因此只有一个结点时返回的长度时0.
+长度定义为边数，不是结点个数。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int diameterOfBinaryTree(TreeNode* root) {
+        int ret = 0;
+        helper(root,ret);
+        return ret;
+    }
+    
+    int helper(TreeNode*root, int &ret){
+        if(!root) return 0;
+        int left = helper(root -> left, ret);
+        int right = helper(root -> right, ret);
+        ret = max(ret, left + right);
+        return max(left+1, right +1);
+    }
+};
