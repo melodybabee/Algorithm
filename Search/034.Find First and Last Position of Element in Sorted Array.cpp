@@ -35,3 +35,31 @@ public:
         return ret;
     }
 };
+
+12.11复习：
+注意：分别找到左边界和右边界再更新。需要提前判断为空或者不存在的情况。
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int left= 0;
+        int right = nums.size();
+        vector<int> ret{-1,-1};
+        if(nums.empty()) return ret;
+        if(target > nums[nums.size()-1] || target < nums[0]) return ret;
+        while(left < right){
+            int mid = left + (right - left)/2;
+            if(nums[mid] < target) left = mid+1;
+            else right = mid;
+        }
+        if(nums[left] != target) return ret;
+        ret[0] = left;
+        right = nums.size();
+        while(left < right){
+            int mid = left +(right -left)/2;
+            if(nums[mid] > target) right = mid;
+            else left = mid+1;
+        }
+        ret[1] = right-1;
+        return ret;
+    }
+};
