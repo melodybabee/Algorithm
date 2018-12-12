@@ -47,3 +47,27 @@ public:
         return low;
     }
 };
+
+12.11复习
+注意：
+二分解法。
+每次找到中点之后开始遍历数组，记录下比中点的值小于等于的数字。
+常理来说小于等于中点位置的数字应该有中点位置个，如果计数器的数量小于等于中点位置，那么重复的数字就在数组的右侧。移动左边界。
+如果多于中点个，那么重复的值在左侧，移动右指针。
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int left = 0;
+        int right = nums.size();
+        while(left < right){
+            int mid = left + (right - left)/2;
+            int count = 0;
+            for(auto a : nums){
+                if(a <= mid) ++count;
+            }
+            if(count <= mid) left = mid+1;
+            else right = mid;
+        }
+        return right;
+    }
+};
