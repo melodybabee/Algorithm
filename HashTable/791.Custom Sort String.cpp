@@ -90,3 +90,35 @@ public:
         return T;
     }
 };
+
+12.11
+方法一：hashmap
+注意：先把多的字符串放到map中，循环顺序字符串再依次输出，输出后记为0
+最后把map中没有输出的输出。
+class Solution {
+public:
+    string customSortString(string S, string T) {
+        unordered_map<char,int>map;
+        string str = "";
+        for(auto t : T) ++map[t];
+        for(int i = 0; i < S.size();++i){
+            if(map.count(S[i])) str.append(map[S[i]],S[i]);
+            map[S[i]] = 0;
+        }
+        for(auto it : map){
+            str.append(it.second,it.first);
+        }
+        return str;
+    }
+};
+自定义排序：
+class Solution {
+public:
+    string customSortString(string S, string T) {
+        sort(T.begin(),T.end(),[&](char a,char b){
+            return S.find(a) < S.find(b);
+        });
+        return T;
+    }
+};
+
