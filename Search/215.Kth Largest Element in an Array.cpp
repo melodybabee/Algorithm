@@ -94,3 +94,49 @@ public:
     }
 };
 方法4:堆排序方法待学习
+
+12.11复习：
+1.heap
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        priority_queue<int>q;
+        for(auto a:nums){
+            q.push(a);
+        }
+        for(int i = 1; i< k;++i){
+            q.pop();
+        }
+        return q.top();
+    }
+};
+2.quick sort
+注意：
+1.交换结果是大的数字在前，小的数字在后，因此最后头结点进行交换的时候要与靠后的结点位置进行交换。
+同时注意交换的是坐标上的值，而不单纯是值。
+2.用汇合点或者是靠右的结点位置来判断是否是要找的位置。
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        int left = 0; 
+        int right = nums.size();
+        while(left < right){
+            int i = left;
+            int j = right-1;
+            int p = nums[left];
+            while(i <= j){
+                while(i <= j && nums[i] >= p) ++i;
+                while(i <= j && nums[j] < p) --j;
+                if(i < j) {
+                    swap(nums[i],nums[j]);
+                    ++i;
+                    --j;
+                }
+            }
+            swap(nums[left],nums[j]);
+            if(j == k-1) return nums[j];
+            else if(j < k-1) left = j+1;
+            else right = j;
+        }
+    }
+};
