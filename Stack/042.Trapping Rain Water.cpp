@@ -105,3 +105,55 @@ public:
         return ret;
     }
 };
+
+12.12复习：
+方法一：stack
+注意如果开始为空或者小于栈顶元素直接push进去
+如果大于首先还需要用一个temp变量记录下栈顶元素的值，如果pop结束之后为空，那么直接continue
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        stack<int>st;
+        int ret = 0;
+        for(int i = 0; i < height.size();++i){
+            while(!st.empty() && height[i] > height[st.top()]){
+                int temp = st.top();
+                st.pop();
+                if(st.empty()){
+                    continue;
+                }
+                ret += (min(height[i],height[st.top()]) - height[temp]) *(i-st.top()-1);
+            }
+            st.push(i);
+        }
+        return ret;
+    }
+};
+2.两个指针依次扫描
+注意：
+分别从左右开始找较小的值，哪边小向哪边移动，如果还小，记录下结果。直到两个指针相遇为止。
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int left = 0;
+        int right = height.size()-1;
+        int ret = 0;
+        while(left < right){
+            int temp = min(height[left],height[right]);
+            if(height[left] == temp){
+                ++left;
+                while(left < right && height[left] < temp){
+                    ret += temp - height[left];
+                    ++left;
+                }
+            }else if(height[right] == temp){
+                --right;
+                while(left < right && height[right] < temp){
+                    ret += temp - height[right];
+                    --right;
+                }
+            }
+        }
+        return ret;
+    }
+};
