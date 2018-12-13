@@ -61,3 +61,56 @@ public:
         return root;
     }
 };
+
+12.12复习：
+注意：
+1.因为要先判断是否存在再转换，因此先调用递归再用一个temp对左子树和右子树进行交换，最后返回根结点。-
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if(!root) return NULL;
+        invertTree(root -> right);
+        invertTree(root -> left);
+        TreeNode *temp = root -> left;
+        root -> left = root -> right;
+        root-> right = temp;
+        return root;
+    }
+};
+遍历做法：
+同样需要交换。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if(!root) return NULL;
+        queue<TreeNode*>q{{root}};
+        while(!q.empty()){
+            TreeNode *temp = q.front();
+            q.pop();
+            if(temp ->left)q.push(temp->left);
+            if(temp ->right) q.push(temp->right);
+            TreeNode *p = temp -> left;
+            temp ->left = temp -> right;
+            temp -> right = p;
+        }
+        return root;
+    }
+};
