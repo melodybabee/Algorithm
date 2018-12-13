@@ -47,7 +47,7 @@ public:
     }
 };
 
-遍历做法：
+递归做法：
 1.整体思路和遍历相同，不停的找DFS树的叶结点，没有左右结点的时候，一条完整的路径已经形成
 /**
  * Definition for a binary tree node.
@@ -77,5 +77,39 @@ public:
         if(root -> right != NULL){
             dfs(root->right,path+"->"+to_string(root->right->val),ret);
         }
+    }
+};
+
+12.12复习：
+递归做法：
+注意：
+1.注意需要返回的是string,所以需要对结点值进行转化，to_string(root->val)
+2.只要根结点存在那么先加入根结点
+3.因此在递归时需要判断如果根左根右都不存在的话那么应该push进去当前路径了
+在递归调用某一边之前都需要判断其右或者其左是否存在。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<string> binaryTreePaths(TreeNode* root) {
+        vector<string>ret;
+        if(!root) return ret;
+        helper(root,ret,to_string(root->val));
+        return ret;
+    }
+    
+    void helper(TreeNode* root,vector<string>&ret,string str){
+        if(!root -> left && !root -> right) ret.push_back(str);
+        if(root -> left)
+        helper(root -> left,ret,str + "->"+to_string(root ->left -> val));
+        if(root -> right)
+        helper(root -> right,ret,str + "->"+to_string(root ->right -> val));
     }
 };
