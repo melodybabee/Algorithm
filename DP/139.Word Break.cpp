@@ -111,3 +111,54 @@ public:
         return false;
     }
 };
+
+12.11复习：
+DP：
+注意：
+1.因为DP需要初始化，因此DP的长度会比字符串的长度大一位，每次在DP数组中更新的时候更新的是比字符串大一位的true或者false
+2.因此在找子串的时候其实i已经在循环到的后一位上了，那么长度直接就是i-j,dp[i]表示的是以i为结尾的字符串是否能在set中匹配
+class Solution {
+public:
+    bool wordBreak(string s, vector<string>& wordDict) {
+        unordered_set<string>set(wordDict.begin(),wordDict.end());
+        vector<bool>dp(s.size()+1,false);
+        dp[0] = true;
+        for(int i = 0; i < dp.size(); ++i){
+            for(int j = 0;j < i;++j){
+                if(dp[j] && set.count(s.substr(j,i-j))){
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+        return dp[s.size()];
+    }
+};
+BFS注意：
+1.核心思想是从栈顶元素开始，一位一位查找，如果找到了，把坐标push进栈。如果坐标等于字符串长度那么返回true
+需要设置一个数组判断该位是否被查找过
+2.注意i从第一位开始到字符串长度那一位，i表示的是长度，start从0开始和字符串相同
+3.因此计算子串的时候直接是s.substr(start,i-start)
+class Solution {
+public:
+    bool wordBreak(string s, vector<string>& wordDict) {
+        unordered_set<string>set(wordDict.begin(),wordDict.end());
+        queue<int>q;
+        vector<bool>visited(s.size());
+        q.push(0);
+        while(!q.empty()){
+            int start= q.front();
+            q.pop();
+            if(!visited[start]){
+                for(int i = start+1; i <= s.size();++i){
+                    if(set.count(s.substr(start,i-start))){
+                        q.push(i);
+                        if(i == s.size()) return true;
+                    }
+                }
+                visited[start] = true;
+            }
+        }
+        return false;
+    }
+};
