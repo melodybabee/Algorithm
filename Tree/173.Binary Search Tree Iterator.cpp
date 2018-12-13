@@ -57,3 +57,56 @@ public:
  * BSTIterator i = BSTIterator(root);
  * while (i.hasNext()) cout << i.next();
  */
+
+12.12复习：
+注意：
+1.本题想求出BST的最小值，那么每次一旦有左子树，那么所有的左子树结点都需要入栈。
+在声明树结构的时候是这样。在输出最小值后也是这样。
+如果存在右子树，向右移动，只要存在左子树，所有左子树结点入栈。
+/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class BSTIterator {
+private:
+    stack<TreeNode*>st;
+public:
+    BSTIterator(TreeNode *root) {
+        while(root){
+            st.push(root);
+            root = root -> left;
+        }
+    }
+
+    /** @return whether we have a next smallest number */
+    bool hasNext() {
+        if(st.empty()) return false;
+        return true;
+    }
+
+    /** @return the next smallest number */
+    int next() {
+        TreeNode *temp = st.top();
+        st.pop();
+        int ret = temp ->val;
+        if(temp ->right){
+            temp = temp -> right;
+            while(temp){
+                st.push(temp);
+                temp = temp -> left;
+            }
+        }
+        return ret;
+    }
+};
+
+/**
+ * Your BSTIterator will be called like this:
+ * BSTIterator i = BSTIterator(root);
+ * while (i.hasNext()) cout << i.next();
+ */
