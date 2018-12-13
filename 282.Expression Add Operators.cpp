@@ -11,6 +11,8 @@
 如果是加法，返回字符串用当前值+新的值，求和结果用当前值+新的值，改变元素是正的cur
 如果是减法，返回字符串用当前值-新的值，求和结果用当前值-新的值，改变元素是负的cur
 如果是乘法，返回字符串用当前值+新的值，求和结果是（当前结果-之前要改变的值）+（要改变的值*当前值），改变元素是要改变的值*当前值
+注意：
+1.stoll表示由字符转为long long类型
 class Solution {
 public:
     vector<string> addOperators(string num, int target) {
