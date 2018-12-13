@@ -119,3 +119,83 @@ public:
         }
     }
 };
+
+12.12复习：
+递归方法：
+注意：因为p是树中的一个值，因此肯定存在，不存在p不存在的情况。
+那么就是找到比它大的下一个值。和根结点比较，如果大，向右移动，如果小，还需要先保留下根结点的值。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
+        if(!root) return NULL;
+        if(root ->val <= p -> val) return inorderSuccessor(root -> right,p);
+        else {
+            TreeNode *temp = inorderSuccessor(root ->left,p);
+            return temp ? temp :root;
+        }
+    }
+};
+要找到比p大的值
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
+        TreeNode *temp = NULL;
+        while(root){
+            if(root -> val <= p -> val){
+                 root = root -> right;
+            }else{
+                temp = root;
+                root = root -> left;
+            }
+        }
+        return temp;
+    }
+};
+利用BST中序遍历的性质进行比较！
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
+        stack<TreeNode*>st;
+        TreeNode*cur = root;
+        bool flag = false;
+        while(!st.empty() || cur){
+            while(cur){
+                st.push(cur);
+                cur = cur ->left;
+            }
+            cur = st.top();
+            st.pop();
+            if(flag) return cur;
+            if(cur == p) flag = true;
+            cur = cur ->right;
+        }
+        return NULL;
+    }
+};
