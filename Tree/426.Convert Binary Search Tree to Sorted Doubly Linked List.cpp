@@ -142,3 +142,53 @@ public:
         return node1;
     }
 };
+
+12.12复习：
+中序遍历：
+注意：
+p是正常进行中序遍历，pre为当前值，用来进行左右连接。head为双向链表的头结点。
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    Node* left;
+    Node* right;
+
+    Node() {}
+
+    Node(int _val, Node* _left, Node* _right) {
+        val = _val;
+        left = _left;
+        right = _right;
+    }
+};
+*/
+class Solution {
+public:
+    Node* treeToDoublyList(Node* root) {
+        if(!root) return NULL;
+        Node *p = root;
+        Node *head = NULL;
+        Node *pre = NULL;
+        stack<Node*>st;
+        while(!st.empty() || p){
+            while(p){
+                st.push(p);
+                p = p -> left;
+            }
+            p = st.top();
+            st.pop();
+            if(!head) head = p;
+            if(pre){
+                pre -> right = p;
+                p -> left= pre;
+            }
+            pre = p;
+            p = p -> right;
+        }
+        pre -> right = head;
+        head -> left = pre;
+        return head;
+    }
+};
