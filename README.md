@@ -29,7 +29,7 @@
 | 38 | [Count and Say](https://leetcode.com/problems/count-and-say/description/) | 递归 | [C++](https://github.com/melodybabee/Leetcode/blob/master/038.Count%20and%20Say.cpp) |  recursion | 08/06 |
 | 42 |[Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/description/)| 单调递减栈问题 | [C++](https://github.com/melodybabee/Leetcode/blob/master/Stack/042.Trapping%20Rain%20Water.cpp) | stack,TwoPointers | 12/11 |
 | 50 |[Pow(x, n)](https://leetcode.com/problems/powx-n/description/)| 快速幂,递归&迭代 | [C++](https://github.com/melodybabee/Leetcode/blob/master/050.Pow(x%2C%20n).cpp) | Math, Bit Manipulation,Binary Search | 12/11 |
-| 53 | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/description/) | 求最大的子数组和 | [C++](https://github.com/melodybabee/Leetcode/blob/master/DP/053.Maximum%20Subarray.cpp) | Array,DP | 11／30 |
+| 53 | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/description/) | 求最大的子数组和 | [C++](https://github.com/melodybabee/Leetcode/blob/master/DP/053.Maximum%20Subarray.cpp) | Array,DP | 11/30 |
 | 56 |[Merge Intervals](https://leetcode.com/problems/merge-intervals/description/)| 合并数组间重复的部分，各种排序方法知识补充，sort()cmp() | [C++](https://github.com/melodybabee/Leetcode/blob/master/Sort/056.Merge%20Intervals.cpp) | sort | 12/07 |
 | 58 | [Length of Last Word](https://leetcode.com/problems/length-of-last-word/description/) | for循环，break条件 | [C++](https://github.com/melodybabee/Leetcode/blob/master/058.%20Length%20of%20Last%20Word.cpp) | string | 07/23 |
 | 64 |[Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/description/)| 找从左上到右下的路径最小值 | [C++](https://github.com/melodybabee/Leetcode/blob/master/DP/064.Minimum%20Path%20Sum.cpp) | DP | 11/10 |
