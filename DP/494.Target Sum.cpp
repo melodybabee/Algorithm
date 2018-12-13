@@ -96,3 +96,26 @@ public:
         return dp[s];
     }
 };
+
+12.11复习
+1.DFS递归
+注意：
+1.需要在判断坐标是否等于数组长度的基础上判断S==0，不管是否满足都要return
+2.S+-的是每一位上的值，所以不论数组中是什么值都适用
+class Solution {
+public:
+    int findTargetSumWays(vector<int>& nums, int S) {
+        int ans = 0;
+        dfs(nums,0,S,ans);
+        return ans;
+    }
+    
+    void dfs(vector<int>& nums,int index, int S,int& ans){
+        if(index == nums.size()){
+            if(S==0) ++ans;
+            return;
+        }
+        dfs(nums,index+1,S-nums[index],ans);
+        dfs(nums,index+1,S+nums[index],ans);
+    }
+};
