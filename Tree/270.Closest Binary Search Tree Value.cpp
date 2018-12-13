@@ -70,3 +70,39 @@ public:
         return res;
     }
 };
+
+12.13复习：
+递归：
+注意：
+1.用long long来替代int,double的范围很大
+2.核心思想是设置左右边界来不断缩小范围
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int closestValue(TreeNode* root, double target) {
+        long long l = LONG_MIN;
+        long long r = LONG_MAX;
+        helper(root,target,l,r);
+        if(r- target < target - l){
+            return r;
+        }else return l;
+    }
+    void helper(TreeNode* root, double target,long long &l,long long &r){
+        if(!root) return;
+        if(root -> val > target){
+            r = root -> val;
+            helper(root -> left,target,l,r);
+        }else{
+            l = root -> val;
+            helper(root -> right,target,l,r);
+        }
+    }
+};
