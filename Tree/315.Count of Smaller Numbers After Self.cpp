@@ -104,3 +104,39 @@ public:
         }
     }
 };
+
+12.13复习：
+建造二叉树注意：
+1.要从数组的右侧依次向前开始循环
+2.根结点要用引用的方式构造
+class Solution {
+public:
+    struct Node{
+        int val;
+        int min;
+        Node *left;
+        Node *right;
+        Node(int v,int m):val(v),min(m),left(NULL),right(NULL){};
+    };
+    
+    vector<int> countSmaller(vector<int>& nums) {
+        vector<int>ret(nums.size());
+        Node *root = NULL;
+        for(int i= nums.size()-1; i >= 0; --i){
+            ret[i]= insert(root,nums[i]);
+        }
+        return ret;
+    }
+    
+    int insert(Node *&root,int i){
+        if(!root){
+            root = new Node(i,0);
+            return 0;
+        }
+        if(root -> val < i){
+            return insert(root -> right,i) + root -> min + (root -> val < i? 1: 0);
+        }else{
+            return ++root -> min, insert(root -> left,i);
+        }
+    }
+};
