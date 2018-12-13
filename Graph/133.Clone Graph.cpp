@@ -137,3 +137,41 @@ public:
         return map[node];
     }
 };
+
+12.13复习：
+BFS：
+注意：
+1.BFS要有栈进行依次输入和输出
+2.不管有没有找到都需要用已有的结点连vector,没有就先建造再连，有的话直接push
+3.注意判断根不存在的情况
+/**
+ * Definition for undirected graph.
+ * struct UndirectedGraphNode {
+ *     int label;
+ *     vector<UndirectedGraphNode *> neighbors;
+ *     UndirectedGraphNode(int x) : label(x) {};
+ * };
+ */
+class Solution {
+public:
+    UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
+        if(!node) return NULL;
+        unordered_map<UndirectedGraphNode*,UndirectedGraphNode*>map;
+        map[node]= new UndirectedGraphNode(node->label);
+        queue<UndirectedGraphNode*>q;
+        q.push(node);
+        while(!q.empty()){
+            UndirectedGraphNode *temp = q.front();
+            q.pop();
+            for(int i = 0; i< temp->neighbors.size();++i){
+                if(map.find(temp->neighbors[i]) == map.end()){
+                    map[temp->neighbors[i]]= new UndirectedGraphNode(temp->neighbors[i]->label);
+                    q.push(temp->neighbors[i]);
+                }
+                map[temp]->neighbors.push_back(map[temp->neighbors[i]]);
+                
+            }
+        }
+        return map[node];
+    }
+};
