@@ -43,7 +43,7 @@ public:
         return ret;
     }
 };
-/*优化2:Bit Manipulation位运算，T()) = n, S(O) = 1
+/*优化2:Bit Manipulation位运算，T(n) = n, S(O) = 1
 1.概念：位运算其实就是直接对在内存中的二进制数据进行操作，因此处理数据的速度非常快.
 只可用于整形，不能用于float and double
 2.常见的位操作有：
@@ -63,3 +63,30 @@ public:
 2*(a+b+c)-a-a-b-b-c = c
 先全部求和再相减即可。
 */
+
+12.11复习：
+1.hashtable
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        unordered_map<int,int>map;
+        for(auto a:nums){
+            ++map[a];
+        }
+        for(auto it : map){
+            if(it.second == 1) return it.first;
+        }
+    }
+};
+2.位运算
+注意^表示相同为0，不同为1，所以两个相同的数字位运算之后为0，不同为1，那么最后剩下的就是那个单独存在的元素。
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int res = 0;
+        for(auto a: nums){
+            res ^= a;
+        }
+        return res;
+    }
+};
