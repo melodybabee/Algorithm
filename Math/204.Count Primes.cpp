@@ -30,3 +30,28 @@ public:
 因为如果有因子小于这个数字本身，在之前的循环当中已经被循环过。
 e.g. 对于数字5来说，5 is true,接着就可以从25开始依次置为false
      因为5*4 = 20， 5*3 = 15...在对2进行循环的时候就已经置为false
+
+
+12.24复习：
+注意：
+1.用质数筛的方法挑选质数，首先需要判断到根号n以内的所有数字。
+因为如果一个数字不是质数，那么它的两个因子必定一个大于根号它，一个小于根号它，所以判断到根号n就能知道是否是质数。
+2.从一个数字的平方数开始筛选，把是它平方数字的数字都更改为false,从平方开始因为比平方数小的数字都会在之前被筛选掉。
+每次筛选增加的是这个数字本身，不断向上累加，删除掉它所有的倍数。
+3.vector中可以用count()方法来计算数组中一共出现了多少次的true
+class Solution {
+public:
+    int countPrimes(int n) {
+        vector<bool>vec(n,true);
+        vec[0] = false;
+        vec[1] = false;
+        for(int i = 0; i <= sqrt(n);++i){
+            if(vec[i]){
+                for(int j = i*i; j < n; j += i){
+                    vec[j] = false;
+                }
+            }
+        }
+        return count(vec.begin(),vec.end(),true);
+    }
+};
