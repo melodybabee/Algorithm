@@ -13,3 +13,16 @@ public:
         return num==1;
     }
 };
+
+12.23复习：
+注意：需要判断为0的情况，而且如果num为0，那么返回的是false，0不是丑数
+class Solution {
+public:
+    bool isUgly(int num) {
+        if(num == 0) return false;
+        while(num%2 == 0) num /= 2;
+        while(num%3 == 0) num /= 3;
+        while(num%5 == 0) num /= 5;
+        return num == 1;
+    }
+};
