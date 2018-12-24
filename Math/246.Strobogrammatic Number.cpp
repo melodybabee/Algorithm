@@ -46,3 +46,39 @@ public:
         return true;
     }
 };
+
+12.23复习
+双指针两头判断：
+注意：
+1.注意while循环的边界条件，不能确定是否取等的时候想一个数字的情况
+2.区分&& 和 ||， 因为判断条件是不等的时候返回false,所有如果都不等于那么返回，取&&
+||是只有一方不满足就不满足。返回false
+class Solution {
+public:
+    bool isStrobogrammatic(string num) {
+        int left = 0;
+        int right = num.size()-1;
+        while(left <= right){
+            if(num[left] == num[right]){
+                if(num[left] != '0' && num[left] != '1' &&num[left] != '8') return false;
+            }else{
+                if((num[left] != '9' || num[right] != '6') && (num[left] != '6' || num[right] != '9')) return false;
+            }
+            ++left;
+            --right;
+        }
+        return true;
+    }
+};
+hashtable:
+注意在hashmap中查找可以查找到一半即可，但是注意取等，因为中间位置的数字也需要判断是否合法
+class Solution {
+public:
+    bool isStrobogrammatic(string num) {
+        unordered_map<char,char>map{{'1','1'},{'0','0'},{'8','8'},{'6','9'},{'9','6'}};
+        for(int i = 0; i <= num.size()/2;++i){
+            if(map[num[i]] != num[num.size()-1-i]) return false;
+        }
+        return true;
+    }
+};
