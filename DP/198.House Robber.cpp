@@ -26,7 +26,7 @@ class Solution {
 public:
     int rob(vector<int>& nums) {
         if(nums.size() == 0) return 0;
-        if(nums.size() == 1) nums[0];
+        if(nums.size() == 1) return nums[0];
         nums[1] = max(nums[0],nums[1]);
         for(int i = 2; i < nums.size();++i){
             nums[i] = max(nums[i]+nums[i-2], nums[i-1]);
@@ -37,3 +37,19 @@ public:
 
 注意：
 1.所有的DP递推都可以写成递归的方式，区别在于递归每次都需要从上至下计算，会重复计算很多子元素，因此用DP效率更高
+
+12.24复习
+注意：
+DP的思路就是dp[i]表示的是到i位置上的最大值，因此更新的时候只需要判断它+它前一两位与它前一位之间的大小即可。
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        if(nums.size() == 0) return 0;
+        if(nums.size() == 1) return nums[0];
+        nums[1] = max(nums[0],nums[1]);
+        for(int i = 2; i < nums.size(); ++i){
+            nums[i] = max(nums[i] + nums[i-2], nums[i-1]);
+        }
+        return nums.back();
+    }
+};
