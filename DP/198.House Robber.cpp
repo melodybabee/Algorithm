@@ -53,3 +53,21 @@ public:
         return nums.back();
     }
 };
+
+思路2:
+1.因为房子只有抢和不抢两种状态，那么循环数组进行更新，抢的值等于之前不抢+抢当前位；不抢的值等于之前抢和不抢中较大的一个
+2.最后返回抢和不抢的两个值中较大的一个
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int notrob = 0;
+        int rob = 0;
+        for(int i = 0; i < nums.size();++i){
+            int prenot = notrob;
+            int prerob = rob;
+            rob = prenot + nums[i];
+            notrob = max(prenot,prerob);
+        }
+        return max(rob,notrob);
+    }
+};
