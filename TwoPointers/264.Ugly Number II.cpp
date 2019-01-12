@@ -47,3 +47,24 @@ public:
         return ret.back();
     }
 };
+
+1.12复习：
+注意：
+1.本题的实质是设置了三个指针分别对各自2，3，5的数列进行循环，判断哪个小就在结果数组中输入小的那个
+2.注意因为进入while循环之后要push进去新的数字，因此while的循环判断条件中没有等号，最后返回结果数组中的最后一位
+class Solution {
+public:
+    int nthUglyNumber(int n) {
+        vector<int>vec(1,1);
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        while(vec.size() < n){
+            vec.push_back(min(min(vec[i]*2,vec[j]*3),vec[k]*5));
+            if(vec.back() == vec[i]*2) ++i;
+            if(vec.back() == vec[j]*3) ++j;
+            if(vec.back() == vec[k]*5) ++k;
+        }
+        return vec.back();
+    }
+};
