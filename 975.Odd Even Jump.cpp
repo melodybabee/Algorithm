@@ -12,7 +12,7 @@
 1.这道题与G OA不同的地方在于可以跳到等于自己的位置上，那么使用treemap中的upper_bound和lower_bound能有效加快效率
 lower_bound()表示的是序列中的第一个出现的值大于等于val的位置，注意是位置
 upper_bound()返回的是最后一个大于等于val的位置
-因为upper_bound()返回的是最后一个大于等于val的位置，那么迭代器向小的方向跳一次就是严格小于了，因此要--l
+因为upper_bound()返回的是最后一个大于等于val的位置，那么迭代器向小的方向跳一次就是小于等于当前位置的值的坐标了，因此要--l
 class Solution {
 public:
     int oddEvenJumps(vector<int>& A) {
