@@ -60,3 +60,24 @@ public:
         return dp.back().back();//最后一个vector中的最后一个元素
     }
 };
+
+1.19复习：
+注意：
+因为原数组中的1表示的是障碍，因此如果原数组中为1，那么在dp数组中的值就为0
+左上角以及第一行和第一列需要分别更新，最后再更新dp数组。返回DP数组的最后一位上的值
+class Solution {
+public:
+    int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
+        vector<vector<int>>dp(obstacleGrid.size(),vector<int>(obstacleGrid[0].size(),0));
+        for(int i = 0; i < dp.size(); ++i){
+            for(int j = 0; j < dp[0].size(); ++j){
+                if(obstacleGrid[i][j] == 1) dp[i][j] = 0;
+                else if(i == 0 && j == 0)dp[i][j] = 1;
+                else if(i == 0) dp[i][j] = dp[i][j-1];
+                else if(j == 0) dp[i][j] = dp[i-1][j];
+                else dp[i][j] = dp[i-1][j] + dp[i][j-1];
+            }
+        }
+        return dp.back().back();
+    }
+};
