@@ -35,7 +35,11 @@ public:
 优化2：数学方法
 这个问题背后的数学模型，其实就是机器人总共走m+n-2步，其中m-1步往下走，n-1步往右走，本质上就是一个组合问题。
 也就是从m+n-2个不同元素中每次取出m-1个元素的组合数。
-【组合数公式待学习】
+补充：组合数公式：
+组合数为C（n-1+m-1,n-1）=（n-1+ m-1）！/ [（n-1）! *（m-1）!]
+比如C(5,2)和C(5,3)是一样的，那么取的small就是2，为了减少运算的次数。
+C(5,2) = (5*4)/(2*1),dedom就是从1开始阶乘，dom的含义就是从分子中的最大数开始阶乘
+最后求出两者的商
 public int uniquePaths(int m, int n) {
     double dom = 1;
     double dedom = 1;
@@ -48,3 +52,19 @@ public int uniquePaths(int m, int n) {
     }
     return (int)(dom/dedom);
 }
+1.19复习：
+本题可以用DP的原因是前一位上的状态可以决定后一位上的状态，有递推关系，所以DP方法最合适。
+注意：
+因为当行和列为0的时候，到达其某一位上的方法只有1种，因此在声明二维数组的时候直接初始化即可。
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        vector<vector<int>>dp(m,vector<int>(n,1));
+        for(int i = 1; i < m; ++i){
+            for(int j = 1; j < n; ++j){
+                dp[i][j] = dp[i-1][j] + dp[i][j-1];
+            }
+        }
+        return dp[m-1][n-1];
+    }
+};
