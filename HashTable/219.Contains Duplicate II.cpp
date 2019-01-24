@@ -37,3 +37,22 @@ public:
         return false;
     }
 };
+
+1.23复习：
+注意题目中说了是最多K，因此从1-K都可以，因此只要比较当前位置和当前在map中的位置即可，不需要记录之前的位置。
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        unordered_map<int,int>map;
+        for(int i = 0;i < nums.size();++i){
+            if(map.count(nums[i])){
+                if(i-map[nums[i]] <= k){
+                    return true;
+                }else{
+                    map[nums[i]] = i;
+                } 
+            }else map[nums[i]] = i; 
+        }
+        return false;
+    }
+};
