@@ -56,3 +56,29 @@ public:
 优化：
 1.本题时间复杂度很高，注意后面的优化
 */
+1.23复习：
+先进行排序，在进行遍历判断即可。
+set的方法比较巧妙，注意set中会自动去重，因此比较长度即可。
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        for(int i = 0; i < nums.size();++i){
+            if(i +1 < nums.size() && nums[i] == nums[i+1]) return true;
+        }
+        return false;
+    }
+};
+HashTable:
+value值会有些多余，set就可以解决问题
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+       unordered_map<int,int>map;
+       for(auto n : nums){
+           if(map.count(n)) return true;
+           else map[n] = 1;
+       }
+       return false;
+    }
+};
