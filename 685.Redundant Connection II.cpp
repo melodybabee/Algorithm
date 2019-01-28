@@ -12,6 +12,8 @@
 union find判断是否有环，如果等，按照要求返回边或者第一条入度为2的边
 如果不等，那么找到公共的根结点合并
 4.最后如果没有环，那么返回入度为2的边
+注意：
+在标记入度为2的点的时候，因为需要在原有值的基础之上进行更改，因此auto遍历的时候需要用引用的形式。
 class Solution {
 public:
     vector<int> findRedundantDirectedConnection(vector<vector<int>>& edges) {
