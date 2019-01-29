@@ -88,3 +88,30 @@ public:
         else  return left ? left : right;
     }
 };
+1.29复习
+注意：
+问题的本质在于如果在根结点处找到了目标值，那么直接返回，因为这一点先找到的话那么肯定是要求的LCA
+再去判断左右是否存在，如果不存在，那么就是另一边作为返回值，如果都存在，那么LCA就是当前递归到的根结点
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(!root) return NULL;
+        if(root -> val == p -> val) return p;
+        if(root -> val == q -> val) return q;
+        if(!root -> left && ! root -> right) return NULL;
+        TreeNode* l = lowestCommonAncestor(root -> left,p, q);
+        TreeNode* r = lowestCommonAncestor(root -> right,p, q);
+        if(l && r) return root;
+        else 
+            return l == NULL ? r : l;
+    }
+};
