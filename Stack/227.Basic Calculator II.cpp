@@ -79,3 +79,72 @@ public:
         return ret;
     }
 };
+
+2.3复习
+方法一：stack
+注意：
+1.要首先首先记录下符号，再按照符号对数值进行操作！
+2.因为有可能最后一位是数字，那么这种情况下不能用if...else...必须用if来判断，这样会在进入第一个loop之后再接着进入第二个loop
+class Solution {
+public:
+    int calculate(string s) {
+        int ret = 0;
+        int num = 0;
+        char op = '+';
+        stack<int>st;
+        for(int i = 0;i < s.size(); ++i){
+            if(s[i]-'0' >= 0){
+                num = 10*num + s[i] - '0';
+            }
+            if(s[i]-'0' < 0 && s[i] != ' ' || i == s.size()-1){
+                if(op == '+') st.push(num);
+                if(op == '-') st.push(-num);
+                if(op == '*' || op == '/'){
+                    int temp = (op == '*') ? st.top()*num: st.top()/num;
+                    st.pop();
+                    st.push(temp);
+                }
+                num = 0;
+                op = s[i];
+            }
+        }
+        while(!st.empty()){
+            ret += st.top();
+            st.pop();
+        }
+        return ret;
+    }
+};
+方法2:switch...break
+注意：
+需要用一个cur变量来记录下当前的值，如果是加减法或者到了最后一位，那么直接输出在结果中，如果是乘除法那么暂时保存。
+符号仍然需要比数值提前一步进行判断
+class Solution {
+public:
+    int calculate(string s) {
+        int ret = 0;
+        int num = 0;
+        char op = '+';
+        int cur = 0;
+        for(int i = 0;i < s.size(); ++i){
+            if(s[i]-'0' >= 0){
+                num = 10*num + s[i] - '0';
+            }
+            if(s[i]-'0' < 0 && s[i] != ' ' || i == s.size()-1){
+                switch(op){
+                    case '+':cur += num; break;
+                    case '-':cur -= num; break;
+                    case '*':cur *= num; break;
+                    case '/':cur /= num; break;
+                }
+                if(s[i] == '+' || s[i] == '-' || i == s.size()-1){
+                    ret += cur;
+                    cur = 0;
+                }
+                op = s[i];
+                num = 0;
+            }
+        }
+        return ret;
+    }
+};
