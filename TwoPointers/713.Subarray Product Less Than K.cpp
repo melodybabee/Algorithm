@@ -22,3 +22,26 @@ public:
         return ret;
     }
 };
+
+2.4复习
+注意：
+因为题目中说的是所有小于K的子数组，所以如果能找到一种情况，那么它区间范围内的所有取值都应该计算，那么结果就是这个区间的长度。
+注意如果k<=1的时候不需要判断，直接返回0。因为如果不提前判断的话，k为1时，while循环中left会直接进入到最后一位,会得到错误结果。
+class Solution {
+public:
+    int numSubarrayProductLessThanK(vector<int>& nums, int k) {
+        if(k <= 1) return 0;
+        int total = 1;
+        int count = 0;
+        int left = 0;
+        for(int i = 0; i < nums.size(); ++i){
+            total *= nums[i];
+            while(total >= k){
+                total /= nums[left];
+                ++left;
+            }
+            count += i-left+1;
+        }
+        return count;
+    }
+};
