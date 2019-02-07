@@ -91,3 +91,20 @@ public:
         return ret;
     }
 };
+
+2.6复习
+DP[i]表示从0-i范围内的最大值，因为动态转移方程就是dp[i] = (dp[i-1]+nums[i],nums[i]),如果当前位数最大那么可以舍弃掉之前的所有子串
+用一个结果值记录在过程中出现的最大值，因为有可能较大值出现在中间
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        vector<int>dp = nums;
+        int ret = nums[0];
+        for(int i = 1 ; i < dp.size(); ++i){
+            dp[i] = max(nums[i],dp[i-1]+nums[i]);
+            ret = max(ret,dp[i]);
+        }
+        return ret;
+    }
+};
+遍历的方法注意舍弃掉负数的情况，因为每个坐标的位置都可以单独存在，那么如果是负数会使整体的结果肯定比单独一个元素要小，直接舍弃为0即可。
