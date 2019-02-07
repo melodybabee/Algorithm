@@ -90,3 +90,29 @@ int main() {
 }
 
 */
+
+2.6复习：
+注意：
+1.递归的边界条件永远在进入递归的第一步
+2.因为需要对上一位的结果进行count处理，所以需要一个新的变量来记录下之前的结果
+之后开始进入遍历过程，用一个计数器来数相同的字符位置，遇到不同的直接转换为string类型输出
+3.计数器要从1开始计算
+class Solution {
+public:
+    string countAndSay(int n) {
+        if(n == 1) return "1";
+        string ret;
+        string temp = countAndSay(n-1);
+        
+        int count = 1;
+        for(int i = 0; i < temp.size(); ++i){
+            if(i +1 >= temp.size() || temp[i] != temp[i+1]){
+                ret += to_string(count)+temp[i];
+                count = 1;
+            }else{
+                ++count;
+            }
+        }
+        return ret;
+    }
+};
