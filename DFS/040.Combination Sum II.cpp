@@ -29,3 +29,30 @@ public:
         }
     }
 };
+
+2.6.复习
+注意：039follow up,只不过一个数字不可以重复进行计算，因此进入DFS递归需要到下一位上
+同时如果相邻的两个数字挨着的是相同的，那么在循环遍历的时候需要跳过，因为DFS可以把他们计算进去，但是如果循环过程中有重复的数字，那么在最后的结果中会有重复的子结果。
+class Solution {
+public:
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        sort(candidates.begin(),candidates.end());
+        vector<vector<int>>ans;
+        vector<int>ret;
+        dfs(candidates,ans,ret,target,0);
+        return ans;
+    }
+    
+    void dfs(vector<int>& candidates, vector<vector<int>>&ans,vector<int>&ret,int target,int start){
+        if(target < 0) return;
+        else if (target == 0) ans.push_back(ret);
+        else{
+            for(int i = start; i < candidates.size(); ++i){
+                if(i > start && candidates[i] == candidates[i-1]) continue;
+                ret.push_back(candidates[i]);
+                dfs(candidates,ans,ret,target-candidates[i],i+1);
+                ret.pop_back();
+            }
+        }
+    }
+};
