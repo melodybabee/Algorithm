@@ -31,5 +31,33 @@ public:
             }
         }
     }
+};
+
+2.6复习：
+注意：
+1.需要运用DFS进行递归，在分析题意的时候得知先要把第一个数字循环完毕再开始判断第二个，因此需要先对数组进行排序
+2.DFS是递归，就需要有边界条件，那么每次递归从目标值开始相减，注意相减的这个思路。只要小于0，直接跳过返回；如果等于0，输入到新的结果数组中
+3.用一个坐标记录下当前的位置，每次进入递归从当前位置开始遍历，DFS新的一轮遍历还是从当前位置开始
+在递归结束之后需要把push_back()的新元素再pop_back()出来
+class Solution {
+public:
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        sort(candidates.begin(),candidates.end());
+        vector<vector<int>>ans;
+        vector<int>ret;
+        dfs(candidates,ans,ret,target,0);
+        return ans;
+    }
     
+    void dfs(vector<int>& candidates,vector<vector<int>>&ans,vector<int>&ret,int target, int start){
+        if(target < 0) return;
+        else if(target == 0) ans.push_back(ret);
+        else{
+            for(int i = start; i < candidates.size(); ++i){
+                ret.push_back(candidates[i]);
+                dfs(candidates, ans, ret, target-candidates[i], i);
+                ret.pop_back();
+            }
+        }
+    }
 };
