@@ -139,3 +139,90 @@ public:
         return s.substr((index - max)/2, max-1);
     }
 };
+
+2.13复习
+遍历方法。
+注意：
+1.方法的核心是遍历每一个字符，同时分为奇偶对它进行遍历，找到最长的惠文序列。
+2.要注意因为会先左右指针移动再判断是否满足while条件，因此最长的长度是右指针减去左指针的位置再减1
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int maxlength = 0;
+        int start = 0;
+        for(int i = 0;i < s.size(); ++i){
+            //字符串为偶数长度
+            int left = i;
+            int right = i+1;
+            while(left >= 0 && right < s.size() && s[left] == s[right]){
+                --left;
+                ++right;
+            }
+            if(right -left -1 > maxlength){
+                maxlength = right - left -1;
+                start = left +1;
+            }
+            //字符串为奇数长度
+            left = i-1;
+            right = i+1;
+            while(left >= 0 && right < s.size() && s[left] == s[right]){
+                --left;
+                ++right;
+            }
+            if(right -left -1 > maxlength){
+                maxlength = right - left -1;
+                start = left +1;
+            }
+        }
+        return s.substr(start,maxlength);
+    }
+};
+
+马拉车算法：
+注意：
+1.首先为了不对奇偶做判断，把每个字符之间都插入#，头部加入#，这样得到的新的字符串一定是奇数个长度
+2.用一个dp数组来记录到每一个位置上的最长半径，用maxlength来记录当前能够到达的最远距离，center表示以当前最远距离为中心的位置
+3.如果新遍历到的点大于最远距离，那么更新为1
+如果在最远距离的范围内，一种是其镜像也在范围内，那么就取镜像即可，dp[2*center-i]
+一种是镜像超出了范围，那么该点的最长半径就是中心的半径-增加的长度dp[center]-i+center
+4.如果当前的位置还能左右扩展，那么继续扩展，并且更新最远距离和中心位置
+5.再次遍历找到最长半径和坐标位置
+6.因为把字符串进行扩展了，因此实际上最长的回文字符串长度是dp[i]-1,起始位置是（当前坐标-最长长度）/2，但是如果是从第一个元素开始回文，那么减去最长长度会小于0，因此需要在头部加上$
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        string str = "$#";
+        for(int i = 0; i < s.size(); ++i){
+            str +=s[i];
+            str += '#';
+        }
+        vector<int>dp(str.size(),0);
+        int maxlength = 0;
+        int center = 0;
+        for(int i = 1; i < str.size(); ++i){
+            if(i > maxlength){
+                dp[i] = 1;
+            }else{
+                dp[i] = min(dp[2*center-i],dp[center]-i+center);
+            }
+            while(str[i+dp[i]] == str[i-dp[i]]){
+                ++dp[i];
+            }
+            if(i+dp[i] > maxlength){
+                maxlength = i+dp[i];
+                center = i;
+            }
+        }
+        
+        int max = 0;
+        int index = 0;
+        for(int i = 0; i < dp.size(); ++i){
+            if(dp[i]>max){
+                max = dp[i];
+                index = i;
+            }
+        }
+        
+        return s.substr((index-max)/2,max-1);
+    }
+};
