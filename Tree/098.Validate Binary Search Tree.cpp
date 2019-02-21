@@ -266,3 +266,95 @@ public:
         return isvalid(root -> left,min,root->val) && isvalid(root -> right, root -> val, max);
     }
 };
+
+
+2.20复习：
+方法一：递归
+注意：
+1.需要记录下当前根结点的范围，左子树上的所有结点的值都必须小于根结点，右子树上的所有结点都必须大于根结点，因此需要记录下根结点的范围再进行递归。
+2.因为会存在INT_MAX单独存在的情况，因此需要用long long的形式。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        return isvalid(root,LONG_MIN,LONG_MAX);
+   }
+    
+    bool isvalid(TreeNode*root, long long min, long long max){
+        if(!root) return true;
+        if(root->val <= min || root-> val >= max) return false;
+        return isvalid(root->left, min,root->val) && isvalid(root->right,root->val,max);
+    }
+};
+
+方法2:递归
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        vector<int>vec;
+        helper(root,vec);
+        for(int i = 1; i < vec.size();++i){
+            if(vec[i] <= vec[i-1]) return false;
+        }
+        return true;
+    }
+    
+    void helper(TreeNode*root, vector<int>&vec){
+        if(!root) return;
+        helper(root->left,vec);
+        vec.push_back(root->val);
+        helper(root->right,vec);
+    }
+};
+
+方法3:遍历
+注意
+1.中序遍历需要用一个临时指针来依次走树上的结点，利用栈后进先出的性质，把左子树都入栈，没有左侧结点了出栈，入结果数组，判断右子树。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        TreeNode *cur = root;
+        vector<int>vec;
+        stack<TreeNode*> st;
+        while(!st.empty() || cur){
+            while(cur){
+                st.push(cur);
+                cur = cur->left;
+            }
+            cur = st.top();
+            st.pop();
+            vec.push_back(cur->val);
+            cur = cur->right;
+        }
+        for(int i = 1; i < vec.size(); ++i){
+            if(vec[i] <= vec[i-1]) return false;
+        }
+        return true;
+    }
+};
