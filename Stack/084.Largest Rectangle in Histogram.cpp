@@ -77,3 +77,47 @@ public:
 1.单调栈的一大优势就是线性的时间复杂度，所有的元素只会进栈一次，而且一旦出栈后就不会再进来了。
 2.元素加入栈前，会在栈顶端把破坏栈单调性的元素都删除
 3.使用单调栈可以找到元素向左遍历第一个比他小的元素，也可以找到元素向左遍历第一个比他大的元素。
+
+
+2.21复习：
+注意：
+暴力的解法就是找到峰值再依次向前遍历，找到较大的面积。比两个for的循环增加了剪枝环节
+class Solution {
+public:
+    int largestRectangleArea(vector<int>& heights) {
+        int res = 0;
+        for(int i = 0; i < heights.size();++i){
+            if(i+1 < heights.size() && heights[i] < heights[i+1]) continue;
+            int temp = heights[i];
+            for(int j = i; j >= 0; --j){
+                temp = min(temp,heights[j]);
+                res = max(res,temp*(i-j+1));
+            }
+        }
+        return res;
+    }
+};
+
+单调栈：
+注意：
+1.首先分清楚是单增的栈还是单减的栈，区别在于单增的栈在遇到小于栈顶元素的时候处理，反之亦然
+而本题遇到小于栈顶的元素的时候说明需要对当前的峰值进行处理计算，所以要用到单增的栈
+2.注意为了便于计算横坐标的长度，栈中放的都是坐标位置
+3.注意判断栈是否为空的状态。取栈顶元素之前需要判断，在计算宽度的时候还要计算。
+class Solution {
+public:
+    int largestRectangleArea(vector<int>& heights) {
+        stack<int> st;
+        heights.push_back(0);
+        int ret = 0;
+        for(int i = 0; i < heights.size(); ++i){
+            while(!st.empty() && heights[i] < heights[st.top()]){
+                int temp = st.top();
+                st.pop();
+                ret = max(ret,heights[temp]*(st.empty() ? i : i-st.top()-1));
+            }
+            st.push(i);
+        }
+        return ret;
+    }
+};
