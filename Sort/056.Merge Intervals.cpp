@@ -173,7 +173,7 @@ void quickSort(int *arr,int l,int r)
 	temp = arr[l]
 	i = l;
 	j = r;
-	while(l<r)
+	while(i<j)
 	{
 		while(i<j&&arr[j] >= temp)//找到第一个小于temp的数字
 			j--;
