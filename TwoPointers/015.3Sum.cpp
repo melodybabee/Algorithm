@@ -84,3 +84,44 @@ public:
         return ans;
     }
 };
+
+
+2.25复习：
+注意：
+1.第一层for循环对第一个数字去重
+2.内部双指针while循环，如果找到结果，那么要遍历到下一位不等于当前值的位置，注意一直要满足左小于右
+3.如果没有找到目标值，要根据排序好的值去判断应该移动哪一边，大了右指针左移，小了左指针右移
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> result;
+        vector<int>res;
+        sort(nums.begin(),nums.end());
+        for(int i = 0; i < nums.size();++i){
+            if(i >= 1 && nums[i] == nums[i-1]) continue;
+            int temp = -nums[i];
+            int left = i+1;
+            int right = nums.size()-1;
+            while(left < right){
+                if(nums[left] + nums[right] == temp){
+                    res = {{nums[i],nums[left],nums[right]}};
+                    result.push_back(res);
+                    res.empty();
+                    ++left;
+                    while(left < nums.size() && nums[left] == nums[left-1]){
+                        ++left;
+                    }
+                    --right;
+                    while(right > left && nums[right] == nums[right+1]){
+                        --right;
+                    }
+                }else if(nums[left] + nums[right] > temp){
+                    --right;
+                }else{
+                    ++left;
+                }
+            }
+        }
+        return result;
+    }
+};
