@@ -71,3 +71,37 @@ public:
         return NULL;
     }
 };
+
+2.25复习
+注意：
+要返回环的位置，判断有环的方法相遇的地点不一定是环形成的位置。
+所以找到成环之后，还需要把一个指针移动到头部，在一个一个走，再重合的位置就是形成环的地方。
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        if(!head) return NULL;
+        ListNode *fast = head;
+        ListNode *slow = head;
+        while(fast -> next && fast -> next ->next){
+            slow = slow -> next;
+            fast = fast -> next ->next;
+            if(slow == fast){
+                slow = head;
+                while(slow != fast){
+                    slow = slow -> next;
+                    fast = fast -> next;
+                }
+                return slow;
+            }
+        }
+        return NULL;
+    }
+};
