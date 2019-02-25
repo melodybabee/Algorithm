@@ -116,3 +116,85 @@ public:
 3.因此只要当快指针存在时，快走2步，慢走1步，如果快走到了结尾还不与慢相等，则没有环
 4.只要遇到了快与慢相等的情况，则有环
 */
+
+
+2.25复习
+1.最暴力的解法hashtable,也可以优化成set
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        unordered_map<ListNode*,int> m;
+        while(head){
+            if(m.count(head)){
+                return true;
+            }else{
+                ++m[head];
+            }
+            
+            head = head->next;
+        }
+        return false;
+    }
+};
+Set做法：
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        unordered_set<ListNode*> s;
+        while(head){
+            if(s.find(head) != s.end()){
+                return true;
+            }else{
+                s.insert(head);
+            }
+            
+            head = head->next;
+        }
+        return false;
+    }
+};
+
+快慢指针：
+快慢指针找中点或者判断是否有环，while中的条件就是为了避免fast会移动到空的位置上。
+如果一旦相遇，就直接返回true.if的判断需要在while里面。
+注意会有空的情况。
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        if(! head) return false;
+        ListNode *slow = head;
+        ListNode *fast = head;
+        while(fast -> next && fast -> next -> next){
+            slow = slow -> next;
+            fast = fast -> next -> next;
+            if(fast == slow){
+                return true;
+            }
+        }
+        return false;
+    }
+};
