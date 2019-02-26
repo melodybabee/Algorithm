@@ -55,3 +55,37 @@ public:
         return closest;
     }
 };
+
+2.25复习：
+注意：
+1.问题在于求绝对值之后不能确定应该向哪个方向移动
+解决：绝对值在每次while循环的时候进行判断，同时求出当前的和，如果小于target,那么左指针右移，如果大于，那么右指针左移
+也可以把这两个写在一起，取消3sum常规的temp值，不需要一个固定的值之后再来求2sum了
+class Solution {
+public:
+    int threeSumClosest(vector<int>& nums, int target) {
+        int diff = INT_MAX;
+        int res = 0;
+        sort(nums.begin(),nums.end());
+        for(int i = 0; i < nums.size(); ++i){
+            int temp = target-nums[i];
+            int left = i+1;
+            int right = nums.size()-1;
+            while(left < right){
+                int newdiff = abs(temp-nums[left]-nums[right]);
+                int sum = nums[left]+nums[right]+nums[i];
+                if(newdiff < diff){
+                    diff = min(newdiff, diff);
+                    res = sum;
+                }
+                if(sum < target){
+                    ++left;
+                }else{
+                    --right;
+                }
+                
+            }
+        }
+        return res;
+    }
+};
