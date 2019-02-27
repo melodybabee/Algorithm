@@ -65,3 +65,24 @@ void plusone(vector<int> &digits)
     
 }
 */
+
+2.27复习：
+从后向前循环，用temp表示要加入的数字，有进位的时候为1，没有的话就是0，注意最后第一位的判断
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        int temp = 1;
+        for(int i = digits.size()-1; i >= 0; --i){
+            int newdigit = (digits[i] + temp) %10;
+            temp = (digits[i] + temp)/10;
+            digits[i] = newdigit;
+        }
+        if(temp == 1){
+            digits.insert(digits.begin(), 1);
+        }
+        return digits;
+    }
+};
+
+优化就是只有9才会进位，所以如果不是9，+1后直接返回即可。
+全部都是9才会在前面加入1.
