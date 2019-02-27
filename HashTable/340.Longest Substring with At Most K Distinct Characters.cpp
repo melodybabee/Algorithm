@@ -26,3 +26,27 @@ public:
         return ret;
     }
 };
+
+2.27复习
+注意：
+题目汇总说的是不大于k的，因此小于等于k的都需要记录下来，找到其中最大的。
+class Solution {
+public:
+    int lengthOfLongestSubstringKDistinct(string s, int k) {
+        unordered_map<char,int>map;
+        int left = 0;
+        int ret = 0;
+        for(int i = 0; i < s.size();++i){
+            ++map[s[i]];
+            while(map.size() > k){
+                --map[s[left]];
+                if(map[s[left]] == 0) map.erase(s[left]);
+                ++left;
+            }
+            if(map.size() <= k){
+                ret = max(ret, i-left+1);
+            }
+        }
+        return ret;
+    }
+};
