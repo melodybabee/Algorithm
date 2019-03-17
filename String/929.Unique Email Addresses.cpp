@@ -54,3 +54,31 @@ Contest 108总结：
 对于一些模版题和模版思路的代码要不断重复并默写，不要在这些套路上耽误时间。
 思路和熟练度是必须通过大量刷题练习的，目前量的积累>重复思路，快刷！多刷！突破瓶颈，兼顾复习。
 
+3.16复习：
+注意：
+1.因为需要返回的是所有去重后的字符串的个数，因此用set能直接解决这个问题，最后返回set的长度即可
+2.依次处理每个字符串，分别处理每种情况。如果是.跳过，如果是+，直接跳到@的位置，如果到了@那么把结尾部分直接相加，注意如果是前半部分的普通情况那么加入到字符串中
+3.处理后将每个字符串输入到set中
+class Solution {
+public:
+    int numUniqueEmails(vector<string>& emails) {
+        unordered_set<string>set;
+        for(auto e : emails){
+            string temp = "";
+            for(int i = 0; i < e.size(); ++i){
+                if(e[i] == '.') continue;
+                if(e[i] == '+') {
+                    while(e[i] != '@') ++i;
+                }
+                if(e[i] == '@'){
+                    temp += e.substr(i);
+                    break;
+                }
+                temp += e[i];
+            }
+            set.insert(temp);
+        }
+        return set.size();
+    }
+};
+
