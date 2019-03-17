@@ -46,3 +46,52 @@ public:
         return ret;
     }
 };
+
+3.16复习：
+方法一：利用hashmap进行判断。先把第一个字符串中的所有字符放在hashmap中，再遍历第二个字符串判断如果能在map中找到这个元素，那么计数器+1
+class Solution {
+public:
+    int numJewelsInStones(string J, string S) {
+        unordered_map<char,int>map;
+        int count = 0;
+        for(auto j : J){
+            ++map[j];
+        }
+        for(int i = 0 ; i < S.size(); ++i){
+            if(map.find(S[i]) != map.end()) ++count;
+        }
+        return count;
+    }
+};
+简化：上面的hashmap没有真正的利用上，换成set即可满足题目中的要求
+T(n) = O(M+N);
+class Solution {
+public:
+    int numJewelsInStones(string J, string S) {
+        unordered_set<char>set;
+        int count = 0;
+        for(auto j : J){
+            set.insert(j);
+        }
+        for(int i = 0 ; i < S.size(); ++i){
+            if(set.find(S[i]) != set.end()) ++count;
+        }
+        return count;
+    }
+};
+
+再次简化：
+注意：
+1.set的插入可以直接利用迭代器从一个字符串的begin()到end()
+2.set.find()方法需要指向末尾，判断set.find()!= set.end(),set.count()方法可以直接判断是否存在
+class Solution {
+public:
+    int numJewelsInStones(string J, string S) {
+        unordered_set<char>set(J.begin(),J.end());
+        int count = 0;
+        for(int i = 0 ; i < S.size(); ++i){
+            if(set.count(S[i])) ++count;
+        }
+        return count;
+    }
+};
