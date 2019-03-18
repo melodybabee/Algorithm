@@ -149,3 +149,70 @@ public:
         return ret;
     }
 };
+
+3.17复习
+注意：
+1.如何取到每一层，判断是数字还是list,用DFS+递归进行遍历，如果是数字就直接相乘，如果是list就进入递归
+注意此处的递归方法
+2.进入递归之后level自动+1
+3.注意给出的方法，用遍历到的nest依次通过.进行调用
+/**
+ * // This is the interface that allows for creating nested lists.
+ * // You should not implement it, or speculate about its implementation
+ * class NestedInteger {
+ *   public:
+ *     // Constructor initializes an empty nested list.
+ *     NestedInteger();
+ *
+ *     // Constructor initializes a single integer.
+ *     NestedInteger(int value);
+ *
+ *     // Return true if this NestedInteger holds a single integer, rather than a nested list.
+ *     bool isInteger() const;
+ *
+ *     // Return the single integer that this NestedInteger holds, if it holds a single integer
+ *     // The result is undefined if this NestedInteger holds a nested list
+ *     int getInteger() const;
+ *
+ *     // Set this NestedInteger to hold a single integer.
+ *     void setInteger(int value);
+ *
+ *     // Set this NestedInteger to hold a nested list and adds a nested integer to it.
+ *     void add(const NestedInteger &ni);
+ *
+ *     // Return the nested list that this NestedInteger holds, if it holds a nested list
+ *     // The result is undefined if this NestedInteger holds a single integer
+ *     const vector<NestedInteger> &getList() const;
+ * };
+ */
+class Solution {
+public:
+    int depthSum(vector<NestedInteger>& nestedList) {
+        int level = 1;
+        return helper(nestedList, level);
+    }
+    
+    int helper(vector<NestedInteger>& nestedList, int level){
+        int ret = 0;
+        for(auto nest : nestedList){
+            if(nest.isInteger()) ret += level * nest.getInteger();
+            else ret += helper(nest.getList(), level+1);
+        }
+        return ret;
+    }
+};
+
+补充：
+C++中箭头引用和点引用的区别
+对于一个c++结构来说：
+struct MyStruct
+{ 
+      int member_a; 
+};
+如果有个变量MyStruct s，那么使用其中的成员元素时可以用
+s.member_a = 1;
+如果采用指针方法访问，比如 MyStruct * ps，那么同样的访问就必须使用如下形式：
+(*ps).member_a = 1;或者ps->member_a = 1;
+即如果想用.的话需要把指针类型做取值操作，改为实体
+箭头（->）：左边必须为指针； 
+点号（.）：左边必须为实体。
