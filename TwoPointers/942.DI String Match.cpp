@@ -25,3 +25,26 @@ public:
         return ret;
     }
 };
+
+3.17复习
+注意：根据规定的条件在数组中push数字即可，因为最后一位肯定是对应的右指针指向的值，所以在push进去右指针即可
+class Solution {
+public:
+    vector<int> diStringMatch(string S) {
+        int r = S.size();
+        int l = 0;
+        vector<int>vec;
+        for(int i = 0; i < S.size(); ++i){
+            if(S[i] == 'D') {
+                vec.push_back(r);
+                --r;
+                
+            }else{
+                vec.push_back(l);
+                ++l;
+            }
+        }
+        vec.push_back(r);
+        return vec;
+    }
+};
