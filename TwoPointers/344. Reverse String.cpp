@@ -19,3 +19,19 @@ std::reverse(s.begin(), s.end());
 用到了上述方法，待学习
 
 */
+
+
+3.19复习
+需要O（1）的空间复杂度，双指针的标准题。注意swap之后不然忘了移动指针。
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        int l = 0;
+        int r = s.size()-1;
+        while(l < r){
+            swap(s[l],s[r]);
+            ++l;
+            --r;
+        }
+    }
+};
