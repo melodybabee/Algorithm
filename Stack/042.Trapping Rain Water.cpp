@@ -157,3 +157,29 @@ public:
         return ret;
     }
 };
+
+3.23复习：
+单调栈：
+注意：
+1.区分单增还是单减在于判断是大的时候弹出还是小的时候弹出
+2.处理宽度的时候要减1
+3.处理高度的时候要在两者之间找较小值的同时减去弹出的栈顶元素对应的值
+4.在处理空的时候，如果是空那么跳过即可，所以其他的操作都是在栈不为空的基础之上，只要大于栈顶元素且不为空，一直进行弹出操作
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        stack<int> st;
+        int ret = 0;
+        for(int i = 0; i < height.size(); ++i){
+            while(!st.empty() && height[i] > height[st.top()]){
+                int temp = st.top();
+                st.pop();
+                if(!st.empty()){
+                    ret += (i-st.top()-1) *(min(height[i],height[st.top()])-height[temp]);
+                }
+            }
+            st.push(i);
+        }
+        return ret;
+    }
+};
