@@ -106,3 +106,103 @@ public:
         }
     }
 };
+
+3.23复习：
+注意：
+1.abs()中传入是什么类型的值就是什么类型的结果,abs()之前要考虑正负数的情况，但是抽象含义上绝对值就表示了到某个数之间的距离
+2.注意初始值的设置，要返回的值的初始类型是什么，注意越界情况
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int closestValue(TreeNode* root, double target) {
+        vector<int>res;
+        helper(res,root);
+        double count = (double)INT_MAX;
+        int val = res[0];
+        for(int i = 0; i < res.size(); ++i){
+            if(abs(target-res[i]) < count){
+                val = res[i];
+                count = abs(res[i]-target);
+            }
+        }
+        return val;
+    }
+    
+    void helper(vector<int>&res, TreeNode* root){
+        if(!root) return;
+        helper(res,root->left);
+        res.push_back(root->val);
+        helper(res,root->right);
+    }
+};
+
+遍历：
+注意：
+1.核心问题在于从根结点开始记录下来结果值，该结果值依次与遍历到的每个结点进行比较
+2.遍历的结点的移动方向是根据BST的性质左右移动的，不断夹击
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int closestValue(TreeNode* root, double target) {
+        int ret = root -> val;
+        while(root){
+            if(abs(ret - target) >= abs(root -> val - target)){
+                ret = root->val;
+            }
+            root = root -> val > target ? root->left : root->right;
+        }
+        return ret;
+    }
+};
+递归写法：
+注意：
+1.double范围远大于int和long long
+int   -2147483648 ~ +2147483647   (4 Bytes) 4*8 = 32字节， -2^31 ~ 2^31-1
+为什么-1: https://blog.csdn.net/daiyutage/article/details/8575248
+long long         -9223372036854775808 ~ +9223372036854775807    (8 Bytes) -2^63~2^63-1
+2.递归目的是找到左右边界的范围，不断缩小范围
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int closestValue(TreeNode* root, double target) {
+        long long l = LONG_MIN;
+        long long r = LONG_MAX;
+        helper(root,target,l,r);
+        return target - l > r - target ? r : l;
+    }
+    
+    void helper(TreeNode* root, double target, long long &l, long long &r){
+        if(!root) return;
+        if(root -> val < target){
+            l = root -> val;
+            helper(root->right, target, l , r);
+        }else{
+            r = root -> val;
+            helper(root->left,target,l,r);
+        }
+    }
+};
