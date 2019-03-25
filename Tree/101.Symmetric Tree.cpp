@@ -271,6 +271,77 @@ int main(){
 }
 
 
+3.25复习：
+递归方法：
+注意：
+1.因为需要同时比较两个变量的值，所以需要建立helper函数来保持两个变量
+2.两个变量命名为left和right不好，与左结点或者右结点重合，可以命名为p,q
+递归函数中的最后要返回递归的结果
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isSymmetric(TreeNode* root) {
+        if(!root) return true;
+        return helper(root->left, root->right);
+    }
+    
+    bool helper(TreeNode*left, TreeNode*right){
+        if(!left && !right) return true;
+        if(!left || !right) return false;
+        if(left->val != right -> val) return false;
+        return helper(left->left,right->right) && helper(left->right, right->left);
+    }
+};
 
-
+遍历：
+注意：
+1.栈中需要每次弹出两个变量，注意判断两个变量什么时候返回false,什么时候返回true
+2.区分
+	if(!temp1 && temp2) return false;
+    if(temp1 && !temp2) return false;
+与
+if(!temp1 || !temp2) return false;只要有一方不存在返回false,但是无法处理都为空的情况
+3.当满足左右条件之后返回true
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isSymmetric(TreeNode* root) {
+        if(!root) return true;
+        queue<TreeNode*>q;
+        q.push(root->left);
+        q.push(root->right);
+        while(!q.empty()){
+            TreeNode *temp1 = q.front();
+            q.pop();
+            TreeNode *temp2 = q.front();
+            q.pop();
+            if(!temp1 && temp2) return false;
+            if(temp1 && !temp2) return false;
+            if(temp1 && temp2){
+                if(temp1->val != temp2->val) return false;
+                q.push(temp1->left);
+                q.push(temp2->right);
+                q.push(temp1->right);
+                q.push(temp2->left);
+            }
+        }
+        return true;
+    }
+};
 
