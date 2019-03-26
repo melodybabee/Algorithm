@@ -199,3 +199,85 @@ public:
         if(s != "" && s[0] == ' ') s = "";
     }
 };
+
+3.26复习
+注意：
+先整体反转再局部反转如果不处理空格的话思路非常直接：
+class Solution {
+public:
+    string reverseWords(string s) {
+        reverse(s.begin(),s.end());
+        for(int i = 0; i < s.size(); ++i){
+            if(s[i] != ' '){
+                int j = i;
+                while(j < s.size() && s[j] != ' '){
+                    ++j;
+                }
+                reverse(s.begin()+i,s.begin()+j);
+                i = j;
+            }
+        }
+        return s;
+    }
+};
+但是无法处理头部尾部以及中间有空格的情况，所以要建立cur指针来处理空格
+cur表示从0开始的值，如果遍历到cur不为0，表示需要加上一个空格
+在while循环找单词结尾的时候也需要一步一步更新cur,反转的时候因为要到cur所以要以cur为结尾，开始的指针要从i开始加上cur与j之间的差
+最后因为还会有空格的情况，因此需要s.resize(cur)的意思是把字符串停留在cur的位置上
+reverse()方法要用迭代器，表示头部的位置和尾部的位置+1
+class Solution {
+public:
+    string reverseWords(string s) {
+        int cur = 0;
+        reverse(s.begin(),s.end());
+        for(int i = 0; i < s.size(); ++i){
+            if(s[i] != ' '){
+                int j = i;
+                if(cur != 0){
+                    s[cur] = ' ';
+                    ++cur;
+                }
+                while(j < s.size() && s[j] != ' '){
+                    s[cur] = s[j];
+                    ++cur;
+                    ++j;
+                }
+                //此时cur的位置已经在整个字符串的最后一个字符的下一位
+                reverse(s.begin()+i+cur-j,s.begin()+cur);
+                i = j;
+            }
+        }
+        s.resize(cur);
+        return s;
+    }
+};
+stack
+注意：
+1.要把i在循环结束之后与j对齐
+2.注意可以用pop_back()弹出最后一个元素
+3.
+class Solution {
+public:
+    string reverseWords(string s) {
+        stack<string>st;
+        string result;
+        for(int i = 0 ; i < s.size(); ++i){
+            if(s[i] == ' ') continue;
+            int j = i;
+            while(j < s.size() && s[j] != ' '){
+                ++j;
+            }
+            //substr的两个变量表示开始位置和长度
+            string temp = s.substr(i,j-i);
+            st.push(temp);
+            i = j;
+        }
+        while(!st.empty()){
+            result += st.top();
+            st.pop();
+            result += " ";
+        }
+        result.pop_back();
+        return result;
+    }
+};
