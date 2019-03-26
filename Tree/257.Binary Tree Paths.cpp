@@ -113,3 +113,40 @@ public:
         helper(root -> right,ret,str + "->"+to_string(root ->right -> val));
     }
 };
+
+3.25复习：
+注意：
+1.如果最开始是空的字符串的话，那么首先需要加上值，再加上->
+2.再开始进入递归，递归的终止条件是如果到了叶子结点，那么加上最后一个值之后直接清空
+3.因为递归的终止条件是判断其左右结点是否存在，不是判断该结点是否存在。所以在进入递归之前需要判断左右结点是否存在。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<string> binaryTreePaths(TreeNode* root) {
+        vector<string> ret;
+        if(!root) return ret;
+        string str = "";
+        helper(root,ret,str);
+        return ret;
+    }
+     void helper(TreeNode* root, vector<string> &ret, string str){
+         if(!root->left && ! root->right){
+             str += to_string(root->val);
+             ret.push_back(str);
+             str = "";
+             return;
+         }
+         str += to_string(root->val);
+         str += "->";
+         if(root->left)helper(root->left, ret, str);
+         if(root->right)helper(root->right, ret, str);
+     }
+};
