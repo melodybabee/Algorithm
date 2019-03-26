@@ -358,3 +358,65 @@ public:
         return true;
     }
 };
+
+3.25复习
+注意：中序遍历的遍历做法，用stack,需要单独建立一个树指针
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        TreeNode *p = root;
+        vector<int>vec;
+        stack<TreeNode*> st;
+        while(!st.empty() || p){
+            while(p){
+                st.push(p);
+                p = p -> left;
+            }
+            p = st.top();
+            st.pop();
+            vec.push_back(p -> val);
+            p = p->right;
+        }
+        
+        for(int i = 1; i < vec.size(); ++i){
+            if(vec[i] <= vec[i-1]) return false;
+        }
+        return true;
+    }
+
+完全递归：
+注意：
+1.注意判断false的条件
+2.因为有可能为INT_MAX一个结点，如果按照比较回返回false,实际上应该返回true,所以要更改为LONG_MIX
+    /**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        if(!root) return true;
+        return helper(root,LONG_MIN,LONG_MAX);
+    }
+    
+    bool helper(TreeNode*root, long long l, long long r){
+        if(!root) return true;
+        if(root-> val >= r || root-> val <= l) return false;
+        return helper(root->left, l, root->val) && helper(root->right,root->val,r);
+    }
+};
+};
