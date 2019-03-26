@@ -117,3 +117,64 @@ public:
  * int param_1 = obj.get(key);
  * obj.put(key,value);
  */
+
+3.26复习：
+思路：
+1.首先根据时间复杂度考虑，因为需要O（1）的时间复杂度，因此需要查找，并把其中的元素放在头部的位置，因此需要用到list的数据结构
+同时需要O(1）复杂度的查找，所以需要用到hashtable
+用两个数据结构，hashtable中的key是key,value是一个list,同时还有一个单独的list
+2.get方法的核心是，先判断是否有这个元素，如果没有的话返回-1，如果有，那么把这个元素在list中移动到头部
+list移动到头部的方法是l.splice(想移动到的位置，从哪里移动，移动什么)；
+再输出对应map中value paie中的第二个value值
+3.put方法的核心是，先判断是否有该key元素，如果有，那么在list中删除
+如果不在起始位置删除，那么如果有重复的元素，会在map中直接覆盖，但是list中没有删除，不能保证统一
+在list的头部重新添加进去这个pair
+map中对应上key与这个list的头部元素
+如果map中的元素个数大于规定值了，那么删除list的末尾元素，同时把在map中对应的元素也一并删除
+4.list操作
+push_front()从头部插入
+erase()删除
+splice（）移动到指定位置上
+pop_back()弹出最后一个元素
+5.pair操作
+make_pair()用来初始化
+6.list<pair<int,int>>::iterator建立迭代器，因为l.splice(l.begin(), l, it->second);中it->second就是需要是迭代器的格式
+用迭代器来依次取值
+
+class LRUCache {
+private:
+    list<pair<int,int>> l;
+    unordered_map<int,list<pair<int,int>>::iterator> m;
+    int cap;
+public:
+    LRUCache(int capacity) {
+        cap = capacity;
+    }
+    
+    int get(int key) {
+        auto it = m.find(key);
+        if(it == m.end()) return -1;
+        //remove this pair to the front
+        l.splice(l.begin(), l, it->second);
+        return it -> second -> second;
+    }
+    
+    void put(int key, int value) {
+        auto it = m.find(key);
+        if(it != m.end()) l.erase(it->second);
+        l.push_front(make_pair(key,value));
+        m[key] = l.begin();
+        if(m.size() > cap){
+            int tempkey = l.rbegin()->first;
+            l.pop_back();
+            m.erase(tempkey);
+        }
+    }
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache* obj = new LRUCache(capacity);
+ * int param_1 = obj->get(key);
+ * obj->put(key,value);
+ */
