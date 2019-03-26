@@ -115,3 +115,31 @@ public:
             return l == NULL ? r : l;
     }
 };
+
+3.25复习
+注意：
+1.目标是找到等于p或者q的值，分成两种情况，一个是pq的公共祖先不是他们当中的值，一个是公共祖先是他们的值
+2.那么如果根结点就是p或者q，那么直接返回，否则继续查找记录下来左结点和右结点的值
+3.如果左右都存在，说明公共结点应该是当前的根结点。
+如果只有一方存在，那么返回存在的一方。
+注意：
+遍历树的过程也是递归的过程，在判断左右结点是否存在的时候可以直接通过根结点的角度考虑。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(!root || root == p || root == q) return root;
+        TreeNode *left = lowestCommonAncestor(root->left,p,q);
+        TreeNode *right = lowestCommonAncestor(root->right,p,q);
+        if(left && right) return root;
+        else return left == NULL ? right : left;
+    }
+};
