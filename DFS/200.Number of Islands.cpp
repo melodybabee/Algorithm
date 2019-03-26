@@ -86,3 +86,87 @@ public:
     }
 };
 方法三：Union Find【待学习】
+
+
+3.26复习：
+DFS：
+注意：
+1.因为题目中要求求的是岛屿的数量，所以所有连在一起的1是一块岛屿，那么一次DFS之后到底以后计一次数即可
+2.注意递归首先要写边界条件，此题进入DFS之后之间调用4次DFS即可
+3.注意corner cases,当数组为空的时候返回0
+class Solution {
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        if(grid.empty()) return 0;
+        int count = 0;
+        vector<vector<bool>> visited(grid.size(), vector<bool>(grid[0].size(),false));
+        for(int i = 0 ; i < grid.size(); ++i){
+            for(int j = 0; j < grid[0].size(); ++j){
+                if(grid[i][j] == '1' && visited[i][j] == false){
+                    helper(grid,i,j,visited);
+                    ++count;
+                }
+            }
+        }
+        return count;
+    }
+    
+    void helper(vector<vector<char>>& grid, int i, int j, vector<vector<bool>>&visited){
+        if(i < 0 || j < 0 || i >= grid.size() || j >= grid[0].size()) return;
+        if(visited[i][j]) return;
+        if(grid[i][j] != '1') return;
+        visited[i][j] = true;
+        helper(grid,i+1,j,visited);
+        helper(grid,i,j+1,visited);
+        helper(grid,i-1,j,visited);
+        helper(grid,i,j-1,visited);
+    }
+};
+
+BFS：
+注意：
+1.在入栈之前需要把遍历开始的结点首先变成0，每次判断哪个元素之前就首先需要判断它是否越界
+2.与DFS的不同是没有记录visited数组，每次遍历到就更改为0即可
+class Solution {
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        if(grid.empty()) return 0;
+        int count = 0;
+        for(int i = 0 ; i < grid.size(); ++i){
+            for(int j = 0; j < grid[0].size(); ++j){
+                if(grid[i][j] == '1'){
+                    helper(grid,i,j);
+                    ++count;
+                }
+            }
+        }
+        return count;
+    }
+    
+    void helper(vector<vector<char>>& grid, int x, int y){
+        queue<vector<int>>q;
+        q.push({x,y});
+        grid[x][y] = '0';
+        while(!q.empty()){
+            x = q.front()[0];
+            y = q.front()[1];
+            q.pop();
+            if(x -1 >= 0 && grid[x-1][y] == '1'){
+                q.push({x-1,y});
+                grid[x-1][y] = '0';
+            }
+            if(y -1 >= 0 && grid[x][y-1] == '1'){
+                q.push({x,y-1});
+                grid[x][y-1] = '0';
+            }
+            if(x +1 < grid.size() && grid[x+1][y] == '1'){
+                q.push({x+1,y});
+                grid[x+1][y] = '0';
+            }
+            if(y +1 < grid[0].size() && grid[x][y+1] == '1'){
+                q.push({x,y+1});
+                grid[x][y+1] = '0';
+            }
+        }
+    }
+};
