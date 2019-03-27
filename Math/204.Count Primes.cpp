@@ -55,3 +55,46 @@ public:
         return count(vec.begin(),vec.end(),true);
     }
 };
+
+3.26复习：
+暴力循环的方法：正确但是TLE，注意判断1
+class Solution {
+public:
+    int countPrimes(int n) {
+        int count = 0;
+        for(int i = 2; i < n; ++i){
+            bool flag = false;
+            for(int j = 2; j < i; ++j){
+                if(i % j == 0) {
+                    flag = true;
+                    break;
+                }
+            }
+            if(!flag) ++count;
+        }
+        return count;
+    }
+};
+DP,质数筛
+注意：
+1.添加了corner cases需要单独判断0的情况
+2.0，1为false,所有不是质数的数字都是false
+从一个数字开始循环到它的平方根，注意可以等于平方根，从它的平方开始筛选，因为如果再小的话已经会被之前的数字剔除掉了
+以2为起始，从平方倍开始，不断相加，遍历到的值更改为false
+class Solution {
+public:
+    int countPrimes(int n) {
+        if(n == 0) return 0;
+        vector<bool>vec(n,true);
+        vec[0] = false;
+        vec[1] = false;
+        for(int i = 2; i <= sqrt(n); ++i){
+            if(vec[i]){
+                for(int j = i*i; j < n ; j += i){
+                    vec[j] = false;
+                }
+            }
+        }
+        return count(vec.begin(),vec.end(),true);
+    }
+};
