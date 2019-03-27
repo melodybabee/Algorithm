@@ -140,3 +140,66 @@ public:
         }
     }
 };
+
+3.26复习：
+1.STL sort
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        sort(nums.begin(),nums.end());
+        return nums[nums.size()-k];
+    }
+};
+2.priority_queue
+注意：
+priority_queue可以直接用(nums.begin(),nums.end())输入
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        priority_queue<int>pq(nums.begin(),nums.end());
+        int i = 1;
+        while(i < k){
+            pq.pop();
+            ++i;
+        }
+        return pq.top();
+    }
+};
+3.快排
+注意：
+1.快排需要在一个已经确定左右边界的大前提下继续建立左右边界，设置左边界为基准值【WHY？别的行不行】
+因为快排其实应用的是分治法的思想，所以如果能把数组分成等长的长度其实效率是最高的。如果以第一个为基准元，当有序时，每次只能完成一次排序，所以时间复杂度回退化为O(N*N);
+所以选择基准元有更好的方法，比如随机基准元或者三数取中【待学习】https://www.kancloud.cn/maliming/leetcode/740422
+2.注意快排的边界：
+因为第一个值是基准元，那么为了保证它的移动，需要在判断时候取等
+3.因为需要建立左右边界，那么如果只有一个值不会进入while循环，因此把right = nums.size();在进入while循环之后再减1
+4.本题是把大的数字移动到前面，小的数字移动到后面
+5.在i与j相等的时候，要需要进入循环，因为需要与基准元进行交换的一定是大于基准元的元素，所以i，j重合的时候需要再次判断重合位置的值。
+6.注意交换是位置上的值的互换，而不是与一定的值进行交换
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        int left = 0;
+        int right = nums.size();
+        while(left < right){
+            int i = left;
+            int j = right-1;
+            int cur = nums[left];
+            while(i <= j){
+                while(i <= j && nums[i] >= cur) ++i;
+                while(i <= j && nums[j] < cur) --j;
+                if(i < j){
+                    swap(nums[i],nums[j]);
+                    ++i;
+                    --j;
+                }
+            }
+            swap(nums[j],nums[left]);
+            if(j == k-1) return nums[j];
+            else if(j > k-1) right = j;
+            else left = j+1;
+        }
+        return 0;
+    }
+};
+
