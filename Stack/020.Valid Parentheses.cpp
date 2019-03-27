@@ -72,3 +72,29 @@ public:
         
     }
 };
+
+3.27复习
+注意：
+1.if...else条件写清楚即可
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char>st;
+        for(int i = 0; i < s.size(); ++i){
+            if(s[i] == '[' || s[i] == '(' || s[i] == '{'){
+                st.push(s[i]);
+            }
+            else{
+                if(st.empty()) return false;
+                else{
+                    char temp = st.top();
+                    st.pop();
+                    if((temp == '(' && s[i] == ')') || (temp == '{' && s[i] == '}') || (temp == '[' && s[i] == ']')){
+                        continue;
+                    }else return false;
+                }
+            }
+        }
+        return st.empty();
+    }
+};
