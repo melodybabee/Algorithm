@@ -85,3 +85,46 @@ public:
  * int param_3 = obj.top();
  * int param_4 = obj.getMin();
  */
+
+3.26复习：
+注意：
+1.用一个栈用来维护比它的栈顶小的值，push的时候如果比栈顶元素小，那么push
+pop的时候如果等于最小栈的栈顶元素，那么同时pop
+2.题目中的pop方法与stack本身自带的pop方法不同，min.pop()弹出的还是min栈的顶部元素
+class MinStack {
+private:
+    stack<int>st;
+    stack<int>min;
+public:
+    /** initialize your data structure here. */
+    MinStack() {
+        
+    }
+    
+    void push(int x) {
+        st.push(x);
+        if(min.empty() || x <= min.top()) min.push(x);
+    }
+    
+    void pop() {
+        if(st.top() == min.top()) min.pop();
+        st.pop();
+    }
+    
+    int top() {
+        return st.top();
+    }
+    
+    int getMin() {
+        return min.top();
+    }
+};
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * MinStack* obj = new MinStack();
+ * obj->push(x);
+ * obj->pop();
+ * int param_3 = obj->top();
+ * int param_4 = obj->getMin();
+ */
